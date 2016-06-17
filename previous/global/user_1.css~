@@ -1,0 +1,9 @@
+body {
+    background: url("img/background.jpg");
+
+    filter: alpha( opacity=30 );
+}
+
+.chi {
+    font-family:"標楷體", "新細明體"
+}

@@ -1,0 +1,102 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TempShare">
+    <meta name="author" content="weiwally">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../global/user.css" rel="stylesheet">
+    <link href="user.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../bootstrap-3.2.0-dist/css/starter-template.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <h1>多媒體互動題-2 &nbsp 得分： <span id="score">0</span></h1>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container chi">
+      <div class="starter-template">
+        
+        <p class="lead">楊牧就讀於東海大學，在〈又是風起的時候〉一文中回憶大學生活，並提及許多東海大學的具體景物。
+        <br>請將這些場景排成平面圖，並於其中幾個場景，填入楊牧當年身於其中的行為與活動。</p>
+      </div>
+      <button class="btn btn-warning btn-lg check">
+        <span class="glyphicon glyphicon-hand-right"></span>
+        <span class="check-text"> 
+          對答案
+        </span>
+      </button>
+      <div class="container animation">
+          <h3>
+          <div class="col-md-2">
+              <div class="draggable" id="dream">
+                  <img class="drag_img" id="dream" src="img/dream.png">夢谷
+                  <div class="has-feedback"><input class="form-control"><span class='glyphicon form-control-feedback'></span></div>
+              </div><br>
+              <div class="draggable" id="castle">
+                  <img class="drag_img" id="castle" src="img/castle.png">古堡
+                  <div class="has-feedback"><input class="form-control"><span class='glyphicon form-control-feedback'></span></div>
+              </div><br>
+          </div>
+          <div class="col-md-2">
+              <div class="draggable" id="dorm">
+                  <img class="drag_img" id="dorm" src="img/dorm.png">十六號宿舍
+                  <div class="has-feedback"><input class="form-control"><span class='glyphicon form-control-feedback'></span></div>
+              </div><br>
+              <div class="draggable" id="lib">
+                  <img class="drag_img" id="lib" src="img/lib.png">圖書館
+                  <div class="has-feedback"><input class="form-control"><span class='glyphicon form-control-feedback'></span></div>
+              </div><br>
+          </div>
+          <div class="col-md-3">
+              <div class="draggable">
+                  <img class="drag_img" id="yang" src="img/yang.png">
+              </div><br>
+          </div>   
+          <div class="col-md-2">
+              <div class="draggable" id="liter">
+                  <img class="drag_img" id="liter" src="img/liter.png">文學院
+                  <div class="has-feedback"><input class="form-control"><span class='glyphicon form-control-feedback'></span></div>
+              </div><br>
+              <div class="draggable" id="church">
+                  <img class="drag_img" id="church" src="img/church.png">路思義教堂
+              </div><br>
+          </div>
+          <div class="col-md-2">
+              <div class="draggable" id="flower">
+                  <img class="drag_img" id="flower" src="img/flower.png">木蘭花
+              </div><br>
+              <div class="draggable" id="forest">
+                  <img class="drag_img" id="forest" src="img/forest.png">相思林
+              </div><br>
+          </div>
+          </h3>
+      </div>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../jquery/jquery-1.11.1.min.js"></script>
+    <script src="../jquery/jquery-ui-1.11.0.custom/jquery-ui.js"></script>
+    <script src="../bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+    <script src="user.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,59 @@
+body{
+}
+.draggable{
+    margin: 4px;
+    z-index: 1;
+}
+.droppable{
+    display:	inline-block;
+    padding: 20px;
+    margin: 20px 0px;
+    font-family:"標楷體", "新細明體";
+    text-align: left;   
+    background: rgba(0, 0,255,0.2);
+    color: black;
+    border-radius: 6px;
+    width: 100%;
+}
+.droppable.right{
+    background: rgba(0, 255, 0,0.5);
+}
+.droppable.wrong{
+    background: rgba(255, 0, 0,0.5);
+}
+
+div.holder.vacant, div.draggable{
+    display: inline-block;
+    background: orange;
+    padding: 5px;
+    border-radius: 6px;
+    text-align: center;
+}
+div.holder.vacant{
+    width: 8em;
+    height: 2em;
+}
+div.ans-hold{
+    display: inline-block;
+    width:40%;
+    margin: 0 1% ;
+}
+div.draggable{
+    width: 100%;
+    cursor:pointer;
+}
+.answer{
+    right:0;
+    position: fixed;
+    font-family:"標楷體", "新細明體";
+    background: rgba(255, 0,255,0.2);
+    padding: 20px;
+    margin: 20px;
+    color: black;
+    border-radius: 6px;
+}
+button.remove{
+    display: inline;
+}
+.invisible{display:none;}
+

@@ -1,0 +1,44 @@
+body{
+	-moz-background-size: 100% 100% ;
+	background-size: 100% 100%;
+}/*
+.draggable{
+    z-index: 1;
+}
+.drag_img{
+    max-width:100%;
+    height: auto;
+}
+.droppable{
+    max-width:100%;
+    height: auto;
+    display:	inline-block;
+}*/
+div.container{
+    position:relative;
+}
+img#preg, img#desk, div.card, img.card{
+   position:absolute;
+   max-width:100%;
+   height:auto; 
+}
+img#preg{
+    z-index:2;
+}
+img#cards{
+    z-index:1;
+}
+img.card{
+    z-index:0;
+    display:none;
+}
+div.card{
+    z-index:3;
+    cursor: pointer;
+}
+/*
+.think:hover{
+    cursor: pointer;
+    color: red;
+    text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+}*/

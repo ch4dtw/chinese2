@@ -1,0 +1,263 @@
+/*  Global  */
+body{
+    height:100%;
+}
+h3{
+    margin:0;
+}
+*{
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+   -ms-user-select: none;
+   user-select: none
+}
+div.container{
+    position: relative;
+    width: 1160;
+    //background: brown;
+    height: 715;
+    padding: 0;
+    border: black 5px solid;
+}
+/*  System  */
+.chamber, img, div.click, div.holder, div.scale, div.layer, span, div.scale div{
+    position: absolute;
+}
+.scene{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+img.start, img.end{
+    width:100%;
+    height: 100%;
+}
+img.end{display:none;}
+.scene-1 div#left{
+    width: 10%;
+    height: 100%;
+}
+.scene.scene-1, .scene.scene-2, .scene.scene-3{
+    display:none;
+}
+.scene-2 div#right{
+    width: 10%;
+    height: 100%;
+    right:0;
+}
+.scene-3 div#down{
+    width: 100%;
+    height: 15%;
+    bottom:0;
+}
+
+
+.clickable{cursor: pointer;}
+.arrow img{
+    width:100%;
+    height:100%;
+}
+.main{
+    -moz-background-size: cover;
+	background-size: cover;
+    width: 100%;
+    height: 80%;
+    right:0
+}
+div.item{
+    
+    width: 80%;
+    height: 20%;
+    bottom: 0;
+    background: grey;
+    z-index: 5;
+}
+div.item div{
+    position:relative;
+    display: inline-block;
+    width: 8.9%;
+    height: 90%;
+    margin: 1%;
+}
+div.item div img{
+    max-width: 100%;
+    max-height:100%;
+    cursor: pointer;
+}
+div.counter{
+    width: 20%;
+    height: 20%;
+    bottom: 0; right:0;
+    padding: 3%;
+    background: black;
+    text-align:center;
+    color: red;
+    font-size: 50px;
+}
+
+div img.lg{
+    max-width: 80%;
+    max-height: 80%;
+    top: 10%;
+    left: 15%;
+}
+
+span.toggleRemove{
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    display:none;
+    z-index: 4;
+}
+div.click{
+//   background: rgba(255,0,0,0.4)
+}
+div.holder{
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+div.scale{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+div.scale div{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+}
+div.clickable{
+    z-index:3;
+}
+
+/*  Item  */
+
+.shelf img{
+
+    max-width: 20%;
+    max-height: 30%;
+    top: 21%;
+    left: 15%
+}
+.book img{
+    max-width: 0%;
+}
+
+span.five{
+    background: rgba(255,0,0,0.5);
+    position: relative;
+}
+
+span.box{
+    position: relative;
+    display:inline-block;
+}
+
+span.sticker span.text{
+    position: absolute;
+    left: 20%;
+    top: 20%; 
+    font-size: 20pt;
+    text-align: center;
+}
+
+.chair img{
+    max-width: 20%;
+    max-height: 30%;
+    top: 60%;
+    left: 15%;
+}
+
+.table_ img{
+    max-width: 20%;
+    max-height: 30%;
+    top: 60%;
+    left: 65%;
+}
+
+.god img{
+    max-width: 40%;
+    max-height: 60%;
+    top: 10%;
+    left: 30%;
+}
+
+.door img{
+    max-width: 40%;
+    max-height: 50%;
+    top: 5%;
+    left: 60%;
+}
+
+.wall img{
+    max-width: 20%;
+    max-height: 30%;
+    top: 5%;
+    left: 15%;
+}
+.kitchen-shelf img{
+    max-width: 30%;
+    max-height: 60%;
+    top: 0%;
+    left: 65%;
+}
+.wash img{
+    max-width: 30%;
+    max-height: 40%;
+    top: 30%;
+    left: 35%;
+}
+.stove img{
+    max-width: 40%;
+    max-height: 60%;
+    top: 35%;
+    left: 0%;
+}
+.wood img{
+    max-width: 15%;
+    max-height: 20%;
+    top: 75%;
+    left: 45%;
+}
+.closet img{
+    max-width: 40%;
+    max-height: 50%;
+    top: 5%;
+    left: 60%;
+}
+.frame img{
+    max-width: 30%;
+    max-height: 40%;
+    top: 20%;
+    left: 5%;    
+}
+.babybed img{
+    max-width: 40%;
+    max-height: 60%;
+    top: 30%;
+    left: 20%;    
+}
+.toy img{
+    max-width: 40%;
+    max-height: 40%;
+    top: 5%;
+    left: 30%;    
+}
+
+.horse img{
+    max-width: 40%;
+    max-height: 50%;
+    top: 50%;
+    left: 60%;
+}
+
+.stoveAns:hover{
+    color: yellow;
+}
