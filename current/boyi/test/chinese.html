@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>CHINESE</title>
+		<meta charset="utf-8" />
+		
+		<!-- 最新編譯和最佳化的 CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+		<!-- 選擇性佈景主題 -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+		<!-- 最新編譯和最佳化的 JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+				
+	</head>
+	<body>
+		<!-- Wrapper-->
+			<div id="wrapper">
+
+				<!-- Nav -->
+					<nav id="nav">
+						<a href="#LV1" class="icon fa-home active"><span>LV1</span></a>
+						<a href="#LV2" class="icon fa-folder"><span>LV2</span></a>
+						<a href="#LV3" class="icon fa-envelope"><span>LV3</span></a>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						<!-- Me -->
+							<article id="LV1" class="panel">
+								<header>
+									<h1>LV1</h1>
+									<img src="images\LV_1.png"/>
+									<button class="btn btn-primary" onclick="aa(2);" >LV2</button>
+									
+								</header>
+							</article>
+
+						<!-- Work -->
+							<article id="LV2" class="panel">
+								<header>
+									<h2>LV2</h2>
+									<img src="images\LV_2.png"/>
+									<button class="btn btn-primary" onclick="aa(3);">LV3</button> 
+								</header>
+								
+							</article>
+
+						<!-- Contact -->
+							<article id="LV3" class="panel">
+								<header>
+									<h2>LV3</h2>
+									<img src="images\LV_3.png"/>
+								</header>
+							</article>
+					</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/skel-viewport.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			
+			<script>
+				function aa(x){
+					switch(x){
+						case 2:
+							location.href ='#LV2';
+							location.reload();
+							break;
+						case 3:
+							location.href ='#LV3';
+							location.reload();
+							break;
+					}
+				}
+				
+			</script>
+
+	</body>
+</html>
