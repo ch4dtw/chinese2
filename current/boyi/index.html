@@ -1,7 +1,101 @@
 <!DOCTYPE HTML>
+<html>
+
+
 <head>
-	<title>國文二重奏</title>
+    <title>國文二重奏</title>
+    <style>
+    #header {
+        background-color:#FFD382;
+        padding:10px;
+        margin-bottom:5px;
+    }
+    #footer {
+        background-color:#30FFFF;
+        padding:10px;
+    }
+    #chatSpace {
+        background-color:#82FF82;
+        padding:50px;
+        margin-bottom:5px;
+        width: 400px;
+        height: 300px;
+        background-color: #DCDCDC;
+        overflow-y: scroll; /* showing scrollbars */
+    }
+/* .bubble 
+{
+    //border: double orange 10px;
+    border: #000000 solid 5px;
+    background-color:#FFFFFF;
+    border-radius: 10px;
+        display:inline-block;
+    
+}*/
+    .bubble
+    {
+    position: relative;
+    //width: 325px;
+    //height: 140px;
+    display:inline-block;
+    padding: 0px;
+    background: #FFFFFF;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: #7F7F7F solid 5px;
+    }
+    
+    .bubble:after
+    {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 12px 15px 0;
+    border-color: #FFFFFF transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: -12px;
+    //left: 12px;
+    }
+    
+    .bubble:before
+    {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 16px 19px 0;
+    border-color: #7F7F7F transparent;
+    display: block;
+    width: 0;
+    z-index: 0;
+    bottom: -21px;
+    //left: 8px;
+    }
+
+
+
+
+
+
+    </style>
 </head>
 <body>
-	<h1>Hell Word!!</h1>
-</body>
+    <h1>標題</h1>
+<div id="header">將 DIV 背景顏色設計為 #FFD382</div>
+<div id="chatSpace" >
+<div class="bubble">
+        sdfsggs<br/>
+        sdfsggs<br/>
+        sdfsg/54g5d45df4g56d4gh6eh<br/>
+        sdfsggs<br/>
+        zxc
+</div>
+
+
+</div>
+<div id="footer">將 DIV 背景顏色設計為 #30FFFF</div>
+    </body>
+
+</html>
