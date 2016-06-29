@@ -23,6 +23,24 @@
         background-color: #DCDCDC;
         overflow-y: scroll; /* showing scrollbars */
     }
+	.flex{
+		display:flex;
+	}
+	.inline-flex{
+		display:inline-flex;
+	}
+	.flex-row{
+		flex-direction:row;
+	}
+	.flex-row-reverse{
+		flex-direction:row-reverse;
+	}
+	.flex-start{
+		justify-content:flex-start;
+	}
+	.flex-end{
+		justify-content:flex-end;
+	}
 /* .bubble 
 {
     //border: double orange 10px;
@@ -85,12 +103,13 @@
     <h1>標題</h1>
 <div id="header">將 DIV 背景顏色設計為 #FFD382</div>
 <div id="chatSpace" >
-<div class="bubble">
-        sdfsggs<br/>
-        sdfsggs<br/>
-        sdfsg/54g5d45df4g56d4gh6eh<br/>
-        sdfsggs<br/>
-        zxc
+<div class="flex flex-row">
+	<div>111</div>
+	<div class="bubble">222</div>
+</div>
+<div class="flex flex-row-reverse">
+	<div>111</div>
+	<div class="bubble">222</div>
 </div>
 
 
