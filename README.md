@@ -1,7 +1,7 @@
 # chinese2
-# Previous
+## Previous
 舊的程式，參考用
-# Current
+## Current
 新遊戲
-# requirement
+## requirement
 企劃書
