@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+    <title>國文二重奏</title>
+  <link rel="stylesheet" href="../jquery/jquery-ui-1.11.4/jquery-ui.css">
+  <script src="../jquery/jquery-3.0.0.min.js"></script>
+  <script src="../jquery/jquery-ui-1.11.4/jquery-ui.js"></script>
+
+    <style>
+    
+ 
+
+    #lefttitle {
+        background-image:url('img/BK.png');
+        width:600px;
+        height:600px;
+		position:relative;
+		top:164px;
+		left:84px;
+    }
+	
+	#head{
+		background-color:#002A69;
+		width:500px; 
+		height:90px; 
+		position:absolute;
+		top:75px;
+		left:715px;
+	}
+	
+	#chatSpace{
+		background-image:url('img/chatSpace.png'); 
+		width:500px; 
+		height:650px; 
+		position:absolute;
+		top:164px; 
+		left:715px;
+        
+        /*以下為卷軸設定*/
+        overflow-x: hidden;
+        overflow-y: scroll;
+        FILTER: Chroma( Color = #EEEBFF);
+        SCROLLBAR-FACE-COLOR: #EEEBFF;
+        SCROLLBAR-HIGHLIGHT-COLOR: #60588B;
+        SCROLLBAR-SHADOW-COLOR: #60588B; 
+        SCROLLBAR-3DLIGHT-COLOR: #EEEBFF; 
+        SCROLLBAR-DARKSHADOW-COLOR: #EEEBFF;
+        SCROLLBAR-ARROW-COLOR: #60588B; 
+        SCROLLBAR-TRACK-COLOR: #EEEBFF; 
+	}
+
+	#footer{
+		background-color:#002A69; 
+		width:500px; 
+		height:90px; 
+		position:absolute;
+		top:814px;
+		left:715px
+	
+	}
+    
+    .ProfilePhoto{
+        background-image:url('img/ProfilePhoto.png');
+        width:100px; 
+		height:100px;
+        position:relative;
+		top:10px;
+		left:10px
+    
+    }
+    .bubble{
+        position: relative;
+        top:10px;
+		left:10px;
+        display:inline-block;
+        background: #FFFFFF;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        border: #7F7F7F solid 5px;
+    }
+    .TestPhoto{
+        background-image:url('img/TestPhoto.png');
+        width:100px; 
+		height:100px;
+        position:relative;
+		top:10px;
+		left:10px
+        float:left; /*向左邊浮動*/
+
+    }    
+    .draggable { width: 90px; height: 80px; padding: 5px; float: left; margin: 0 10px 10px 0; font-size: .9em; }
+    .ui-widget-header p, .ui-widget-content p { margin: 0; }
+    #snaptarget1 { height: 90px; width: 100px;}
+    #snaptarget2 { height: 90px; width: 100px;}
+    #snaptarget3 { height: 90px; width: 100px;}
+
+    </style>
+    
+      <script>
+  $(function() {
+    $( "#draggable1" ).draggable({ snap: ".ui-widget-header", revert: true });
+    $( "#draggable2" ).draggable({ snap: ".ui-widget-header", revert: true });
+    $( "#draggable3" ).draggable({ snap: ".ui-widget-header", revert: true });
+  });
+    </script>
+    
+    
+    
+</head>
+    <body background="img/test.png">
+    <h1>伯夷列傳聊天室</h1>
+
+<div id="draggable1" class="draggable ui-widget-content">
+  <p>picture1</p>
+</div>
+
+<div id="draggable2" class="draggable ui-widget-content">
+  <p>picture2</p>
+</div>
+
+<div id="draggable3" class="draggable ui-widget-content">
+  <p>picture3</p>
+</div>   
+    
+    </div>
+    <div id="head" ></div>
+    <div id="chatSpace" >
+<div id="snaptarget1" class="ui-widget-header">
+  <p>I'm a snap target</p>
+</div>
+
+<div id="snaptarget2" class="ui-widget-header">
+  <p>I'm a snap target</p>
+</div>
+
+<div id="snaptarget3" class="ui-widget-header">
+  <p>I'm a snap target</p>
+</div>
+ 
+	<div id="footer" ></div>
+
+    </body>
+
+</html>
