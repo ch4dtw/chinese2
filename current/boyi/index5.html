@@ -31,10 +31,6 @@
 
         }
 
-        .backAStep {
-            z-index: -5;
-        }
-
         .flex {
             display: flex;
         }
@@ -60,6 +56,7 @@
         }
 
         .draggable {
+            z-index: 10;
             width: 100px;
             height: 90px;
             padding: 5px;
@@ -88,8 +85,7 @@
         .scroll {
             background-color: #DCDCDC;
             overflow: scroll;
-            width: 100%;
-            height: 100%;
+            height:500px;
             overflow-x: hidden;
             border-radius: 10px;
 
@@ -117,12 +113,10 @@
     <a href="#" class="btn  btn-lg btn-block">
         <h1>國語文中心</h1>
     </a>
-    </div>
-    </div>
 </nav>
 
 <div class="container-fluid" style="margin-top:2.5%">
-    <div class="row border-top-radius">
+        <div class="row border-top-radius">
         <div class="col-md-4">
             <div class="container-fluid">
 
@@ -145,9 +139,12 @@
         </div>
 
 
-        <div class="col-md-8 backAStep">
-
-
+        <div class="col-md-8 center-block" style="width:50%;">
+            <div class="row " style="background:black;border-radius: 5px;">
+                <div style="margin:1.5% 3% 1.5% 3%;">
+                    <p class="text-center" style="font-size: xx-large ; color: white;">古人聊天試</p>
+                </div>
+            </div>
             <div class="scroll row">
 
                 <div class="flex flex-row">
@@ -176,7 +173,79 @@
                     </div>
                 </div>
                 <div class="flex flex-row">
-                    <div id="3-droppable" class="ui-widget-header droppable row">
+                    <div id="9-droppable" class="ui-widget-header droppable row">
+                        <p>I'm a snap target</p>
+                    </div>
+                    <div>
+                        <div class="send">
+                            <h5>
+                                safsagaaaaaaasagsga
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row-reverse">
+                    <div id="3-droppable" class="ui-widget-header droppable ">
+                        <p>I'm a snap target</p>
+                    </div>
+                    <div>
+                        <div class="send">
+                            <h5>
+                                safsagaaaaaaasagsga
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div id="4-droppable" class="ui-widget-header droppable row">
+                        <p>I'm a snap target</p>
+                    </div>
+                    <div>
+                        <div class="send">
+                            <h5>
+                                safsagaaaaaaasagsga
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row-reverse">
+                    <div id="8-droppable" class="ui-widget-header droppable ">
+                        <p>I'm a snap target</p>
+                    </div>
+                    <div>
+                        <div class="send">
+                            <h5>
+                                safsagaaaaaaasagsga
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div id="5-droppable" class="ui-widget-header droppable row">
+                        <p>I'm a snap target</p>
+                    </div>
+                    <div>
+                        <div class="send">
+                            <h5>
+                                safsagaaaaaaasagsga
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row-reverse">
+                    <div id="6-droppable" class="ui-widget-header droppable ">
+                        <p>I'm a snap target</p>
+                    </div>
+                    <div>
+                        <div class="send">
+                            <h5>
+                                safsagaaaaaaasagsga
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row">
+                    <div id="7-droppable" class="ui-widget-header droppable row">
                         <p>I'm a snap target</p>
                     </div>
                     <div>
@@ -190,44 +259,17 @@
 
 
             </div>
+            <div class="row" style="background:black;border-radius: 5px;">
+                <div class="center-block" style="background:white;border-radius:10px;margin:1.5% 3% 1.5% 3%;">
+                    <p style="font-size:x-large ; color:black; margin-left: 1.5%">你渴望月亮嗎?</p>
+                </div>
+            </div>
 
         </div>
     </div>
 
 </div>
 
-
-<!-- 巡覽置底 -->
-<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-6" style="padding:0px">
-                <a href="#" class="btn btn-default btn-lg btn-block">
-                    設定
-                </a>
-            </div>
-
-            <div class="col-xs-6" style="padding:0px">
-                <a href="#" class="btn btn-default btn-lg btn-block">
-                    說明
-                </a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6" style="padding:0px">
-                <a href="#" class="btn btn-default btn-lg btn-block">
-                    設定2
-                </a>
-            </div>
-
-            <div class="col-xs-6" style="padding:0px">
-                <a href="#" class="btn btn-default btn-lg btn-block">
-                    說明2
-                </a>
-            </div>
-        </div>
-    </div>
-</nav>
 
 <!-- Bootstrap需要使用jQuery，var id = ui.draggable.attr('id'); 所以第一個引入 -->
 <script>
