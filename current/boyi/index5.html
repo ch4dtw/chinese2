@@ -2,6 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 
     <title>jQuery UI Draggable - Snap to element or grid</title>
     <link rel="stylesheet" href="../jquery/jquery-ui-1.11.4/jquery-ui.css">
@@ -12,6 +14,23 @@
 
 
     <style>
+        .send {
+
+            position: relative;
+            display: inline-block;
+            width: auto;
+            border-radius: 5px;
+            padding: 5% 7% 5% 7%;
+            margin: 10% 0 10% 0;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f3f3f3+60,f3f3f3+60,ededed+61,ededed+61,ededed+63,ffffff+100 */
+            background: #ffffff; /* Old browsers */
+            background: -moz-linear-gradient(top, #ffffff 0%, #f3f3f3 60%, #f3f3f3 60%, #ededed 61%, #ededed 61%, #ededed 63%, #ffffff 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, #ffffff 0%, #f3f3f3 60%, #f3f3f3 60%, #ededed 61%, #ededed 61%, #ededed 63%, #ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, #ffffff 0%, #f3f3f3 60%, #f3f3f3 60%, #ededed 61%, #ededed 61%, #ededed 63%, #ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0); /* IE6-9 */
+
+        }
+
         .backAStep {
             z-index: -5;
         }
@@ -46,14 +65,15 @@
             padding: 5px;
             margin: 10px 10px 10px 10px;
             font-size: .9em;
+            border-radius: 5px;
         }
 
         .droppable {
             width: 100px;
             height: 90px;
             padding: 0.5em;
-            float: left;
             margin: 10px;
+            border-radius: 5px;
         }
 
         .ui-widget-header p, .ui-widget-content p {
@@ -71,6 +91,7 @@
             width: 100%;
             height: 100%;
             overflow-x: hidden;
+            border-radius: 10px;
 
         }
     </style>
@@ -92,24 +113,22 @@
 
 
 <!-- 巡覽置頂，會固到頂部 -->
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="row" style="padding:0px">
-            <a href="#" class="btn  btn-lg btn-block">
-                <h1>國語文中心</h1>
-            </a>
-        </div>
+<nav class="navbar navbar-default navbar-fixed-top ui-widget-content" role="navigation">
+    <a href="#" class="btn  btn-lg btn-block">
+        <h1>國語文中心</h1>
+    </a>
+    </div>
     </div>
 </nav>
 
 <div class="container-fluid" style="margin-top:2.5%">
-    <div class="row">
+    <div class="row border-top-radius">
         <div class="col-md-4">
             <div class="container-fluid">
 
             </div>
 
-            <div id="1-draggable" class="draggable ui-widget-content">
+            <div id="1-draggable" class="draggable ui-widget-content border-radius">
                 <p>picture1</p>
             </div>
 
@@ -128,19 +147,45 @@
 
         <div class="col-md-8 backAStep">
 
-            <div class="scroll">
 
+            <div class="scroll row">
 
-                <div id="1-droppable" class=" droppable ui-widget-header ">
-                    <p>I'm a snap target</p>
+                <div class="flex flex-row">
+
+                    <div id="1-droppable" class=" droppable ui-widget-header row">
+                        <p>I'm a snap target</p>
+                    </div>
+                    <div>
+                        <div class="send">
+                            <h5>
+                                safsagaaaaaaasagsga
+                            </h5>
+                        </div>
+                    </div>
                 </div>
-
-                <div id="2-droppable" class="ui-widget-header droppable">
-                    <p>I'm a snap target</p>
+                <div class="flex flex-row-reverse">
+                    <div id="2-droppable" class="ui-widget-header droppable ">
+                        <p>I'm a snap target</p>
+                    </div>
+                    <div>
+                        <div class="send">
+                            <h5>
+                                safsagaaaaaaasagsga
+                            </h5>
+                        </div>
+                    </div>
                 </div>
-
-                <div id="3-droppable" class="ui-widget-header droppable">
-                    <p>I'm a snap target</p>
+                <div class="flex flex-row">
+                    <div id="3-droppable" class="ui-widget-header droppable row">
+                        <p>I'm a snap target</p>
+                    </div>
+                    <div>
+                        <div class="send">
+                            <h5>
+                                safsagaaaaaaasagsga
+                            </h5>
+                        </div>
+                    </div>
                 </div>
 
 
@@ -187,51 +232,48 @@
 <!-- Bootstrap需要使用jQuery，var id = ui.draggable.attr('id'); 所以第一個引入 -->
 <script>
     $(function () {
-        $(".draggable").draggable({ revert: "invalid" });
-        $( "#1-droppable" ).droppable({
+        $(".draggable").draggable({revert: "invalid"});
+        $("#1-droppable").droppable({
             accept: "#1-draggable",
             activeClass: "ui-state-default",
             hoverClass: "ui-state-hover",
-            drop: function( event, ui ) {
-                if(draggableId == droppableId )
-                {
+            drop: function (event, ui) {
+                if (draggableId == droppableId) {
                     $(this)
-                            .addClass( "ui-state-highlight" )
-                            .find( "p" )
-                            .html( "Dropped!" );
+                            .addClass("ui-state-highlight")
+                            .find("p")
+                            .html("Dropped!");
                 }
             }
         });
     });
     $(function () {
-        $( "#2-droppable" ).droppable({
+        $("#2-droppable").droppable({
             accept: "#2-draggable",
             activeClass: "ui-state-default",
             hoverClass: "ui-state-hover",
-            drop: function( event, ui ) {
-                if(draggableId == droppableId )
-                {
+            drop: function (event, ui) {
+                if (draggableId == droppableId) {
                     $(this)
-                            .addClass( "ui-state-highlight" )
-                            .find( "p" )
-                            .html( "Dropped!" );
+                            .addClass("ui-state-highlight")
+                            .find("p")
+                            .html("Dropped!");
                 }
             }
         });
 
     });
     $(function () {
-        $( "#2-droppable" ).droppable({
-            accept: "#2-draggable",
+        $("#3-droppable").droppable({
+            accept: "#3-draggable",
             activeClass: "ui-state-default",
             hoverClass: "ui-state-hover",
-            drop: function( event, ui ) {
-                if(draggableId == droppableId )
-                {
+            drop: function (event, ui) {
+                if (draggableId == droppableId) {
                     $(this)
-                            .addClass( "ui-state-highlight" )
-                            .find( "p" )
-                            .html( "Dropped!" );
+                            .addClass("ui-state-highlight")
+                            .find("p")
+                            .html("Dropped!");
                 }
             }
         });
