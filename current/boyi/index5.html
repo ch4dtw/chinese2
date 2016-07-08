@@ -48,14 +48,22 @@
             font-size: .9em;
         }
 
+        .droppable {
+            width: 100px;
+            height: 90px;
+            padding: 0.5em;
+            float: left;
+            margin: 10px;
+        }
+
         .ui-widget-header p, .ui-widget-content p {
             margin: 0;
 
         }
-        .ui-widget-content:after{
-            position:absolute;
-        }
 
+        .ui-widget-content:after {
+            position: absolute;
+        }
 
         .scroll {
             background-color: #DCDCDC;
@@ -67,7 +75,7 @@
         }
     </style>
 
-    <script src="../jquery/jquery-3.0.0.min.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
     <script src="../jquery/jquery-ui-1.11.4/jquery-ui.js"></script>
     <script src="../bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
     <script>
@@ -101,18 +109,18 @@
 
             </div>
 
-            <div id="draggable1" class="draggable ui-widget-content">
+            <div id="1-draggable" class="draggable ui-widget-content">
                 <p>picture1</p>
             </div>
 
-            <div id="draggable2" class="draggable ui-widget-content">
+            <div id="2-draggable" class="draggable ui-widget-content">
                 <p>picture2</p>
             </div>
 
-            <div id="draggable3" class="draggable ui-widget-content" style="position:absolute">
+            <div id="3-draggable" class="draggable ui-widget-content">
                 <p>picture3</p>
             </div>
-            <div id="draggable5" class="draggable ui-widget-header" style="position:absolute">
+            <div id="4-draggable" class="draggable ui-widget-header">
                 <p>picture3</p>
             </div>
         </div>
@@ -123,15 +131,15 @@
             <div class="scroll">
 
 
-                <div id="snaptarget1" class=" draggable ui-widget-header ">
+                <div id="1-droppable" class=" droppable ui-widget-header ">
                     <p>I'm a snap target</p>
                 </div>
 
-                <div id="snaptarget2" class="ui-widget-header draggable">
+                <div id="2-droppable" class="ui-widget-header droppable">
                     <p>I'm a snap target</p>
                 </div>
 
-                <div id="snaptarget3" class="ui-widget-header draggable">
+                <div id="3-droppable" class="ui-widget-header droppable">
                     <p>I'm a snap target</p>
                 </div>
 
@@ -142,7 +150,6 @@
     </div>
 
 </div>
-
 
 
 <!-- 巡覽置底 -->
@@ -177,9 +184,59 @@
     </div>
 </nav>
 
-<!-- Bootstrap需要使用jQuery，所以第一個引入 -->
+<!-- Bootstrap需要使用jQuery，var id = ui.draggable.attr('id'); 所以第一個引入 -->
 <script>
-    $( ".draggable" ).draggable({ revert: true });
+    $(function () {
+        $(".draggable").draggable({ revert: "invalid" });
+        $( "#1-droppable" ).droppable({
+            accept: "#1-draggable",
+            activeClass: "ui-state-default",
+            hoverClass: "ui-state-hover",
+            drop: function( event, ui ) {
+                if(draggableId == droppableId )
+                {
+                    $(this)
+                            .addClass( "ui-state-highlight" )
+                            .find( "p" )
+                            .html( "Dropped!" );
+                }
+            }
+        });
+    });
+    $(function () {
+        $( "#2-droppable" ).droppable({
+            accept: "#2-draggable",
+            activeClass: "ui-state-default",
+            hoverClass: "ui-state-hover",
+            drop: function( event, ui ) {
+                if(draggableId == droppableId )
+                {
+                    $(this)
+                            .addClass( "ui-state-highlight" )
+                            .find( "p" )
+                            .html( "Dropped!" );
+                }
+            }
+        });
+
+    });
+    $(function () {
+        $( "#2-droppable" ).droppable({
+            accept: "#2-draggable",
+            activeClass: "ui-state-default",
+            hoverClass: "ui-state-hover",
+            drop: function( event, ui ) {
+                if(draggableId == droppableId )
+                {
+                    $(this)
+                            .addClass( "ui-state-highlight" )
+                            .find( "p" )
+                            .html( "Dropped!" );
+                }
+            }
+        });
+
+    });
 
 
 </script>
