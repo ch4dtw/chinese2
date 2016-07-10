@@ -68,9 +68,14 @@
         .droppable {
             width: 100px;
             height: 90px;
-            padding: 0.5em;
             margin: 10px;
             border-radius: 5px;
+        }
+
+        .imag_size {
+            z-index: 10;
+            width: 100px;
+            height: 90px;
         }
 
         .ui-widget-header p, .ui-widget-content p {
@@ -85,7 +90,7 @@
         .scroll {
             background-color: #DCDCDC;
             overflow: scroll;
-            height:500px;
+            height: 500px;
             overflow-x: hidden;
             border-radius: 10px;
 
@@ -116,26 +121,28 @@
 </nav>
 
 <div class="container-fluid" style="margin-top:2.5%">
-        <div class="row border-top-radius">
+    <div class="row border-top-radius">
         <div class="col-md-4">
-            <div class="container-fluid">
+            <div class="row">
+                <div id="01_draggable">
+                    <img class="draggable" id="01_mag" src="01.png">
+                </div>
+
+                <div id="2-draggable" class="draggable ui-widget-content">
+                    <p>picture2</p>
+                </div>
+
+                <div id="3-draggable" class="draggable ui-widget-content">
+                    <p>picture3</p>
+                </div>
+                <div id="4-draggable" class="draggable ui-widget-header">
+                    <p>picture3</p>
+                </div>
+
 
             </div>
 
-            <div id="1-draggable" class="draggable ui-widget-content border-radius">
-                <p>picture1</p>
-            </div>
 
-            <div id="2-draggable" class="draggable ui-widget-content">
-                <p>picture2</p>
-            </div>
-
-            <div id="3-draggable" class="draggable ui-widget-content">
-                <p>picture3</p>
-            </div>
-            <div id="4-draggable" class="draggable ui-widget-header">
-                <p>picture3</p>
-            </div>
         </div>
 
 
@@ -149,8 +156,7 @@
 
                 <div class="flex flex-row">
 
-                    <div id="1-droppable" class=" droppable ui-widget-header row">
-                        <p>I'm a snap target</p>
+                    <div id="01_droppable" class=" droppable ui-widget-header">
                     </div>
                     <div>
                         <div class="send">
@@ -160,103 +166,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-row-reverse">
-                    <div id="2-droppable" class="ui-widget-header droppable ">
-                        <p>I'm a snap target</p>
-                    </div>
-                    <div>
-                        <div class="send">
-                            <h5>
-                                safsagaaaaaaasagsga
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div id="9-droppable" class="ui-widget-header droppable row">
-                        <p>I'm a snap target</p>
-                    </div>
-                    <div>
-                        <div class="send">
-                            <h5>
-                                safsagaaaaaaasagsga
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row-reverse">
-                    <div id="3-droppable" class="ui-widget-header droppable ">
-                        <p>I'm a snap target</p>
-                    </div>
-                    <div>
-                        <div class="send">
-                            <h5>
-                                safsagaaaaaaasagsga
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div id="4-droppable" class="ui-widget-header droppable row">
-                        <p>I'm a snap target</p>
-                    </div>
-                    <div>
-                        <div class="send">
-                            <h5>
-                                safsagaaaaaaasagsga
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row-reverse">
-                    <div id="8-droppable" class="ui-widget-header droppable ">
-                        <p>I'm a snap target</p>
-                    </div>
-                    <div>
-                        <div class="send">
-                            <h5>
-                                safsagaaaaaaasagsga
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div id="5-droppable" class="ui-widget-header droppable row">
-                        <p>I'm a snap target</p>
-                    </div>
-                    <div>
-                        <div class="send">
-                            <h5>
-                                safsagaaaaaaasagsga
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row-reverse">
-                    <div id="6-droppable" class="ui-widget-header droppable ">
-                        <p>I'm a snap target</p>
-                    </div>
-                    <div>
-                        <div class="send">
-                            <h5>
-                                safsagaaaaaaasagsga
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex flex-row">
-                    <div id="7-droppable" class="ui-widget-header droppable row">
-                        <p>I'm a snap target</p>
-                    </div>
-                    <div>
-                        <div class="send">
-                            <h5>
-                                safsagaaaaaaasagsga
-                            </h5>
-                        </div>
-                    </div>
-                </div>
-
 
             </div>
             <div class="row" style="background:black;border-radius: 5px;">
@@ -275,53 +184,26 @@
 <script>
     $(function () {
         $(".draggable").draggable({revert: "invalid"});
-        $("#1-droppable").droppable({
-            accept: "#1-draggable",
+
+        $("#01_droppable").droppable({   
+            accept: "#01_mag",
             activeClass: "ui-state-default",
             hoverClass: "ui-state-hover",
             drop: function (event, ui) {
-                if (draggableId == droppableId) {
-                    $(this)
-                            .addClass("ui-state-highlight")
-                            .find("p")
-                            .html("Dropped!");
-                }
+                $(this)
+                        .addClass("ui-state-highlight")
+                        .find('p')
+                        .html('sdafgs');
+                Resume('01_draggable');
+                $('div#' + "01_droppable").html('<img class="imag_size"  src="01.png">');
+
             }
         });
     });
-    $(function () {
-        $("#2-droppable").droppable({
-            accept: "#2-draggable",
-            activeClass: "ui-state-default",
-            hoverClass: "ui-state-hover",
-            drop: function (event, ui) {
-                if (draggableId == droppableId) {
-                    $(this)
-                            .addClass("ui-state-highlight")
-                            .find("p")
-                            .html("Dropped!");
-                }
-            }
-        });
 
-    });
-    $(function () {
-        $("#3-droppable").droppable({
-            accept: "#3-draggable",
-            activeClass: "ui-state-default",
-            hoverClass: "ui-state-hover",
-            drop: function (event, ui) {
-                if (draggableId == droppableId) {
-                    $(this)
-                            .addClass("ui-state-highlight")
-                            .find("p")
-                            .html("Dropped!");
-                }
-            }
-        });
-
-    });
-
+    function Resume(id) {
+        $('div#' + id).html('');
+    }
 
 </script>
 
