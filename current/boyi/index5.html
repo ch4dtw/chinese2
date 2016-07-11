@@ -15,7 +15,6 @@
 
     <style>
         .send {
-
             position: relative;
             display: inline-block;
             width: auto;
@@ -28,7 +27,6 @@
             background: -webkit-linear-gradient(top, #ffffff 0%, #f3f3f3 60%, #f3f3f3 60%, #ededed 61%, #ededed 61%, #ededed 63%, #ffffff 100%); /* Chrome10-25,Safari5.1-6 */
             background: linear-gradient(to bottom, #ffffff 0%, #f3f3f3 60%, #f3f3f3 60%, #ededed 61%, #ededed 61%, #ededed 63%, #ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0); /* IE6-9 */
-
         }
 
         .flex {
@@ -80,7 +78,6 @@
 
         .ui-widget-header p, .ui-widget-content p {
             margin: 0;
-
         }
 
         .ui-widget-content:after {
@@ -93,7 +90,6 @@
             height: 500px;
             overflow-x: hidden;
             border-radius: 10px;
-
         }
     </style>
 
@@ -124,12 +120,12 @@
     <div class="row border-top-radius">
         <div class="col-md-4">
             <div class="row">
-                <div id="01_draggable">
-                    <img class="draggable" id="01_mag" src="01.png">
+                <div id="DIV_AA">
+                    <img class="draggable" id="AA" src="01.png">
                 </div>
 
-                <div id="2-draggable" class="draggable ui-widget-content">
-                    <p>picture2</p>
+                <div id="DIV_BB">
+                    <img class="draggable" id="BB" src="01.png">
                 </div>
 
                 <div id="3-draggable" class="draggable ui-widget-content">
@@ -155,8 +151,7 @@
             <div class="scroll row">
 
                 <div class="flex flex-row">
-
-                    <div id="01_droppable" class=" droppable ui-widget-header">
+                    <div id="AA_droppable" class=" droppable ui-widget-header">
                     </div>
                     <div>
                         <div class="send">
@@ -184,27 +179,32 @@
 <script>
     $(function () {
         $(".draggable").draggable({revert: "invalid"});
-
-        $("#01_droppable").droppable({   
-            accept: "#01_mag",
+        $(".droppable").droppable({
             activeClass: "ui-state-default",
             hoverClass: "ui-state-hover",
             drop: function (event, ui) {
-                $(this)
-                        .addClass("ui-state-highlight")
-                        .find('p')
-                        .html('sdafgs');
-                Resume('01_draggable');
-                $('div#' + "01_droppable").html('<img class="imag_size"  src="01.png">');
+                var droppableId = event.target.id; //拿id的方法
+                  var draggableId = ui.draggable.attr('id');//拿id的方法
+
+
+                if(droppableId == (draggableId+'_droppable'))
+                {
+                    Resume('DIV_'+draggableId);
+                    $('div#' + droppableId).html('<img class="imag_size"  src="01.png">');
+                }
+                else
+                { console.log(droppableId + "  " + draggableId);
+                  $('div#'+'DIV_'+draggableId).html('<img class="draggable" id="'+draggableId+'" src="01.png">');
+                  $('img#'+draggableId).draggable({ revert: "invalid" });
+
+                }
 
             }
         });
     });
-
     function Resume(id) {
         $('div#' + id).html('');
     }
-
 </script>
 
 </body>
