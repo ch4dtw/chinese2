@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<title>國文二重奏</title>
+		<meta charset="utf-8" name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+
+		<link rel="stylesheet" href="../../jquery/jquery-ui-1.11.4/jquery-ui.css">
+		<script src="../../jquery/jquery-3.0.0.min.js"></script>
+		<script src="../../jquery/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+		
+		<!-- 最新編譯和最佳化的 CSS -->
+		<link rel="stylesheet" href="../../bootstrap/bootstrap-3.3.6-dist/css/bootstrap.min.css">
+		<!-- 選擇性佈景主題 -->
+		<link rel="stylesheet" href="../../bootstrap/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
+		<!-- 最新編譯和最佳化的 JavaScript -->
+		<script src="../../bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+		
+		<style type="text/css">
+		 
+			#lefttitle {
+				background-image:url('images/BK.png');
+				width:600px;
+				height:600px;
+				position:relative;
+				top:164px;
+				left:84px;
+			}
+			
+			#head{
+				background-color:#002A69;
+				width:500px; 
+				height:90px; 
+				position:absolute;
+				top:0;
+				left:0;
+			}
+			
+			#chatSpace{
+				background-image:url('images/chatSpace.png'); 
+				width:500px; 
+				height:650px; 
+				position:absolute;
+				top:90px; 
+				left:0;
+				
+				/*以下為卷軸設定*/
+				overflow-x: hidden;
+				overflow-y: scroll;
+				FILTER: Chroma( Color = #EEEBFF);
+				SCROLLBAR-FACE-COLOR: #EEEBFF;
+				SCROLLBAR-HIGHLIGHT-COLOR: #60588B;
+				SCROLLBAR-SHADOW-COLOR: #60588B; 
+				SCROLLBAR-3DLIGHT-COLOR: #EEEBFF; 
+				SCROLLBAR-DARKSHADOW-COLOR: #EEEBFF;
+				SCROLLBAR-ARROW-COLOR: #60588B; 
+				SCROLLBAR-TRACK-COLOR: #EEEBFF; 
+			}
+
+			#footer{
+				background-color:#002A69; 
+				width:500px; 
+				height:90px; 
+				position:absolute;
+				top:740px;
+				left:0;
+			}
+			
+			.ProfilePhoto{
+				background-image:url('images/ProfilePhoto.png');
+				width:100px; 
+				height:100px;
+				position:relative;
+				top:10px;
+				left:10px
+			
+			}
+			.bubble{
+				position: relative;
+				top:10px;
+				left:10px;
+				display:inline-block;
+				background: #FFFFFF;
+				-webkit-border-radius: 10px;
+				-moz-border-radius: 10px;
+				border-radius: 10px;
+				border: #7F7F7F solid 5px;
+			}
+			.TestPhoto{
+				background-image:url('images/TestPhoto.png');
+				width:100px; 
+				height:100px;
+				position:relative;
+				top:10px;
+				left:10px
+				float:left; /*向左邊浮動*/
+
+			}    
+			#chat{
+				background-color:#002A69; 
+				width:500px; 
+				height:830px;
+				top:10%;
+				left:45%;
+				position:absolute;
+			}
+			
+			.draggable { width: 90px; height: 80px; padding: 5px; float: left; margin: 0 10px 10px 0; font-size: .9em; }
+			.ui-widget-header p, .ui-widget-content p { margin: 0; }
+			#snaptarget1 { height: 90px; width: 100px;}
+			#snaptarget2 { height: 90px; width: 100px;}
+			#snaptarget3 { height: 90px; width: 100px;}
+			
+			@media only screen and (max-width: 768px) {
+				#chat{
+					background-color:#002A69; 
+					width:500px; 
+					height:830px;
+					top:30%;
+					left:5%;
+					position:absolute;
+				}
+			}
+
+
+
+		</style>
+		
+		<script>
+			$(function() {
+				$( "#draggable1" ).draggable({ snap: ".ui-widget-header", revert: true });
+				$( "#draggable2" ).draggable({ snap: ".ui-widget-header", revert: true });
+				$( "#draggable3" ).draggable({ snap: ".ui-widget-header", revert: true });
+			});
+		</script>
+	</head>
+	<body background="images/test.png" class="container">
+		<h1>伯夷列傳聊天室</h1>
+	<div class="row">	
+		<div class="col-sm-6 ">
+			<div id="draggable1" class="draggable ui-widget-content">
+				<p>picture1</p>
+			</div>
+
+			<div id="draggable2" class="draggable ui-widget-content">
+				<p>picture2</p>
+			</div>
+
+			<div id="draggable3" class="draggable ui-widget-content">
+				<p>picture3</p>
+			</div>   
+		</div>
+		<div id = "chat" class=" " >
+			<div id="head" ></div>
+			<div id="chatSpace" >
+				<div id="snaptarget1" class="ui-widget-header">
+					<p>I'm a snap target1</p>
+				</div>
+				
+				<div id="snaptarget2" class="ui-widget-header">
+					<p>I'm a snap target2</p>
+				</div>
+				
+				<div id="snaptarget3" class="ui-widget-header">
+					<p>I'm a snap target3</p>
+				</div>
+			</div>
+			<div id="footer" ></div>
+		</div>
+	</div>	
+	</body>
+
+</html>
