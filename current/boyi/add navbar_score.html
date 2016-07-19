@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>jQuery UI Draggable - Snap to element or grid</title>
+    <link rel="stylesheet" href="../jquery/jquery-ui-1.11.4/jquery-ui.css">
+    <link href="../bootstrap/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet"><!--控制nav bar的-->
+    <link href="../global/user.css" rel="stylesheet"><!--控制字型的-->
+
+    <title>TEST</title>
+
+
+    <style>
+        .send {
+            position: relative;
+            display: inline-block;
+            width: auto;
+            border-radius: 5px;
+            padding: 5% 7% 5% 7%;
+            margin: 10% 0 10% 0;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f3f3f3+60,f3f3f3+60,ededed+61,ededed+61,ededed+63,ffffff+100 */
+            background: #ffffff; /* Old browsers */
+            background: -moz-linear-gradient(top, #ffffff 0%, #f3f3f3 60%, #f3f3f3 60%, #ededed 61%, #ededed 61%, #ededed 63%, #ffffff 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top, #ffffff 0%, #f3f3f3 60%, #f3f3f3 60%, #ededed 61%, #ededed 61%, #ededed 63%, #ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom, #ffffff 0%, #f3f3f3 60%, #f3f3f3 60%, #ededed 61%, #ededed 61%, #ededed 63%, #ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0); /* IE6-9 */
+        }
+        .flex {
+            display: flex;
+        }
+        .inline-flex {
+            display: inline-flex;
+        }
+        .flex-row {
+            flex-direction: row;
+        }
+        .flex-row-reverse {
+            flex-direction: row-reverse;
+        }
+        .flex-start {
+            justify-content: flex-start;
+        }
+        .flex-end {
+            justify-content: flex-end;
+        }
+        .draggable {
+            z-index: 10;
+            width: 100px;
+            height: 90px;
+            padding: 5px;
+            margin: 10px 10px 10px 10px;
+            font-size: .9em;
+            border-radius: 5px;
+        }
+        .droppable {
+            width: 100px;
+            height: 90px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .imag_size {
+            z-index: 10;
+            width: 100px;
+            height: 90px;
+        }
+        .ui-widget-header p, .ui-widget-content p {
+            margin: 0;
+        }
+        .ui-widget-content:after {
+            position: absolute;
+        }
+        .scroll {
+            background-color: #DCDCDC;
+            overflow: scroll;
+            height: 500px;
+            overflow-x: hidden;
+            border-radius: 10px;
+        }
+    </style>
+
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../jquery/jquery-ui-1.11.4/jquery-ui.js"></script>
+    <script src="../bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+    <script>
+		
+        $(function () {
+            $(".draggable").draggable({snap: ".ui-widget-header", revert: true});
+        });
+		
+		function next(){	//呼叫彈出視窗
+			$('#myModal').modal({backdrop: 'static'})	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關閉
+		}
+		
+		function go_LV2(){	//顯示下一關的內容
+			$('#myModal').modal('hide');
+			$("#D_droppable").fadeIn();
+			$("#p_D").fadeIn(500);
+			$("#E_droppable").fadeIn(1000);
+			$("#p_E").fadeIn(1500);
+			$("#F_droppable").fadeIn(2000);
+			$("#p_F").fadeIn(2500);
+		}
+    </script>
+</head>
+
+
+<!-- 因為置頂會把內容蓋住，所以必須在body設定padding-top的寬度-->
+<!-- navbar-fixed-top預約會佔用50px的空間 -->
+<body style="padding-top:70px;">
+
+
+<!-- 巡覽置頂，會固到頂部 -->
+   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <h1>多媒體互動題 &nbsp 得分： <span id="score">0</span></h1>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+<div class="container-fluid" style="margin-top:2.5%">
+    <div class="row border-top-radius">
+        <div class="col-md-4">
+            
+                <div id="DIV_C">
+                    <img class="draggable" id="C" src="img/C.jpg">
+                </div>
+                
+                <div id="DIV_A">
+                    <img class="draggable" id="A" src="img/A.jpg">
+                </div>
+
+                <div id="DIV_B">
+                    <img class="draggable" id="B" src="img/B.jpg">
+                </div>
+				<button class="btn btn-success" onclick = "next();">完成</button> <!--點即出現前往下一關的視窗-->
+        </div>
+
+        <div class="col-md-8 center-block" style="width:50%;">
+            <div class="row " style="background:black;border-radius: 5px;">
+                <div style="margin:1.5% 3% 1.5% 3%;">
+                    <p class="text-center" style="font-size: xx-large ; color: white;">古人聊天室</p>
+                </div>
+            </div>
+            <div class="scroll row" >
+
+				<div class="flex flex-row">
+                
+					<div id="A_droppable" class=" droppable ui-widget-header">
+					</div>
+					<div>
+						<div class="send">
+							<p>我生的這兩個小子，真是了不得呢。</p>
+                            
+						</div>
+					</div>
+				</div>
+                
+                <div class="flex flex-row-reverse">
+                
+                
+                    <div id="B_droppable" class=" droppable ui-widget-header">
+                    </div>
+                    <div>
+                        <div class="send">
+                            <p>他們幹的事其實跟我差不多。想當年，堯把位子讓給我，我也不要！</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-row">
+                
+                
+                    <div id="C_droppable" class=" droppable ui-widget-header">
+                    </div>
+                    <div>
+                        <div class="send">
+                            <p>對啊。這兩兄弟想來找我，可惜我幫不了忙。</p>
+                            
+                        </div>
+                    </div>
+                </div>
+               <!--------第二關的內容---------先將內容隱藏------------------------------------------------------------> 
+                <div  class="flex flex-row" >
+                
+					<div id="D_droppable" class=" droppable ui-widget-header" hidden = "hidden">	
+					</div>
+					<div>
+						<div class="send" >
+							<p id = "p_D" hidden = "hidden">這兩個年輕人倒是耽擱我不少時間!</p>
+                            
+						</div>
+					</div>
+				</div>
+                
+                <div class="flex flex-row-reverse" >
+                
+                
+                    <div id="E_droppable" class=" droppable ui-widget-header" hidden = "hidden">
+                    </div>
+                    <div>
+                        <div class="send" >
+                            <p id = "p_E" hidden = "hidden">是啊!我還讓左右的人別為難他們。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-row" >
+                
+                
+                    <div id="F_droppable" class=" droppable ui-widget-header" hidden = "hidden">
+                    </div>
+                    <div>
+                        <div class="send">
+                            <p id = "p_F" hidden = "hidden">其實我挺常跟學生講他們兩個的事。</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+            <div class="row" style="background:black;border-radius: 5px;">
+                <div class="center-block" style="background:white;border-radius:10px;margin:1.5% 3% 1.5% 3%;">
+                    <p style="font-size:x-large ; color:black; margin-left: 1.5%">你渴望月亮嗎?</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+	<!-- 進入下一關的視窗 -->	
+			<div class="modal fade" id ="myModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<!--div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title">Modal title</h4>
+						</div-->
+						<div class="modal-body">
+							<h2><p class = "text-center">恭喜完成此關卡</p>
+							<p class = "text-center">請繼續挑戰下一關</p></h2>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal" onclick="location.reload();">重新遊戲</button><!--點擊後關閉小視窗  網頁重整-->
+							<button type="button" class="btn btn-success" onclick="go_LV2();">下一關</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+	<!---->
+</div>
+
+
+<!-- Bootstrap需要使用jQuery，var id = ui.draggable.attr('id'); 所以第一個引入 -->
+
+<!--<script>
+
+	$(function () {
+        $(".draggable").draggable({revert: "invalid"});
+        $(".droppable").droppable({
+            activeClass: "ui-state-default",
+            hoverClass: "ui-state-hover",
+            drop: function (event, ui) {
+                var droppableId = event.target.id; //拿id的方法
+                  var draggableId = ui.draggable.attr('id');//拿id的方法
+                    console.log(draggableId+"  "+droppableId);
+                if(droppableId == (draggableId+'_droppable'))
+                {  
+					Resume('DIV_'+draggableId);
+                    $('div#' + droppableId).html('<img class="imag_size"  src="img/'+draggableId+'.jpg">');
+                }
+                else
+                { 
+				  console.log(droppableId + "  " + draggableId);
+                  $('div#'+'DIV_'+draggableId).html('<img class="draggable" id="'+draggableId+'" src="img/'+draggableId+'.jpg">');
+                  $('img#'+draggableId).draggable({ revert: "invalid" });
+				  
+                }
+            }
+        });
+    });
+    function Resume(id) {
+        $('div#' + id).html('');
+    }
+</script>
+-->
+<script>var right, wrong, score=0;
+$(document).ready(function(){
+    right = document.createElement('audio');
+    wrong = document.createElement('audio');
+    right.setAttribute('src', 'audio/dindong.mp3');
+    wrong.setAttribute('src', 'audio/error.mp3');
+    //audioElement.load()
+    $.get();
+
+})
+
+$('.draggable').draggable({ revert: 'invalid' });
+$('.droppable').droppable({
+    activeClass: 'ui-state-default',
+    hoverClass: 'ui-state-hover',
+    drop: function( event, ui ) {
+        $( this ).addClass( 'ui-state-highlight' );
+        ui.draggable.css('position','static')
+    var id = $(this).children('div.holder').children('.draggable');
+    if(id) { 
+        var text = id.html();
+        id = id.attr('id');
+        Resume(id,text);
+    }
+    if($(this).hasClass('right')){
+        Play(wrong);
+        score-=3;
+        $('span#score').text(score);
+    }
+    $( this ).children('div.holder').removeClass('vacant').html(ui.draggable).append($('<button class="btn remove"><span class="glyphicon glyphicon-remove"></span></button>'));
+    check($(this));
+    ToggleRemove();
+}
+});
+function check(dom){
+    var hold = dom.children('div.holder');
+    if(hold.attr('id') === hold.children('.draggable').attr('id')){
+        dom.addClass('right').removeClass('wrong');
+        score+=3;
+        Play(right);
+    }
+    else{
+        Play(wrong);
+        dom.addClass('wrong').removeClass('right');
+    }
+    $('span#score').text(score);
+
+}
+
+function ToggleRemove(){
+    $('.remove').click(function(){
+        var prev =  $(this).prev('.draggable');
+        var id = prev.attr('id');
+        var text= prev.html();
+        Resume(id,text);
+        var holder = $(this).parent('div.holder');
+        if(holder.parent('div.droppable').hasClass('right')){
+            score-=3;
+            $('span#score').text(score);
+        }
+        holder.addClass('vacant').empty();
+        holder.parent('div.droppable').removeClass('right').removeClass('wrong');
+    });
+}
+
+function Resume(id, text){
+    var tmp = $('<div class="draggable" id="'+id+'"></div>').html(text).appendTo('div.ans-hold.'+id);
+    tmp.fadeIn().draggable({ revert: "invalid" });
+}
+function Play(audio){
+        right.pause();
+        right.currentTime=0;
+        wrong.pause();
+        wrong.currentTime=0;
+        audio.play();
+}
+</script>
+</body>
+</html>
