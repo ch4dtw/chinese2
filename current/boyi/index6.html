@@ -214,7 +214,7 @@
             drop: function (event, ui) {
                 var droppableId = event.target.id; //拿id的方法
                   var draggableId = ui.draggable.attr('id');//拿id的方法
-                    console.log(draggableId+"  "+droppableId);
+                    
 
                 if(droppableId == (draggableId+'_droppable'))
                 {
@@ -222,7 +222,7 @@
                     $('div#' + droppableId).html('<img class="imag_size"  src="img/'+draggableId+'.jpg">');
                 }
                 else
-                { console.log(droppableId + "  " + draggableId);
+                { 
                   $('div#'+'DIV_'+draggableId).html('<img class="draggable" id="'+draggableId+'" src="img/'+draggableId+'.jpg">');
                   $('img#'+draggableId).draggable({ revert: "invalid" });
 
