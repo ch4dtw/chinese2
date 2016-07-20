@@ -8,7 +8,8 @@
     <title>jQuery UI Draggable - Snap to element or grid</title>
     <link rel="stylesheet" href="../jquery/jquery-ui-1.11.4/jquery-ui.css">
     <link href="../bootstrap/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
-
+	<link href="../bootstrap-3.2.0-dist/css/bootstrap.css" rel="stylesheet"><!--控制nav bar的-->
+    <link href="../global/user.css" rel="stylesheet"><!--控制字型的-->
 
     <title>TEST</title>
 
@@ -28,31 +29,24 @@
             background: linear-gradient(to bottom, #ffffff 0%, #f3f3f3 60%, #f3f3f3 60%, #ededed 61%, #ededed 61%, #ededed 63%, #ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
             filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0); /* IE6-9 */
         }
-
         .flex {
             display: flex;
         }
-
         .inline-flex {
             display: inline-flex;
         }
-
         .flex-row {
             flex-direction: row;
         }
-
         .flex-row-reverse {
             flex-direction: row-reverse;
         }
-
         .flex-start {
             justify-content: flex-start;
         }
-
         .flex-end {
             justify-content: flex-end;
         }
-
         .draggable {
             z-index: 10;
             width: 100px;
@@ -62,28 +56,23 @@
             font-size: .9em;
             border-radius: 5px;
         }
-
         .droppable {
             width: 100px;
             height: 90px;
             margin: 10px;
             border-radius: 5px;
         }
-
         .imag_size {
             z-index: 10;
             width: 100px;
             height: 90px;
         }
-
         .ui-widget-header p, .ui-widget-content p {
             margin: 0;
         }
-
         .ui-widget-content:after {
             position: absolute;
         }
-
         .scroll {
             background-color: #DCDCDC;
             overflow: scroll;
@@ -97,9 +86,24 @@
     <script src="../jquery/jquery-ui-1.11.4/jquery-ui.js"></script>
     <script src="../bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
     <script>
+		
         $(function () {
             $(".draggable").draggable({snap: ".ui-widget-header", revert: true});
         });
+		
+		function next(){	//呼叫彈出視窗
+			$('#myModal').modal({backdrop: 'static'})	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關閉
+		}
+		
+		function go_LV2(){	//顯示下一關的內容
+			$('#myModal').modal('hide');
+			$("#D_droppable").fadeIn();
+			$("#p_D").fadeIn(500);
+			$("#E_droppable").fadeIn(1000);
+			$("#p_E").fadeIn(1500);
+			$("#F_droppable").fadeIn(2000);
+			$("#p_F").fadeIn(2500);
+		}
     </script>
 </head>
 
@@ -110,11 +114,13 @@
 
 
 <!-- 巡覽置頂，會固到頂部 -->
-<nav class="navbar navbar-default navbar-fixed-top ui-widget-content" role="navigation">
-    <a href="#" class="btn  btn-lg btn-block">
-        <h1>國語文中心</h1>
-    </a>
-</nav>
+   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <h1>多媒體互動題 &nbsp; 得分： <span id="score">0</span></h1>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
 
 <div class="container-fluid" style="margin-top:2.5%">
     <div class="row border-top-radius">
@@ -131,37 +137,28 @@
                 <div id="DIV_B">
                     <img class="draggable" id="B" src="img/B.jpg">
                 </div>
-
-
-                
-
-
-            
-
-
+				<button class="btn btn-success" onclick = "next();">完成</button> <!--點即出現前往下一關的視窗-->
         </div>
-
 
         <div class="col-md-8 center-block" style="width:50%;">
             <div class="row " style="background:black;border-radius: 5px;">
                 <div style="margin:1.5% 3% 1.5% 3%;">
-                    <p class="text-center" style="font-size: xx-large ; color: white;">古人聊天試</p>
+                    <p class="text-center" style="font-size: xx-large ; color: white;">古人聊天室</p>
                 </div>
             </div>
-            <div class="scroll row">
+            <div class="scroll row" >
 
-                <div class="flex flex-row">
+				<div class="flex flex-row">
                 
-                
-                    <div id="A_droppable" class=" droppable ui-widget-header">
-                    </div>
-                    <div>
-                        <div class="send">
-                            <p>我生的這兩個小子，真是了不得呢。</p>
+					<div id="A_droppable" class=" droppable ui-widget-header">
+					</div>
+					<div>
+						<div class="send">
+							<p>我生的這兩個小子，真是了不得呢。</p>
                             
-                        </div>
-                    </div>
-                </div>
+						</div>
+					</div>
+				</div>
                 
                 <div class="flex flex-row-reverse">
                 
@@ -187,8 +184,43 @@
                         </div>
                     </div>
                 </div>
+               <!--------第二關的內容---------先將內容隱藏------------------------------------------------------------> 
+                <div  class="flex flex-row" >
+                
+					<div id="D_droppable" class=" droppable ui-widget-header" hidden = "hidden">	
+					</div>
+					<div>
+						<div class="send" >
+							<p id = "p_D" hidden = "hidden">這兩個年輕人倒是耽擱我不少時間!</p>
+                            
+						</div>
+					</div>
+				</div>
+                
+                <div class="flex flex-row-reverse" >
                 
                 
+                    <div id="E_droppable" class=" droppable ui-widget-header" hidden = "hidden">
+                    </div>
+                    <div>
+                        <div class="send" >
+                            <p id = "p_E" hidden = "hidden">是啊!我還讓左右的人別為難他們。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-row" >
+                
+                
+                    <div id="F_droppable" class=" droppable ui-widget-header" hidden = "hidden">
+                    </div>
+                    <div>
+                        <div class="send">
+                            <p id = "p_F" hidden = "hidden">其實我挺常跟學生講他們兩個的事。</p>
+                            
+                        </div>
+                    </div>
+                </div>
                 
 
             </div>
@@ -200,13 +232,35 @@
 
         </div>
     </div>
-
+	<!-- 進入下一關的視窗 -->	
+			<div class="modal fade" id ="myModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<!--div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title">Modal title</h4>
+						</div-->
+						<div class="modal-body">
+							<h2><p class = "text-center">恭喜完成此關卡</p>
+							<p class = "text-center">請繼續挑戰下一關</p></h2>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal" onclick="location.reload();">重新遊戲</button><!--點擊後關閉小視窗  網頁重整-->
+							<button type="button" class="btn btn-success" onclick="go_LV2();">下一關</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+	<!---->
 </div>
 
 
 <!-- Bootstrap需要使用jQuery，var id = ui.draggable.attr('id'); 所以第一個引入 -->
+
 <script>
-    $(function () {
+var score = 0;
+	$(function () {
+    
         $(".draggable").draggable({revert: "invalid"});
         $(".droppable").droppable({
             activeClass: "ui-state-default",
@@ -214,20 +268,22 @@
             drop: function (event, ui) {
                 var droppableId = event.target.id; //拿id的方法
                   var draggableId = ui.draggable.attr('id');//拿id的方法
+                    console.log(draggableId+"  "+droppableId);
                     
-
                 if(droppableId == (draggableId+'_droppable'))
-                {
-                    Resume('DIV_'+draggableId);
+                {  
+					Resume('DIV_'+draggableId);
                     $('div#' + droppableId).html('<img class="imag_size"  src="img/'+draggableId+'.jpg">');
+                    score+=5;
                 }
                 else
                 { 
+				  console.log(droppableId + "  " + draggableId);
                   $('div#'+'DIV_'+draggableId).html('<img class="draggable" id="'+draggableId+'" src="img/'+draggableId+'.jpg">');
                   $('img#'+draggableId).draggable({ revert: "invalid" });
-
+				  score-=5;
                 }
-
+                $('#score').text(score);
             }
         });
     });
@@ -235,6 +291,7 @@
         $('div#' + id).html('');
     }
 </script>
+
 
 </body>
 </html>
