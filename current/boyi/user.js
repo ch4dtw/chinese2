@@ -1,24 +1,14 @@
 <!-- Bootstrap需要使用jQuery，var id = ui.draggable.attr('id'); 所以第一個引入 -->
 var score = 0;
 
+//拖拉圖片初始化
 $(function () {
-    $(".draggable").draggable({snap: ".ui-widget-header", revert: "invalid"});
+    $(".draggable").draggable({
+        revert: "invalid"
+    });
 });
 
-function next() {	//呼叫彈出視窗
-    $('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關閉
-}
-
-function go_LV2() {	//顯示下一關的內容
-    $('#myModal').modal('hide');
-    $("#D_droppable").fadeIn();
-    $("#p_D").fadeIn(500);
-    $("#E_droppable").fadeIn(1000);
-    $("#p_E").fadeIn(1500);
-    $("#F_droppable").fadeIn(2000);
-    $("#p_F").fadeIn(2500);
-}
-
+//拖拉目標設定與互動
 $(function () {
     $(".droppable").droppable({
         activeClass: "ui-state-default",
@@ -29,6 +19,7 @@ $(function () {
             console.log(draggableId + "  " + droppableId);
 
             if (droppableId == (draggableId + '_droppable')) {
+                //移除重塑
                 Resume('DIV_' + draggableId);
                 $('div#' + droppableId).html('<img class="imag_size"  src="img/' + draggableId + '.jpg">');
                 score += 10;
@@ -46,6 +37,11 @@ $(function () {
         }
     });
 });
+//移除物件
+function Resume(id) {
+    $('div#' + id).html('');
+}
+//答錯時顯示錯誤圖片
 function showError(){
     $('#cross').css('display', 'block');
 
@@ -53,6 +49,17 @@ function showError(){
         $('#cross').css('display', 'none');
     }, 750);
 }
-function Resume(id) {
-    $('div#' + id).html('');
+
+function next() {	//呼叫彈出視窗
+    $('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關閉
+}
+
+function go_LV2() {	//顯示下一關的內容
+    $('#myModal').modal('hide');
+    $("#D_droppable").fadeIn();
+    $("#p_D").fadeIn(500);
+    $("#E_droppable").fadeIn(1000);
+    $("#p_E").fadeIn(1500);
+    $("#F_droppable").fadeIn(2000);
+    $("#p_F").fadeIn(2500);
 }
