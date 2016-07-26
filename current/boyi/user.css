@@ -1,0 +1,68 @@
+body {
+    padding-top:70px;
+}
+.send {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    border-radius: 5px;
+    padding: 5% 7% 5% 7%;
+    margin: 10% 0 10% 0;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f3f3f3+60,f3f3f3+60,ededed+61,ededed+61,ededed+63,ffffff+100 */
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #f3f3f3 60%, #f3f3f3 60%, #ededed 61%, #ededed 61%, #ededed 63%, #ffffff 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ffffff 0%, #f3f3f3 60%, #f3f3f3 60%, #ededed 61%, #ededed 61%, #ededed 63%, #ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #ffffff 0%, #f3f3f3 60%, #f3f3f3 60%, #ededed 61%, #ededed 61%, #ededed 63%, #ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0); /* IE6-9 */
+}
+.flex {
+    display: flex;
+}
+.inline-flex {
+    display: inline-flex;
+}
+.flex-row {
+    flex-direction: row;
+}
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+.flex-start {
+    justify-content: flex-start;
+}
+.flex-end {
+    justify-content: flex-end;
+}
+.draggable {
+    z-index: 10;
+    width: 100px;
+    height: 90px;
+    padding: 5px;
+    margin: 10px 10px 10px 10px;
+    font-size: .9em;
+    border-radius: 5px;
+}
+.droppable {
+    width: 100px;
+    height: 90px;
+    margin: 10px;
+    border-radius: 5px;
+}
+.imag_size {
+    z-index: 10;
+    width: 100px;
+    height: 90px;
+}
+.ui-widget-header p, .ui-widget-content p {
+    margin: 0;
+}
+.ui-widget-content:after {
+    position: absolute;
+}
+.scroll {
+    background-color: #DCDCDC;
+    overflow: scroll;
+    height: 500px;
+    overflow-x: hidden;
+    border-radius: 10px;
+}
