@@ -1,11 +1,12 @@
-
 <!-- Bootstrap需要使用jQuery，var id = ui.draggable.attr('id'); 所以第一個引入 -->
+var score = 0;
+
 $(function () {
-    $(".draggable").draggable({snap: ".ui-widget-header", revert: true});
+    $(".draggable").draggable({snap: ".ui-widget-header", revert: "invalid"});
 });
 
 function next() {	//呼叫彈出視窗
-    $('#myModal').modal({backdrop: 'static'})	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關閉
+    $('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關閉
 }
 
 function go_LV2() {	//顯示下一關的內容
@@ -17,10 +18,8 @@ function go_LV2() {	//顯示下一關的內容
     $("#F_droppable").fadeIn(2000);
     $("#p_F").fadeIn(2500);
 }
-var score = 0;
-$(function () {
 
-    $(".draggable").draggable({revert: "invalid"});
+$(function () {
     $(".droppable").droppable({
         activeClass: "ui-state-default",
         hoverClass: "ui-state-hover",
@@ -33,17 +32,27 @@ $(function () {
                 Resume('DIV_' + draggableId);
                 $('div#' + droppableId).html('<img class="imag_size"  src="img/' + draggableId + '.jpg">');
                 score += 10;
+                $('audio')[0].play();
             }
             else {
                 console.log(droppableId + "  " + draggableId);
                 $('div#' + 'DIV_' + draggableId).html('<img class="draggable" id="' + draggableId + '" src="img/' + draggableId + '.jpg">');
                 $('img#' + draggableId).draggable({revert: "invalid"});
                 score -= 5;
+                showError();
+                $('audio')[1].play();
             }
             $('#score').text(score);
         }
     });
 });
+function showError(){
+    $('#cross').css('display', 'block');
+
+    setTimeout(function(){
+        $('#cross').css('display', 'none');
+    }, 750);
+}
 function Resume(id) {
     $('div#' + id).html('');
 }
