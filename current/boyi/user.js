@@ -74,8 +74,38 @@ function showError() {
         $('#cross').css('display', 'none');
     }, 750);
 }
-//呼叫彈出視窗
+//呼叫過關視窗
 function next() {
+    // $('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
+    $('#dialog-confirm').dialog({
+        resizable: false,
+        height: "auto",
+        width: "30%",
+        modal: true,
+        buttons: [
+            {
+                text: "重新開始",
+                "class": "btn btn-danger",
+                click: function () {
+                    location.reload();
+                    $(this).dialog('close');
+                }
+            },
+            {
+                text: "繼續",
+                "class": "btn btn-primary",
+                click: function () {
+                    showDialog(amountList[stage]);
+                    stage += 1;
+                    $(this).dialog('close');
+                }
+            }
+        ]
+    });
+}
+
+//呼叫開始視窗
+function startEnd() {
     // $('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
     $('#dialog-confirm').dialog({
         resizable: false,
@@ -109,9 +139,15 @@ function showDialog(amount) {
         alert(1);
     for (var i = 0; i < amount; i++) {
         console.log(nowAmount);
-        $($('div#chatroom>div.row')[nowAmount]).fadeIn();
+        $msgRow = $('div#chatroom > div.row');
+        $($msgRow[nowAmount]).fadeIn();
         $('div.avatar:nth-child(' + (nowAmount+1) + ')').fadeIn();
-        // $('div#DIV_'+chr.charCodeAt(nowAmount)).fadeIn();
+        if (i == amount-1) {
+            console.log('Scroll It!');
+            $('div#chatroom').animate({
+                scrollTop:  $($msgRow[nowAmount-i]).offset().top
+            }, 2000, 'easeOutBounce');
+        }
         nowAmount += 1;
     }
 }
