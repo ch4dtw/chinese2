@@ -2,7 +2,6 @@ var score = 0;
 var count = 0;
 var check = false;
 var stage = 0;
-var chr = 'A';
 var amountList = [3, 3, 4];
 // 前三個不是訊息
 var nowAmount = 0;
@@ -91,15 +90,12 @@ function showDialog() {
 }
 
 function showItems(amount) {
-    if (stage == 3)
-        alert(1);
     for (var i = 0; i < amount; i++) {
         console.log(nowAmount);
         var msgRow = $('div#chatroom > div.row');
         $(msgRow[nowAmount]).fadeIn();
         $('div.avatar:nth-child(' + (nowAmount+1) + ')').fadeIn();
         if (i == amount-1) {
-            console.log('Scroll It!');
             $('div#chatroom').animate({
                 scrollTop:  $(msgRow[nowAmount-i]).offset().top
             }, 2000, 'easeOutBounce');
