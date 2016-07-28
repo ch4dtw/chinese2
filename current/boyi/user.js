@@ -157,14 +157,15 @@ function setDialogText() {
     var title = "";
     if (stage == 0){
         title = "古人聊天室";
-        msg = "　　司馬遷〈伯夷列傳〉圍繞著傳主伯夷和叔齊提到不少人物，假設這些人穿越時空來到現代，共同開了一個Line群組(名為:伯夷列傳聊天室)，聚在一塊聊天，從他們各自的PO文中，你能否分辨他們誰是誰？";
+        msg = "<p>司馬遷〈伯夷列傳〉圍繞著傳主伯夷和叔齊提到不少人物。</p><p>這些人穿越時空來到現代，共同開了一個Line群組名為<b>伯夷列傳聊天室</b>，聚在一塊聊天，從對話紀錄中，你能否分辨他們誰是誰？</p>";
     } else if (stage == 3) {
         title = "恭喜完成所有關卡!";
-        msg = "是否再來一局!";
+        msg = "再來一局吧!!";
     } else {
         title = "恭喜過關";
         msg = "請繼續挑戰下一關!";
     }
     dialog.attr('title', title);
-    dialog.text(msg);
+    dialog.html(msg);
+    dialog.attr('style', 'text-indent:2em; ');
 }
