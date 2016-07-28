@@ -8,7 +8,7 @@ var amountList = [3, 3, 4];
 var nowAmount = 0;
 
 $(document).ready(function () {
-    startEnd();
+    showDialog();
 });
 
 //拖拉圖片初始化
@@ -50,10 +50,8 @@ $(function () {
                 switch (count) {
                     case 3:
                     case 6:
-                        next();
-                        break;
                     case 10:
-                        startEnd();
+                        showDialog();
                         break;
                     default:
                         break;
@@ -77,14 +75,59 @@ function showError() {
     }, 750);
 }
 //呼叫過關視窗
-function next() {
+function showDialog() {
     // $('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
+    setDialogText();
     $('#dialog-confirm').dialog({
         resizable: false,
         height: "auto",
         width: "30%",
         modal: true,
-        buttons: [
+        buttons: getDialogButtons()
+    });
+}
+
+function showItems(amount) {
+    if (stage == 3)
+        alert(1);
+    for (var i = 0; i < amount; i++) {
+        console.log(nowAmount);
+        var msgRow = $('div#chatroom > div.row');
+        $(msgRow[nowAmount]).fadeIn();
+        $('div.avatar:nth-child(' + (nowAmount+1) + ')').fadeIn();
+        if (i == amount-1) {
+            console.log('Scroll It!');
+            $('div#chatroom').animate({
+                scrollTop:  $(msgRow[nowAmount-i]).offset().top
+            }, 2000, 'easeOutBounce');
+        }
+        nowAmount += 1;
+    }
+}
+
+function getDialogButtons() {
+    var buttonList = [];
+    if (stage==0){
+        buttonList.push({
+            text: "開始遊戲",
+            "class": "btn btn-primary",
+            click: function () {
+                showItems(amountList[stage]);
+                stage += 1;
+                $(this).dialog('close');
+            }
+        });
+    } else if (stage==3) {
+        buttonList.push({
+            text: "再來一局",
+            "class": "btn btn-danger",
+            click: function () {
+                location.reload();
+                $(this).dialog('close');
+            }
+        });
+    } else {
+        buttonList = $.merge(buttonList, [
             {
                 text: "重新開始",
                 "class": "btn btn-danger",
@@ -97,59 +140,31 @@ function next() {
                 text: "進下一關",
                 "class": "btn btn-primary",
                 click: function () {
-                    showDialog(amountList[stage]);
+                    showItems(amountList[stage]);
                     stage += 1;
                     $(this).dialog('close');
                 }
             }
-        ]
-    });
-}
-
-//呼叫開始視窗
-function startEnd() {
-    // $('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
-    $('#dialog-confirm').dialog({
-        resizable: false,
-        height: "auto",
-        width: "30%",
-        modal: true,
-        buttons: [
-            {
-                text: "重新開始",
-                "class": "btn btn-danger",
-                click: function () {
-                    location.reload();
-                    $(this).dialog('close');
-                }
-            },
-            {
-                text: "開始遊戲",
-                "class": "btn btn-primary",
-                click: function () {
-                    showDialog(amountList[stage]);
-                    stage += 1;
-                    $(this).dialog('close');
-                }
-            }
-        ]
-    });
-}
-
-function showDialog(amount) {
-    if (stage == 3)
-        alert(1);
-    for (var i = 0; i < amount; i++) {
-        console.log(nowAmount);
-        $msgRow = $('div#chatroom > div.row');
-        $($msgRow[nowAmount]).fadeIn();
-        $('div.avatar:nth-child(' + (nowAmount+1) + ')').fadeIn();
-        if (i == amount-1) {
-            console.log('Scroll It!');
-            $('div#chatroom').animate({
-                scrollTop:  $($msgRow[nowAmount-i]).offset().top
-            }, 2000, 'easeOutBounce');
-        }
-        nowAmount += 1;
+        ]);
     }
+    // console.log(buttonList);
+    return buttonList;
+}
+
+function setDialogText() {
+    var dialog = $('div#dialog-confirm');
+    var msg = "";
+    var title = "";
+    if (stage == 0){
+        title = "古人聊天室";
+        msg = "　　司馬遷〈伯夷列傳〉圍繞著傳主伯夷和叔齊提到不少人物，假設這些人穿越時空來到現代，共同開了一個Line群組(名為:伯夷列傳聊天室)，聚在一塊聊天，從他們各自的PO文中，你能否分辨他們誰是誰？";
+    } else if (stage == 3) {
+        title = "恭喜完成所有關卡!";
+        msg = "是否再來一局!";
+    } else {
+        title = "恭喜過關";
+        msg = "請繼續挑戰下一關!";
+    }
+    dialog.attr('title', title);
+    dialog.text(msg);
 }
