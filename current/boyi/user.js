@@ -80,11 +80,14 @@ function showDialog() {
     setDialogText();
     $('#dialog-confirm').dialog({
         resizable: false,
+        closeOnEscape: false,
         height: "auto",
         width: "30%",
         modal: true,
         buttons: getDialogButtons()
     });
+    $(".ui-dialog-titlebar-close").hide();
+    $('button.btn-next').focus();
 }
 
 function showItems(amount) {
@@ -110,7 +113,7 @@ function getDialogButtons() {
     if (stage==0){
         buttonList.push({
             text: "開始遊戲",
-            "class": "btn btn-primary",
+            "class": "btn btn-primary btn-next",
             click: function () {
                 showItems(amountList[stage]);
                 stage += 1;
@@ -120,7 +123,7 @@ function getDialogButtons() {
     } else if (stage==3) {
         buttonList.push({
             text: "再來一局",
-            "class": "btn btn-danger",
+            "class": "btn btn-danger btn-next",
             click: function () {
                 location.reload();
                 $(this).dialog('close');
@@ -138,11 +141,12 @@ function getDialogButtons() {
             },
             {
                 text: "進下一關",
-                "class": "btn btn-primary",
+                "class": "btn btn-primary btn-next",
                 click: function () {
                     showItems(amountList[stage]);
                     stage += 1;
                     $(this).dialog('close');
+                    console.log($(this))
                 }
             }
         ]);
