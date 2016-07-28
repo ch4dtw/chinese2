@@ -8,7 +8,7 @@ var amountList = [3, 3, 4];
 var nowAmount = 0;
 
 $(document).ready(function () {
-    next();
+    startEnd();
 });
 
 //拖拉圖片初始化
@@ -50,8 +50,10 @@ $(function () {
                 switch (count) {
                     case 3:
                     case 6:
-                    case 10:
                         next();
+                        break;
+                    case 10:
+                        startEnd();
                         break;
                     default:
                         break;
@@ -92,7 +94,7 @@ function next() {
                 }
             },
             {
-                text: "繼續",
+                text: "進下一關",
                 "class": "btn btn-primary",
                 click: function () {
                     showDialog(amountList[stage]);
@@ -122,7 +124,7 @@ function startEnd() {
                 }
             },
             {
-                text: "繼續",
+                text: "開始遊戲",
                 "class": "btn btn-primary",
                 click: function () {
                     showDialog(amountList[stage]);
