@@ -13,11 +13,11 @@ body {
 }
 .send {
     position: relative;
-    display: inline-block;
-    width: auto;
+    display: inline;
+    width: 65%;
     border-radius: 5px;
     padding: 5% 7% 5% 7%;
-    margin: 10% 0 10% 0;
+    margin: 2% 0 0 0;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f3f3f3+60,f3f3f3+60,ededed+61,ededed+61,ededed+63,ffffff+100 */
     background: #ffffff; /* Old browsers */
     background: -moz-linear-gradient(top, #ffffff 0%, #f3f3f3 60%, #f3f3f3 60%, #ededed 61%, #ededed 61%, #ededed 63%, #ffffff 100%); /* FF3.6-15 */
@@ -55,7 +55,7 @@ body {
 .droppable {
     width: 100px;
     height: 90px;
-    margin: 10px;
+    margin: 15% 7.5%;
     border-radius: 5px;
 }
 .imag_size {
@@ -74,5 +74,6 @@ body {
     overflow: scroll;
     height: 500px;
     overflow-x: hidden;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
 }
+

@@ -1,13 +1,14 @@
 var score = 0;
 var count = 0;
 var check = false;
-var stage = 1;
+var stage = 0;
+var chr = 'A';
+var amountList = [3, 3, 4];
+// 前三個不是訊息
+var nowAmount = 0;
 
 $(document).ready(function () {
-    $('div.flex.flex-row').each(function () {
-        $(this).hide();
-    });
-    showDialog(stage)
+    next();
 });
 
 //拖拉圖片初始化
@@ -48,17 +49,14 @@ $(function () {
             if (check == true) {
                 switch (count) {
                     case 3:
-                        break;
                     case 6:
-                        break;
                     case 10:
+                        next();
                         break;
                     default:
                         break;
                 }
                 check = false;
-                next();
-
             }
 
         }
@@ -82,68 +80,38 @@ function next() {
     $('#dialog-confirm').dialog({
         resizable: false,
         height: "auto",
-        width: 400,
+        width: "30%",
         modal: true,
         buttons: [
             {
                 text: "重新開始",
                 "class": "btn btn-danger",
-                click: function(){
+                click: function () {
                     location.reload();
                     $(this).dialog('close');
                 }
             },
             {
-                text: "下一關",
+                text: "繼續",
                 "class": "btn btn-primary",
-                click: function(){
+                click: function () {
+                    showDialog(amountList[stage]);
                     stage += 1;
-                    gotoLevel(stage);
-                    showDialog(stage);
                     $(this).dialog('close');
                 }
             }
         ]
     });
-    $('div.ui-dialog-titlebar > button.ui-button').addClass("ui-button ui-corner-all ui-widget ui-button-icon-only");
-    // $('div.ui-dialog-titlebar > button.ui.button').html('<span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button>');
 }
-// 綁定下一關按鈕
-// $('#nextStageButton').click(function () {
-//
-// });
 
-// 顯示下一關內容(依據傳入的level決定)
-function gotoLevel(level) {
-    if (level == 1) {
-        $("#A_droppable").fadeIn();
-        $("#p_A").fadeIn(500);
-        $("#B_droppable").fadeIn(1000);
-        $("#p_B").fadeIn(1500);
-        $("#C_droppable").fadeIn(2000);
-        $("#p_C").fadeIn(2500);
-    } else if (level == 2) {
-
-        $("#D_droppable").fadeIn();
-        $("#p_D").fadeIn(500);
-        $("#E_droppable").fadeIn(1000);
-        $("#p_E").fadeIn(1500);
-        $("#F_droppable").fadeIn(2000);
-        $("#p_F").fadeIn(2500);
-    } else if (level == 3) {
-        $("#G_droppable").fadeIn();
-        $("#p_G").fadeIn(500);
-        $("#H_droppable").fadeIn(1000);
-        $("#p_H").fadeIn(1500);
-        $("#I_droppable").fadeIn(2000);
-        $("#p_I").fadeIn(2500);
-        $("#J_droppable").fadeIn(3000);
-        $("#p_J").fadeIn(3500);
+function showDialog(amount) {
+    if (stage == 3)
+        alert(1);
+    for (var i = 0; i < amount; i++) {
+        console.log(nowAmount);
+        $($('div#chatroom>div.row')[nowAmount]).fadeIn();
+        $('div.avatar:nth-child(' + (nowAmount+1) + ')').fadeIn();
+        // $('div#DIV_'+chr.charCodeAt(nowAmount)).fadeIn();
+        nowAmount += 1;
     }
-    else
-        alert('WTF?!');
-}
-
-function showDialog(stage) {
-    $($('div.flex.flex-row')[stage - 1]).fadeIn();
 }
