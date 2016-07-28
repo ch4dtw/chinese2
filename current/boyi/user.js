@@ -34,7 +34,10 @@ $(function () {
                 score += 10;
                 count += 1;
                 check = true;
-                $('audio')[0].play();
+                if (count == 10)
+                    $('audio')[2].play();
+                else
+                    $('audio')[0].play();
             }
             // 錯誤
             else {
@@ -95,13 +98,11 @@ function showItems(amount) {
         var msgRow = $('div#chatroom > div.row');
         $(msgRow[nowAmount]).fadeIn();
         $('div.avatar:nth-child(' + (nowAmount+1) + ')').fadeIn();
-        if (i == amount-1) {
-            $('div#chatroom').animate({
-                scrollTop:  $(msgRow[nowAmount-i]).offset().top
-            }, 2000, 'easeOutBounce');
-        }
         nowAmount += 1;
     }
+    $('div#chatroom').animate({
+        scrollTop:  $(msgRow[nowAmount-1]).offset().top
+    }, 2000, 'easeOutBounce');
 }
 
 function getDialogButtons() {
@@ -156,7 +157,7 @@ function setDialogText() {
     var msg = "";
     var title = "";
     if (stage == 0){
-        title = "古人聊天室";
+        title = "伯夷列傳聊天室";
         msg = "<p>司馬遷〈伯夷列傳〉圍繞著傳主伯夷和叔齊提到不少人物。</p><p>這些人穿越時空來到現代，共同開了一個Line群組名為<b>伯夷列傳聊天室</b>，聚在一塊聊天，從對話紀錄中，你能否分辨他們誰是誰？</p>";
     } else if (stage == 3) {
         title = "恭喜完成所有關卡!";
