@@ -1,5 +1,6 @@
 body {
-    padding-top:50px;
+    padding-top:40px;
+    background: #FFED97;
 }
 #cross {
     top:35%;
@@ -72,7 +73,7 @@ body {
 .scroll {
     background-color: #DCDCDC;
     overflow: scroll;
-    height: 59vh;
+    height: 61vh;
     overflow-x: hidden;
     /*border-radius: 10px;*/
 }

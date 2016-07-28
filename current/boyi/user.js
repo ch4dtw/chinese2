@@ -91,7 +91,7 @@ function showDialog() {
     $(".ui-dialog-titlebar-close").hide();
     $('button.btn-next').focus();
 }
-
+// 顯示訊息
 function showItems(amount) {
     for (var i = 0; i < amount; i++) {
         console.log(nowAmount);
@@ -104,7 +104,7 @@ function showItems(amount) {
         scrollTop:  $(msgRow[nowAmount-1]).offset().top
     }, 2000, 'easeOutBounce');
 }
-
+// 設定對話視窗按鈕
 function getDialogButtons() {
     var buttonList = [];
     if (stage==0){
@@ -151,7 +151,7 @@ function getDialogButtons() {
     // console.log(buttonList);
     return buttonList;
 }
-
+// 設定彈出視窗文字
 function setDialogText() {
     var dialog = $('div#dialog-confirm');
     var msg = "";
@@ -161,7 +161,7 @@ function setDialogText() {
         msg = "<p>司馬遷〈伯夷列傳〉圍繞著傳主伯夷和叔齊提到不少人物。</p><p>這些人穿越時空來到現代，共同開了一個Line群組名為<b>伯夷列傳聊天室</b>，聚在一塊聊天，從對話紀錄中，你能否分辨他們誰是誰？</p>";
     } else if (stage == 3) {
         title = "恭喜完成所有關卡!";
-        msg = "再來一局吧!!";
+        msg = "<p>恭喜你你得到了"+score+"分!!!</p><p>再來一局吧</p>";
     } else {
         title = "恭喜過關";
         msg = "請繼續挑戰下一關!";
