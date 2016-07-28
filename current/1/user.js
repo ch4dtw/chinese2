@@ -3,7 +3,6 @@ var count = 0;
 var check = false;
 var stage = 0;
 var amountList = [3, 3, 4];
-// 前三個不是訊息
 var nowAmount = 0;
 
 $(document).ready(function () {
@@ -95,7 +94,6 @@ function showDialog() {
 // 顯示訊息
 function showItems(amount) {
     for (var i = 0; i < amount; i++) {
-        console.log(nowAmount);
         var msgRow = $('div#chatroom > div.row');
         $(msgRow[nowAmount]).fadeIn();
         $('div.avatar:nth-child(' + (nowAmount+1) + ')').fadeIn();
@@ -144,12 +142,10 @@ function getDialogButtons() {
                     showItems(amountList[stage]);
                     stage += 1;
                     $(this).dialog('close');
-                    console.log($(this))
                 }
             }
         ]);
     }
-    // console.log(buttonList);
     return buttonList;
 }
 // 設定彈出視窗文字
