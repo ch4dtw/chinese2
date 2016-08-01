@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>封神榜裡的哪吒大考驗</title>
+		<title>封神榜裡的哪吒</title>
 		<meta charset="utf-8">
 		<link href="../bootstrap/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
 		<link href="../jquery/jquery-ui-1.12.0.min.css" rel="stylesheet">
@@ -13,7 +13,7 @@
 		
 		<style>
 			body {
-				background: url( "http://img.wan.renren.com/images/2012/1121/thumb_940__1353482652498.jpg ");
+				background: url( "https://www.google.com.tw/search?as_rights=(cc_publicdomain%7Ccc_attribute)&as_q=%E7%AB%B9%E6%9E%97&hl=zh-TW&tbm=isch&gws_rd=ssl#gws_rd=ssl&imgrc=y-m6mQ4SUQgvaM%3A ");
 				background-repeat:no-repeat;
 				background-attachment:fixed;　
 				background-position:center;
@@ -33,53 +33,20 @@
 	<script>
 		var count = 0;
 		
-		function showDialog() {
-			
+		$(document).ready(function(){
+			$('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
+		});
+		function game_page() {
+			$("#start_page").hide();
+			$("#LV").html('<h1 class = "text-center">我是遊戲畫面</h1>');
 		}
-		function showDialog() {
-			if(count == 0){
-				count++;
-				
-				$(".modal-body").html("<h1><p class = 'text-center'>Round 1 -教育態度分分看</p></h1>	<h4><p class = 'text-center'>課文中對於哪吒而言，太乙就像哪吒的第二個父親，兩位父親分別代表兩種不同的教育態度，請依照勒文內容分析，這些形容詞分別屬於哪位人物的教育態度。</p></h4>");
-				$(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" >開始遊戲</button>');
-				
-				$("#start_page").hide();
-				alert(count);
-				$("#LV").html('<h1 class = "text-center">我是第一關</h1>');
-				$('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
-			}
-			else if(count == 1){
-				count++;
-				$(".modal-body").html("<h1><p class = 'text-center'>Round 2 -人物關係對對碰</p></h1>	<h4><p class = 'text-center'>在《封神榜裡的哪吒》課文中出現四位重要人物，太乙、哪吒、李靖、四氓。以哪吒為主角，放入其他角色關係，即可完成作答。</p></h4>");
-				alert(count);
-			//	$(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick="location.reload();">重新遊戲</button>');
-				$(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" >開始遊戲</button>');
-				
-			//	$("#LV").hide();
-				$("#LV").html('<h1 class = "text-center">我是第二關</h1>');
-				$('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
-			}
-			
-		}
-		function is_success(success){
-			if(success = 1){
-				$(".modal-body").html("<h1><p class = 'text-center'>挑戰成功</p></h1>	<h4><p class = 'text-center'>恭喜你挑戰成功<br>再挑戰一次吧!</p></h4>");
-				$(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick="location.reload();">再玩一次</button>');
-			}
-			else if(success = 2){
-				$(".modal-body").html("<h1><p class = 'text-center'>挑戰失敗</p></h1>	<h4><p class = 'text-center'>恭喜你挑戰成功<br>再挑戰一次吧!</p></h4>");
-				$(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick="location.reload();">再玩一次</button>');
-			}
-		}
+		
 	</script>
 	
 	<body class = "container-fluid" >
-		<button class="btn btn-success" onclick = "showDialog();">點我</button>
 		<div id = "start_page" >
-			<div id = "title" class = "text-center">封神榜裡的哪吒大考驗</div>
-			<button id = "start_button" class = "btn btn-link"  onclick = "showDialog();">
-				<img class = "img-circle" src = "http://images.all-free-download.com/images/graphiclarge/start_button_psd_layered_176750.jpg"/>
-			</button>
+			<div id = "title" class = "text-center">封神榜裡的哪吒<br>開始畫面</div>
+			
 		</div>
 		<div id = "LV">
 			
@@ -94,10 +61,12 @@
 						<h4 class="modal-title">Modal title</h4>
 					</div-->
 					<div class="modal-body">
-						
+						<h3><p class = 'text-center'>在溪松〈封神榜裡的哪吒〉，哪吒因為心殘，造成了許多殺業。以下那些是在文中提及慘遭殺害的動物或人物？</p></h3>
+						<br>	
+						<h3><p class = 'text-center'>規則：玩家必須在15秒內找出正確答案。</p></h3>
 					</div>
 					<div class="modal-footer">
-					
+						<button type="button" class="btn btn-success" data-dismiss="modal" onclick = "game_page();">開始遊戲</button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
