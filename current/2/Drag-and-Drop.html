@@ -119,7 +119,7 @@
     #cardPile div {
         background: #666;
         color: #fff;
-        font-size: 50px;
+        font-size: 25px;
         text-shadow: 0 0 3px #000;
     }
 
@@ -161,6 +161,7 @@
         box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
         padding: 20px;
     }
+
 </style>
 <body>
 
@@ -200,13 +201,13 @@
 
         // Create the pile of shuffled cards
         // <產生第一排的東西-名稱>
-        var numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+        var imgName = [ '哪吒', '四氓', '太乙', '李靖', '火尖槍', '竹林', '封火輪'];
         // <對應的答案>
-        var anser = [1,1,1,1,1,2,2,2,2,2];
+        var anser = [1,1,1,1,2,2,2];
    //     numbers.sort( function() { return Math.random() - .5 } );
 
-        for ( var i=0; i<10; i++ ) {
-            $('<div>' + numbers[i] + '</div>').data( 'number', anser[i] ).attr( 'id', 'card'+numbers[i] ).appendTo( '#cardPile' ).draggable( {
+        for ( var i=0; i<7; i++ ) {
+            $('<div>' +imgName[i] + '</div>').data( 'number', anser[i] ).attr( 'id', 'card'+imgName[i] ).appendTo( '#cardPile' ).draggable( {
                 containment: '#content',
                 stack: '#cardPile div',
                 cursor: 'move',
@@ -215,17 +216,15 @@
         }
 
         // <產生2跟3的東西   appendTo 選擇 放哪個div>
-        var words = [ 'one', 'two', 'three', 'four', 'five']
-        var words_array2 = ['six', 'seven', 'eight', 'nine', 'ten' ];
-        for ( var i=1; i<=5; i++ ) {
-            $('<div>' + words[i-1] + '</div>').data( 'number', 1 ).appendTo( '#cardSlots' ).droppable( {
+        for ( var i=1; i<=4; i++ ) {
+            $('<div>' + '</div>').data( 'number', 1 ).appendTo( '#cardSlots' ).droppable( {
                 accept: '#cardPile div',
                 hoverClass: 'hovered',
                 drop: handleCardDrop
             } );
         }
-        for ( var i=1; i<=5; i++ ) {
-            $('<div>' + words_array2[i-1] + '</div>').data( 'number', 2 ).appendTo( '#test' ).droppable( {
+        for ( var i=1; i<=3; i++ ) {
+            $('<div>'  + '</div>').data( 'number', 2 ).appendTo( '#test' ).droppable( {
                 accept: '#cardPile div',
                 hoverClass: 'hovered',
                 drop: handleCardDrop
@@ -244,7 +243,6 @@
         // again
 
         if ( slotNumber == cardNumber ) {
-            ui.draggable.addClass( 'correct' );
             ui.draggable.draggable( 'disable' );
             $(this).droppable( 'disable' );
             ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
