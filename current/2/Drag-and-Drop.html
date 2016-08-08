@@ -166,10 +166,31 @@
 <body>
 
 <div id="content">
+    <!--第一排-->
+    <div id="cardPile">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 
-    <div id="cardPile"> </div><!--第一排-->
-    <div id="cardSlots" class="cardSlots" > </div> <!--第二排-->
-    <div id="test" class="cardSlots" > </div><!--第三排-->
+
+    <!--第二排-->
+    <div id="cardSlots" class="cardSlots" >
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <!--第三排-->
+    <div id="test" class="cardSlots" >
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 
     <div id="successMessage">
         <h2>You did it!</h2>
@@ -196,46 +217,49 @@
 
         // Reset the game
         correctCards = 0;
-        $('#cardPile').html( '' );
-        $('.cardSlots').html( '' );
 
         // Create the pile of shuffled cards
         // <產生第一排的東西-名稱>
         var imgName = [ '哪吒', '四氓', '太乙', '李靖', '火尖槍', '竹林', '封火輪'];
         // <對應的答案>
         var anser = [1,1,1,1,2,2,2];
-   //     numbers.sort( function() { return Math.random() - .5 } );
-
-        for ( var i=0; i<7; i++ ) {
-            $('<div>' +imgName[i] + '</div>').data( 'number', anser[i] ).attr( 'id', 'card'+imgName[i] ).appendTo( '#cardPile' ).draggable( {
+        // <為了放答案>
+        var i=0;
+        $('#cardPile div').each(function(){
+            //對每個做的程式碼
+            $(this).html(imgName[i]);
+            $(this).data( 'anser', anser[i] ).attr( 'id', 'card'+imgName[i] ).draggable( {
                 containment: '#content',
-                stack: '#cardPile div',
                 cursor: 'move',
                 revert: true
             } );
-        }
+            // <為了放答案進去>
+            i++;
+        });
+        // <第2排跟第3排的東西  >
+        $('#cardSlots div').each(function () {
+           $(this).data( 'anser', 1 ).droppable( {
+               accept: '#cardPile div',
+               hoverClass: 'hovered',
+               drop: handleCardDrop
+           } );
+        });
 
-        // <產生2跟3的東西   appendTo 選擇 放哪個div>
-        for ( var i=1; i<=4; i++ ) {
-            $('<div>' + '</div>').data( 'number', 1 ).appendTo( '#cardSlots' ).droppable( {
+        $('#test div').each(function () {
+            $(this).data( 'anser', 2 ).droppable( {
                 accept: '#cardPile div',
                 hoverClass: 'hovered',
                 drop: handleCardDrop
             } );
-        }
-        for ( var i=1; i<=3; i++ ) {
-            $('<div>'  + '</div>').data( 'number', 2 ).appendTo( '#test' ).droppable( {
-                accept: '#cardPile div',
-                hoverClass: 'hovered',
-                drop: handleCardDrop
-            } );
-        }
+        });
+
+
 
     }
-    // <if 判斷 data 的東西是否一下>
+    // <if 判斷 data 的東西是否一樣>
     function handleCardDrop( event, ui ) {
-        var slotNumber = $(this).data( 'number' );
-        var cardNumber = ui.draggable.data( 'number' );
+        var slotNumber = $(this).data( 'anser' );
+        var cardNumber = ui.draggable.data( 'anser' );
 
         // If the card was dropped to the correct slot,
         // change the card colour, position it directly
@@ -253,7 +277,7 @@
         // If all the cards have been placed correctly then display a message
         // and reset the cards for another go
 
-        if ( correctCards == 10 ) {
+        if ( correctCards == 7 ) {
             $('#successMessage').show();
             $('#successMessage').animate( {
                 left: '380px',

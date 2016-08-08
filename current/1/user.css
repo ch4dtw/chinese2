@@ -1,4 +1,5 @@
 body {
+    font-family:"Microsoft JhengHei", "標楷體", "新細明體";
     padding-top:40px;
     background: #FFED97;
 }
@@ -16,7 +17,7 @@ body {
     position: relative;
     display: inline;
     width: 65%;
-    padding-top: 2%;
+    padding-top: 1%;
     border-radius: 20px;
     margin:5% 0 0 0;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f3f3f3+60,f3f3f3+60,ededed+61,ededed+61,ededed+63,ffffff+100 */
@@ -29,7 +30,7 @@ body {
 .send:after {
        content: "";
        position: absolute;
-       left:-5%;
+       left:-3%;
        top: 20%;
        border-style: solid;
        border-width: 13px 25px 13px 0;
@@ -66,15 +67,15 @@ body {
     border-radius: 5px;
 }
 .droppable {
-    width: 100px;
-    height: 90px;
+    width: 113px;
+    height: 102px;
     margin-top:15%;
     border-radius: 5px;
 }
 .imag_size {
     z-index: 10;
-    width: 100px;
-    height: 90px;
+    width: 113px;
+    height: 102px;
 }
 .ui-widget-header p, .ui-widget-content p {
     margin: 0;
