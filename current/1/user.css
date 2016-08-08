@@ -29,7 +29,7 @@ body {
 .send:after {
        content: "";
        position: absolute;
-       left:-5%;
+       left:-3%;
        top: 20%;
        border-style: solid;
        border-width: 13px 25px 13px 0;
