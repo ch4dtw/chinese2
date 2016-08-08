@@ -66,17 +66,15 @@ body {
     border-radius: 5px;
 }
 .droppable {
-    width: 100px;
-    height: 90px;
+    width: 113px;
+    height: 102px;
     margin-top:15%;
-    margin-left:7.5%;
-    margin-right:7.5%;
     border-radius: 5px;
 }
 .imag_size {
     z-index: 10;
-    width: 100px;
-    height: 90px;
+    width: 113px;
+    height: 102px;
 }
 .ui-widget-header p, .ui-widget-content p {
     margin: 0;
