@@ -183,9 +183,10 @@ function setDialogText() {
 
 function jump(){
     var msgRow = $('div#chatroom > div.row');
-    if( show > 0 )show -= 1;
+    if( show > 1 )show -= 1;
     else show = stage;
     scrollList=[0,3,7,12];
+    console.log(scrollList[show]);
     $('div#chatroom').animate({
         scrollTop:  $(msgRow[scrollList[show]]).offset().top
     }, 1000, 'easeOutBounce');
