@@ -16,9 +16,9 @@ body {
     position: relative;
     display: inline;
     width: 65%;
-    border-radius: 5px;
-    padding: 5% 7% 5% 7%;
-    margin: 2% 0 0 0;
+    padding-top: 2%;
+    border-radius: 20px;
+    margin:5% 0 0 0;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f3f3f3+60,f3f3f3+60,ededed+61,ededed+61,ededed+63,ffffff+100 */
     background: #ffffff; /* Old browsers */
     background: -moz-linear-gradient(top, #ffffff 0%, #f3f3f3 60%, #f3f3f3 60%, #ededed 61%, #ededed 61%, #ededed 63%, #ffffff 100%); /* FF3.6-15 */
@@ -26,6 +26,18 @@ body {
     background: linear-gradient(to bottom, #ffffff 0%, #f3f3f3 60%, #f3f3f3 60%, #ededed 61%, #ededed 61%, #ededed 63%, #ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0); /* IE6-9 */
 }
+.send:after {
+       content: "";
+       position: absolute;
+       top: 20%;
+       left: -5%;
+       border-style: solid;
+       border-width: 13px 25px 13px 0;
+       border-color: transparent #f3f3f3;
+       display: block;
+       width: 0;
+       z-index: 0;
+   }
 .flex {
     display: flex;
 }
