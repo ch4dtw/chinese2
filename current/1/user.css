@@ -69,7 +69,7 @@ body {
 .droppable {
     width: 100px;
     height: 90px;
-    margin: 15% 7.5%;
+    margin-top:15%;
     border-radius: 5px;
 }
 .imag_size {
