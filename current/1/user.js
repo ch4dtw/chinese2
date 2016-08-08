@@ -172,5 +172,6 @@ function setDialogText() {
     }
     dialog.attr('title', title);
     dialog.css('font-size', '1.4em');
+    dialog.css('font-family', 'Microsoft JhengHei');
     dialog.html(msg);
 }
