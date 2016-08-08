@@ -2,7 +2,7 @@ var score = 0;
 var count = 0;
 var check = false;
 var stage = 0;
-var amountList = [3, 3, 4];
+var amountList = [4, 4, 5];
 var nowAmount = 0;
 
 $(document).ready(function () {
@@ -80,16 +80,18 @@ function showDialog() {
     // $('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
     setDialogText();
     $('#dialog-confirm').dialog({
-        resizable: false,
+        resizable: true,
         closeOnEscape: false,
         height: "auto",
-        width: "30%",
+        width: "50%",
         modal: true,
         buttons: getDialogButtons()
     });
     $(".ui-dialog-titlebar").css('background-color','#00BB00');
     $(".ui-dialog-titlebar-close").hide();
     $('button.btn-next').focus();
+    $('span.ui-dialog-title').css('font-size', '1.6em');
+
 }
 // 顯示訊息
 function showItems(amount) {
@@ -101,7 +103,7 @@ function showItems(amount) {
     }
     $('div#chatroom').animate({
         scrollTop:  $(msgRow[nowAmount-1]).offset().top
-    }, 2000, 'easeOutBounce');
+    }, 1000, 'easeOutBounce');
 }
 // 設定對話視窗按鈕
 function getDialogButtons() {
@@ -155,8 +157,8 @@ function setDialogText() {
     var title = "";
     if (stage == 0){
         title = "伯夷列傳聊天室";
-        msg = "<p>　　司馬遷〈伯夷列傳〉圍繞著傳主伯夷和叔齊提到不少人物。<br/><br/></p>" +
-            "<p>　　這些人穿越時空來到現代，共同開了一個Line群組名為<b>伯夷列傳聊天室</b>，聚在一塊聊天，從對話紀錄中，你能否分辨他們誰是誰？<br/><br/></p>" +
+        msg = "<p>司馬遷〈伯夷列傳〉圍繞著傳主伯夷和叔齊提到不少人物。<br/><br/></p>" +
+            "<p>這些人穿越時空來到現代，共同開了一個Line群組名為<b>伯夷列傳聊天室</b>，聚在一塊聊天，從對話紀錄中，你能否分辨他們誰是誰？<br/><br/></p>" +
             "<p>遊戲方式：</p>" +
             "<p>（1）點選左側圖片，如「西伯昌」、「許由」等等。</p>" +
             "<p>（2）再將點選圖片，拖曳至符合人物話語的右側空白框格內。</p>" +
@@ -169,5 +171,6 @@ function setDialogText() {
         msg = "請繼續挑戰下一關！";
     }
     dialog.attr('title', title);
+    dialog.css('font-size', '1.4em');
     dialog.html(msg);
 }
