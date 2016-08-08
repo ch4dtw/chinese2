@@ -194,6 +194,7 @@
 
     <div id="successMessage">
         <h2>You did it!</h2>
+        <button onclick="init()">Play Again</button>
     </div>
 
 </div>
@@ -222,6 +223,7 @@
         var imgName = [ '哪吒', '四氓', '太乙', '李靖', '火尖槍', '竹林', '封火輪'];
         // <對應的答案>
         var anser = [1,1,1,1,2,2,2];
+        // <為了放答案>
         var i=0;
         $('#cardPile div').each(function(){
             //對每個做的程式碼
@@ -234,7 +236,7 @@
             // <為了放答案進去>
             i++;
         });
-        // <2跟3的東西  >
+        // <第2排跟第3排的東西  >
         $('#cardSlots div').each(function () {
            $(this).data( 'anser', 1 ).droppable( {
                accept: '#cardPile div',
@@ -242,6 +244,7 @@
                drop: handleCardDrop
            } );
         });
+
         $('#test div').each(function () {
             $(this).data( 'anser', 2 ).droppable( {
                 accept: '#cardPile div',
@@ -253,7 +256,7 @@
 
 
     }
-    // <if 判斷 data 的東西是否一下>
+    // <if 判斷 data 的東西是否一樣>
     function handleCardDrop( event, ui ) {
         var slotNumber = $(this).data( 'anser' );
         var cardNumber = ui.draggable.data( 'anser' );
