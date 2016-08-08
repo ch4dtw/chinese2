@@ -15,7 +15,6 @@ body {
 .send {
     position: relative;
     display: inline;
-    left:5%;
     width: 65%;
     padding-top: 2%;
     border-radius: 20px;
