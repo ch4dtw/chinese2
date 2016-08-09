@@ -4,6 +4,7 @@ var check = false;
 var stage = 0;
 var amountList = [4, 4, 5];
 var nowAmount = 0;
+var show=0;
 
 $(document).ready(function () {
     showDialog();
@@ -95,11 +96,13 @@ function showDialog() {
 }
 // 顯示訊息
 function showItems(amount) {
+    var time=0;
     for (var i = 0; i < amount; i++) {
         var msgRow = $('div#chatroom > div.row');
-        $(msgRow[nowAmount]).fadeIn();
+        $(msgRow[nowAmount]).fadeIn(time);
         $('div.avatar:nth-child(' + (nowAmount+1) + ')').fadeIn();
         nowAmount += 1;
+        time+=3000;
     }
     $('div#chatroom').animate({
         scrollTop:  $(msgRow[nowAmount-1]).offset().top
@@ -115,6 +118,7 @@ function getDialogButtons() {
             click: function () {
                 showItems(amountList[stage]);
                 stage += 1;
+                show = stage;
                 $(this).dialog('close');
             }
         });
@@ -143,6 +147,7 @@ function getDialogButtons() {
                 click: function () {
                     showItems(amountList[stage]);
                     stage += 1;
+                    show = stage;
                     $(this).dialog('close');
                 }
             }
@@ -174,4 +179,14 @@ function setDialogText() {
     dialog.css('font-size', '1.4em');
     dialog.css('font-family', 'Microsoft JhengHei');
     dialog.html(msg);
+}
+
+function jump(){
+    var msgRow = $('div#chatroom > div.row');
+    if( show > 1 )show -= 1;
+    else show = stage;
+    scrollList=[0,3,7,12];
+    $('div#chatroom').animate({
+        scrollTop:  $(msgRow[scrollList[show]]).offset().top
+    }, 1000, 'easeOutBounce');
 }
