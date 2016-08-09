@@ -27,7 +27,7 @@
 			}
 			img{
 				width: 150px;
-				height: 250px;
+				height: 180px;
 				
 				
 				padding: 0;
@@ -42,8 +42,10 @@
 				border-style : solid;
 				background-color: #FFFFF2;
 				border-width : 6px; 
-				
+				width: 150px;
 				height: 100px;
+			//	margin : 0;
+			//	top : 100px;
 				
 			}
 			.font-sty{
@@ -55,8 +57,11 @@
 				border-style : solid;
 				background-color: #FFFFF2;
 				border-width : 6px; 
-				height: 300px;
-				weight : 90px;
+				height: 150px;
+				weight : 150px;
+			}
+			.div-color{
+				
 			}
 			.name-box{
 				border-color : #DBDB00;
@@ -85,18 +90,25 @@
 				$("#start_page").hide();
 				$("#first_page").html('<h1 class = "text-center">我是第一關</h1>');
 				$('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
-			alert(stage);
+		//	alert(stage);
 			}
 			else if(stage == 1){
 				stage++;
 				$(".modal-body").html("<h1><p style = 'color:#0066FF;' class = 'text-center'>Round 2 -人物關係對對碰</p></h1>	<h4><p style = 'color:#FF0000;' class = 'text-center'>在《封神榜裡的哪吒》課文中出現四位重要人物，太乙、哪吒、李靖、四氓。以哪吒為主角，放入其他角色關係，即可完成作答。</p></h4>");
 			//	alert(stage);
-				$(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" >開始遊戲</button>');
-
-				$("#secon_page").html('<h1 class = "text-center">我是第二關</h1>');
+				//點擊button會執行 show() ，出現第二關畫面
+				$(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick = "show();">開始遊戲</button>');
 				$('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
+				$("#first_page").hide();
+				
+				
 			}
 			
+		}
+		function show(){
+			if(stage == 2){
+				$('#secon_page').fadeIn();
+			}
 		}
 		function is_success(success){
 			if(success == 1){
@@ -114,14 +126,16 @@
 	
 	<body class = "container-fluid" >
 		
-		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<!--div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
 					<h1>多媒體互動題 &nbsp; 得分： <span id="score">0</span></h1>
 				</div>
 			</div>
-		</div>
-			
+		</div-->
+		<button class="btn btn-success" onclick = "showDialog();">hit me</button>
+		<button class="btn btn-success" onclick = "is_success(1);">hit me1</button>
+		<button class="btn btn-success" onclick = "is_success(2);">hit me2</button>	
 		<div id = "start_page" >
 			<!--div id = "title" class = "text-center"><br>開始畫面</div-->
 			
@@ -131,13 +145,13 @@
 		</div>
 		
 		<!------第二關-------------------->
-		<div id = "secon_page" class = "container-fluid">
+		<div id = "secon_page" class = "container-fluid" hidden="hidden"> <!-- 一開始先隱藏 -->
 			<div class = "row" style = "margin: 90px 0 0 0;">
-				<div class = "col-md-2 name-box" >
+				<div class = "col-md-2  " >
 					<img src = "img/哪吒.jpg"/>
 					<div class = "text-center"><h3>哪吒<h3></div>
 				</div>	
-				<div style = "margin: 90px 0 0 0;">
+				<div style = "margin: 30px 0 0 0;">  	
 					<div class = "col-md-2 col-md-offset-1" >
 						<div class = "draggable">
 							<div class = "text-center" id = "font-sty"><h3>書僮<h3></div>
@@ -153,41 +167,43 @@
 							<div class = "text-center"><h3>父親<h3></div>
 						</div>
 					</div>	
+				</div>	
+			</div>
+			<div class = "row" style = "margin: 0 ;">
+				<div class = "col-md-2 col-md-offset-3">
+					<div class = "droppable" style = "border-color : #FFABAB; ">  <!-- border-color 設定邊框的顏色 -->
+					</div>
+				</div>
+				<div class = "col-md-2 col-md-offset-1">
+					<div class = "droppable" style = "border-color : #45FF45; ">
+					</div>
+				</div>  	
+				<div class = "col-md-2 col-md-offset-1">
+					<div class = "droppable" style = "border-color : #B200B2; ">
+					</div>
 				</div>
 			</div>
-			
-			<div  class = "row" style = "margin: 50px 0 0 10% ; ">
-				<div class = "col-md-2 col-md-offset-1 name-box">
+			<div  class = "row" style = "margin: 10px 0 0 0 ; ">
+				<div class = "col-md-2 col-md-offset-3 ">
 					<img  src = "img/太乙.jpg"/>
 					<div class = "text-center "><h3>太乙<h3></div>
 				</div>
-				<div class = "col-md-2 ">
-					<div class = "droppable">
-					</div>
-				</div>
-				<div class = "col-md-2 name-box" >
+				
+				<div class = "col-md-2 col-md-offset-1 " >
 					<img src = "img/李靖.jpg"/>
 					<div class = "text-center"><h3>李靖<h3></div>
 				</div>
-				<div class = "col-md-2 ">
-					<div class = "droppable">
-					</div>
-				</div>
-				<div class = "col-md-2 name-box" >
+				
+				<div class = "col-md-2 col-md-offset-1 " >
 					<img src = "img/四氓.jpg"/>
 					<div class = "text-center"><h3>四氓<h3></div>
 				</div>
-				<div class = "col-md-2 ">
-					<div class = "droppable">
-					</div>
-				</div>	
+					
 				
 					
 			</div>
 		</div>
-		<button class="btn btn-success" onclick = "showDialog();">hit me</button>
-		<button class="btn btn-success" onclick = "is_success(1);">hit me1</button>
-		<button class="btn btn-success" onclick = "is_success(2);">hit me2</button>
+		
 		<!--------遊戲提示------------------------------------------------------------->
 		<div class="modal fade" id ="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
 			<div class="modal-dialog" role="document">
