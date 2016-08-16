@@ -10,10 +10,14 @@
     <script>
     $(document).ready(function(){
         $(".btn1").click(function(){
-            $(".in").fadeOut()
+            $(".in").fadeOut(2000)
+            $(".in1").fadeOut(4000)
+            $(".in2").fadeOut(6000)
         });
-        $("body").click(function(){
-            $(".in").fadeIn();
+        $(".btn2").click(function(){
+            $(".in").fadeIn(2000)
+            $(".in1").fadeIn(5000)
+            $(".in2").fadeIn(8000)
         });
     });
     </script>
@@ -30,10 +34,10 @@
             </style>
 </head>
 <body>
-<div class="row">
-  <div class="col-md-4 in"><img src = "img/火尖槍.png" height="200"/></div>
+<div class="row" >
+  <div class="col-md-4 in1"><img src = "img/火尖槍.png" height="200"/></div>
   <div class="col-md-4 in"><img src = "img/哪吒.jpg" height="200"/></div>
-  <div class="col-md-4 in"><img src = "img/風火輪.png" height="200"/></div>
+  <div class="col-md-4 in2"><img src = "img/風火輪.png" height="200"/></div>
 </div>
 
 
