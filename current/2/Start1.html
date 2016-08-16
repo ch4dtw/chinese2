@@ -1,225 +1,57 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>封神榜裡的哪吒</title>
-		<meta charset="utf-8">
-		<link href="../bootstrap/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
-		<link href="../jquery/jquery-ui-1.12.0.min.css" rel="stylesheet">
-		
-		<script src="../jquery/jquery-2.2.4.min.js"></script>
-		<link rel="stylesheet" href="../bootstrap/bootstrap-3.3.6-dist/css/bootstrap.min.css">
-		<script src="../bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-		
-		
-		<style>
-			body {
-				background: url( "img/竹林.png ");
-				background-repeat:no-repeat;
-				background-attachment:fixed;　
-				background-position:center;
-				background-size:cover;
-				
-			}
-			#title{
-				font-size: 72px;
-				font-weight: lighter;
-				color: #000088;
-			}
-			img{
-				width: 150px;
-				height: 180px;
-				
-				
-				padding: 0;
-				margin : 0;
-			}
-			h3{
-				color : #DBDB00;
-				font-weight : bolder;
-			}
-			.draggable{
-				border-color : #FF5959;
-				border-style : solid;
-				background-color: #FFFFF2;
-				border-width : 6px; 
-				width: 150px;
-				height: 100px;
-			//	margin : 0;
-			//	top : 100px;
-				
-			}
-			.font-sty{
-			//	top : 45%;
-				position: absolute;
-			}
-			.droppable{
-				border-color : #FF5959;
-				border-style : solid;
-				background-color: #FFFFF2;
-				border-width : 6px; 
-				height: 150px;
-				weight : 150px;
-			}
-			.div-color{
-				
-			}
-			.name-box{
-				border-color : #DBDB00;
-				border-style : solid;
-				background-color: white;
-				border-width : 2px; 
-				position : relative;
-				width: 154px;
-				padding: 0;
-				margin : 0;
-			}
-			
-		</style>
-	</head>
-	
-	<script>
-		var stage = 0;
-		
-		function showDialog() {
-			if(stage == 0){
-				stage++;
-				
-				$(".modal-body").html("<h1><p style = 'color:#0066FF;' class = 'text-center'>Round 1 -教育態度分分看</p></h1>	<h4><p style = 'color:#FF0000;' class = 'text-center'>課文中對於哪吒而言，太乙就像他第二個父親，兩位父親分別代表不同教育態度，請依照課文內容來分析，這些形容詞分別代表哪位人物的教育態度。</p></h4>");
-				
-				$(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" >開始遊戲</button>');
-				$("#start_page").hide();
-				$("#first_page").html('<h1 class = "text-center">我是第一關</h1>');
-				$('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
-		//	alert(stage);
-			}
-			else if(stage == 1){
-				stage++;
-				$(".modal-body").html("<h1><p style = 'color:#0066FF;' class = 'text-center'>Round 2 -人物關係對對碰</p></h1>	<h4><p style = 'color:#FF0000;' class = 'text-center'>在《封神榜裡的哪吒》課文中出現四位重要人物，太乙、哪吒、李靖、四氓。以哪吒為主角，放入其他角色關係，即可完成作答。</p></h4>");
-			//	alert(stage);
-				//點擊button會執行 show() ，出現第二關畫面
-				$(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick = "show();">開始遊戲</button>');
-				$('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
-				$("#first_page").hide();
-				
-				
-			}
-			
-		}
-		function show(){
-			if(stage == 2){
-				$('#secon_page').fadeIn();
-			}
-		}
-		function is_success(success){
-			if(success == 1){
-				$(".modal-body").html("<h1><p style = 'color:#FF0000;' class = 'text-center'>挑戰成功</p></h1><br>	<h4><p style = 'color:#0066FF;' class = 'text-center'>恭喜你挑戰成功<br>再挑戰一次吧!</p></h4>");
-				$(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick="location.reload();">再玩一次</button>');
-				$('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
-			}
-			else if(success == 2){
-				$(".modal-body").html("<h1><p style = 'color:#FF0000;' class = 'text-center'>挑戰失敗</p></h1><br><h4><p style = 'color:#0066FF;' class = 'text-center'>太可惜了<br>再挑戰一次吧!</p></h4>");
-				$(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick="location.reload();">再玩一次</button>');
-				$('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
-			}
-		}
-	</script>
-	
-	<body class = "container-fluid" >
-		
-		<!--div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<div class="container">
-				<div class="navbar-header">
-					<h1>多媒體互動題 &nbsp; 得分： <span id="score">0</span></h1>
-				</div>
-			</div>
-		</div-->
-		<button class="btn btn-success" onclick = "showDialog();">hit me</button>
-		<button class="btn btn-success" onclick = "is_success(1);">hit me1</button>
-		<button class="btn btn-success" onclick = "is_success(2);">hit me2</button>	
-		<div id = "start_page" >
-			<!--div id = "title" class = "text-center"><br>開始畫面</div-->
-			
-		</div>
-		<!------第一關-------------------->
-		<div id = "first_page">
-		</div>
-		
-		<!------第二關-------------------->
-		<div id = "secon_page" class = "container-fluid" hidden="hidden"> <!-- 一開始先隱藏 -->
-			<div class = "row" style = "margin: 90px 0 0 0;">
-				<div class = "col-md-2  " >
-					<img src = "img/哪吒.jpg"/>
-					<div class = "text-center"><h3>哪吒<h3></div>
-				</div>	
-				<div style = "margin: 30px 0 0 0;">  	
-					<div class = "col-md-2 col-md-offset-1" >
-						<div class = "draggable">
-							<div class = "text-center" id = "font-sty"><h3>書僮<h3></div>
-						</div>
-					</div>	
-					<div class = "col-md-2 col-md-offset-1" >
-						<div class = "draggable">
-							<div class = "text-center"><h3>師父<h3></div>
-						</div>
-					</div>	
-					<div class = "col-md-2 col-md-offset-1" >
-						<div class = "draggable">
-							<div class = "text-center"><h3>父親<h3></div>
-						</div>
-					</div>	
-				</div>	
-			</div>
-			<div class = "row" style = "margin: 0 ;">
-				<div class = "col-md-2 col-md-offset-3">
-					<div class = "droppable" style = "border-color : #FFABAB; ">  <!-- border-color 設定邊框的顏色 -->
-					</div>
-				</div>
-				<div class = "col-md-2 col-md-offset-1">
-					<div class = "droppable" style = "border-color : #45FF45; ">
-					</div>
-				</div>  	
-				<div class = "col-md-2 col-md-offset-1">
-					<div class = "droppable" style = "border-color : #B200B2; ">
-					</div>
-				</div>
-			</div>
-			<div  class = "row" style = "margin: 10px 0 0 0 ; ">
-				<div class = "col-md-2 col-md-offset-3 ">
-					<img  src = "img/太乙.jpg"/>
-					<div class = "text-center "><h3>太乙<h3></div>
-				</div>
-				
-				<div class = "col-md-2 col-md-offset-1 " >
-					<img src = "img/李靖.jpg"/>
-					<div class = "text-center"><h3>李靖<h3></div>
-				</div>
-				
-				<div class = "col-md-2 col-md-offset-1 " >
-					<img src = "img/四氓.jpg"/>
-					<div class = "text-center"><h3>四氓<h3></div>
-				</div>
-					
-				
-					
-			</div>
-		</div>
-		
-		<!--------遊戲提示------------------------------------------------------------->
-		<div class="modal fade" id ="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<!--div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-						<h4 class="modal-title">Modal title</h4>
-					</div-->
-					<div class="modal-body">
-						
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-success" data-dismiss="modal" >開始遊戲</button>
-					</div>
-				</div><!-- /.modal-content -->
-			</div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
-	</body>
+<head>
+    <title>封神榜裡的哪吒大考驗</title>
+    <meta charset="utf-8">
+    <link href="../bootstrap/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../jquery/jquery-ui-1.12.0.min.css" rel="stylesheet">
+    <link href="../global/user.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+</head>
+<body>
+          	<div class="row" >
+                <div class="col-lg-4 "><img src = "img/left.png" height="500"/></div>
+                <div class="col-lg-4 ">
+                
+                    <div class="row" >
+                    </br>
+                        <img src = "img/1.png"/>
+                        <img src = "img/2.png"/>
+                    </div>
+                    <div class="row" >
+                    </br>
+                        <img src = "img/3.png"/>
+                        <img src = "img/4.png"/>
+                    </div>    
+                    <div class="row" >    
+                    </br>
+                        <img src = "img/5.png" />
+                        <img src = "img/6.png"/>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-4 "><img src = "img/right.png" height="500" /></div>
+            </div>
+            <div class="row" >
+            </div>
+          	<div class="row" >
+                <div class="col-lg-4 "><td align="center"><img src = "img/李靖.jpg" height="200" style="display:block; margin:auto;" /></td></div>
+                <div class="col-lg-4 col-lg-offset-4"><td align="center"><img src = "img/A.jpg" height="200" style="display:block; margin:auto;" /></td></div>
+            </div>
+            
+        </div>
+
+
+
+<!--Bootstrap 與 jquery 核心 JS-->
+<!-- 文件讀完才會讀 JS，讀取速度較快  -->
+<!--<script src="../jquery/jquery-3.1.0.min.js"></script>-->
+<script src="../jquery/jquery-2.2.4.min.js"></script>
+<!--<script src="../jquery/jquery-1.10.2.min.js"></script>-->
+<script src="../jquery/jquery-ui-1.12.0.min.js"></script>
+<!--bootsrtap必須先引入JQuery-->
+<script src="../bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+<script src="../1/user.js"></script>
+</body>
 </html>
