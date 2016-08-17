@@ -6,38 +6,52 @@
     <link href="../bootstrap/bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../jquery/jquery-ui-1.12.0.min.css" rel="stylesheet">
     <link href="../global/user.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>
-    $(document).ready(function(){
-        $(".btn1").click(function(){
-            $(".in").fadeOut()
-        });
-        $(".btn2").click(function(){
-            $(".in").fadeIn();
-        });
-    });
-    </script>
-    <font size="6">封神榜裡的哪吒大考驗</font>
-    		<style>
-			body {
-				background: url( "img/竹林.png ");
-				background-repeat:no-repeat;
-				background-attachment:fixed;　
-				background-position:center;
-				background-size:100%;
-				
-			}
-            </style>
+    <style>
+    .img_level_one{
+        margin: 10px;
+    
+    }
+    
+    .center{
+  text-align : center;
+    
+  /* Firefox, Chrome */
+  line-height : 200px;
+    
+  /* IE */
+  *font-size : 180px;  /* 200px * 0.9 = 180px */
+  *font-family : Arial;
+    }
+    </style>
+
 </head>
 <body>
-<div class="row">
-  <div class="col-md-4 in"><img src = "img/李靖.jpg" height="200"/></div>
-  <div class="col-md-4 in">放6個形容詞</div>
-  <div class="col-md-4 in"><img src = "img/太乙.jpg" height="200"/></div>
-</div>
+                <div class="row" >
+                <div class="col-lg-4 center"><img src = "img/left.png" height="500"/></div>
+                <div class="col-lg-4 center">
+                     <div class="col-lg-8 center">   
+                     <div ><img class="img_level_one" src = "img/1.png"/></div>
+                     <div ><img class="img_level_one" src = "img/2.png"/></div>
+                     <div ><img class="img_level_one" src = "img/3.png"/></div>
+                     </div>
 
-
-
+                     <div class="col-lg-4 center">
+                        <div><img class="img_level_one" src = "img/4.png"/></div>
+                        <div><img class="img_level_one" src = "img/5.png"/></div>
+                        <div><img class="img_level_one" src = "img/6.png"/></div>
+                     </div>
+                 </div>
+                <div class="col-lg-4 center"><img src = "img/right.png" height="500" /></div>
+                </div>
+                
+            <div class="row" >
+            </div>
+          	<div class="row" >
+                <div class="col-lg-4 "><td align="center"><img src = "img/李靖.jpg" height="200" style="display:block; margin:auto;" /></td></div>
+                <div class="col-lg-4 col-lg-offset-4"><td align="center"><img src = "img/A.jpg" height="200" style="display:block; margin:auto;" /></td></div>
+            </div>
+            
+        </div>
 
 
 
