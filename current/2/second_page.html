@@ -24,7 +24,7 @@
 				height : 100%;
 			//	length
 			}
-			img{
+			.sec_pageImg{
 				width: 80%;
 				height: 70%;
 				padding: 0;
@@ -43,9 +43,6 @@
 				background-color: #FFFFF2;
 				border-width : 6px; 
 				width: 70%;
-			//	height: 50%;
-			//	margin : 0;
-			//	top : 100px;
 				
 			}
 			.font-sty{
@@ -135,13 +132,13 @@
 	</script>
 	
 	<body  ><!--class = "container-fluid"-->
-		<!--div id = "navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div id = "navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
 					<h1>多媒體互動題 &nbsp; 得分： <span id="score">0</span></h1>
 				</div>
 			</div>
-		</div-->
+		</div>
 		<div id = "start_page" >
 			start
 		</div>
@@ -156,10 +153,10 @@
 			
 			<div class = "row" style = "margin: 15% 0 0 0;">
 				<div class = "col-md-2  " >
-					<img src = "img/哪吒.jpg"/>
-					<div class = "text-center"><h3>哪吒<h3></div>
+					<div >
+						<img class = "sec_pageImg" src = "img/哪吒.jpg"/>
+					</div>
 				</div>	
-				
 				<div style = "margin: 5% 0 0 0;"> <!--hr align="left" -->
 					<div class = "col-md-2 col-md-offset-1" >
 						<div class = "div-txt" >
@@ -178,7 +175,7 @@
 					</div>	
 				</div>	
 			</div>
-			<div class = "row" style = "margin: 0 ;">
+			<div class = "row" >
 				<div class = "col-md-2 droppable col-md-offset-3">
 					<span class="check"></span>
 					<div class = "holder" id="_A" style = "border-color : #FFABAB; ">  <!-- border-color 設定邊框的顏色 -->
@@ -197,18 +194,21 @@
 			</div>
 			<div  class = "row" style = "margin: 10px 0 0 0 ; ">
 				<div id="A" class = "col-md-2 col-md-offset-3 " >
-					<img id="A" class="draggable" src = "img/A.jpg" /> 
-					<div class = "text-center "><h3>太乙<h3></div>
+					<div class = "sec_pageImg">
+						<img id="A" class="draggable" src = "img/A.jpg" /> 
+					</div>
 				</div>
 				
 				<div id="B" class = "col-md-2 col-md-offset-1 "  >
-					<img id="B" class="draggable" src = "img/B.jpg"  />
-					<div class = "text-center"><h3>李靖<h3></div>
+					<div class = "sec_pageImg">
+						<img id="B" class="draggable" src = "img/B.jpg"  />
+					</div>
 				</div>
 				
 				<div id="C" class = "col-md-2 col-md-offset-1 "  >
-					<img id="C" class="draggable" src = "img/C.jpg"  />
-					<div class = "text-center"><h3>四氓<h3></div>
+					<div class = "sec_pageImg">
+						<img id="C" class="draggable" src = "img/C.jpg"  />
+					</div>
 				</div>
 					
 				
@@ -238,16 +238,26 @@
 		
 		<!--------遊戲開始------------------------------------------------------------->
 		<div id = "GameStart2" hidden="hidden">
-			<div class = "text-center ">
+			<div class = "text-center " style = "margin: 10% 0 0 0;">
 				<button  type = "button" class = " btn btn-link " onclick = "$('#GameStart2').hide();$('#secon_page').fadeIn();">
-					<img id = "start-btn" class = "img-circle" src = "img/start.png" >
+					<div class = "sec_pageImg">
+						<img id = "start-btn" class = "img-circle" src = "img/start.png" >
+					</div>	
 				</button>
 			</div>
 			<div class = "row" style = "margin: 10% 0 0 0;">
-				<img class = "col-md-2 col-md-offset-1" src = "img/哪吒.jpg"/>
-				<img class = "col-md-2 col-md-offset-1" src = "img/A.jpg">
-				<img class = "col-md-2 col-md-offset-1" src = "img/B.jpg"/>
-				<img class = "col-md-2 col-md-offset-1" src = "img/C.jpg"/>
+				<div class = "sec_pageImg">
+					<img class = "col-md-2 col-md-offset-1" src = "img/哪吒.jpg"/>
+				</div>
+				<div class = "sec_pageImg">
+					<img class = "col-md-2 col-md-offset-1" src = "img/A.jpg">
+				</div>
+				<div class = "sec_pageImg">	
+					<img class = "col-md-2 col-md-offset-1" src = "img/B.jpg"/>
+				</div>
+				<div class = "sec_pageImg">
+					<img class = "col-md-2 col-md-offset-1" src = "img/C.jpg"/>
+				</div>	
 			</div>
 		</div>
 		<div class="container chi">
