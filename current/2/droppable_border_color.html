@@ -78,50 +78,7 @@
 	</head>
 	
 	<script>
-		var stage = 0;
-		
-		function showDialog() {
-			if(stage == 0){
-				stage++;
-				
-				$(".modal-body").html("<h1><p style = 'color:#0066FF;' class = 'text-center'>Round 1 -教育態度分分看</p></h1>	<h4><p style = 'color:#FF0000;' class = 'text-center'>課文中對於哪吒而言，太乙就像他第二個父親，兩位父親分別代表不同教育態度，請依照課文內容來分析，這些形容詞分別代表哪位人物的教育態度。</p></h4>");
-				
-				$(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" >開始遊戲</button>');
-				$("#start_page").hide();
-				$("#first_page").html('<h1 class = "text-center">我是第一關</h1>');
-				$('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
-		//	alert(stage);
-			}
-			else if(stage == 1){
-				stage++;
-				$(".modal-body").html("<h1><p style = 'color:#0066FF;' class = 'text-center'>Round 2 -人物關係對對碰</p></h1>	<h4><p style = 'color:#FF0000;' class = 'text-center'>在《封神榜裡的哪吒》課文中出現四位重要人物，太乙、哪吒、李靖、四氓。以哪吒為主角，放入其他角色關係，即可完成作答。</p></h4>");
-			//	alert(stage);
-				//點擊button會執行 show() ，出現第二關畫面
-				$(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick = "show();">開始遊戲</button>');
-				$('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
-				$("#first_page").hide();
-				
-				
-			}
-			
-		}
-		function show(){
-			if(stage == 2){
-				$('#secon_page').fadeIn();
-			}
-		}
-		function is_success(success){
-			if(success == 1){
-				$(".modal-body").html("<h1><p style = 'color:#FF0000;' class = 'text-center'>挑戰成功</p></h1><br>	<h4><p style = 'color:#0066FF;' class = 'text-center'>恭喜你挑戰成功<br>再挑戰一次吧!</p></h4>");
-				$(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick="location.reload();">再玩一次</button>');
-				$('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
-			}
-			else if(success == 2){
-				$(".modal-body").html("<h1><p style = 'color:#FF0000;' class = 'text-center'>挑戰失敗</p></h1><br><h4><p style = 'color:#0066FF;' class = 'text-center'>太可惜了<br>再挑戰一次吧!</p></h4>");
-				$(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick="location.reload();">再玩一次</button>');
-				$('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
-			}
-		}
+
 	</script>
 	
 	<body class = "container-fluid" >
@@ -141,19 +98,20 @@
 			
 		</div>
 		
-		<div class="container chi">
-			<button class="btn btn-primary btn-lg check">
-				<span class="check-text"> 
-					對答案
-				</span>
-			</button>
-		</div>
+
 		<!------第一關-------------------->
 		<div id = "first_page">
 		</div>
 		
 		<!------第二關-------------------->
 		<div id = "secon_page" class = "container-fluid" hidden="hidden"> <!-- 一開始先隱藏 -->
+            <div>
+                <button class="btn btn-primary btn-lg check">
+                    <span class="check-text"> 
+                        對答案
+                    </span>
+                </button>
+            </div>
 			<div class = "row" style = "margin: 90px 0 0 0;">
 				<div class = "col-md-2  " >
 					<img src = "img/哪吒.jpg"/>
@@ -195,24 +153,28 @@
 				</div>
 			</div>
 			<div  class = "row" style = "margin: 10px 0 0 0 ; ">
+                //太乙
 				<div id="A" class = "col-md-2 col-md-offset-3 " >
-					<img id="A" class="draggable" src = "img/A.jpg"  />
-					<div class = "text-center "><h3>太乙<h3></div>
+					<img id="A" class="draggable" src = "img/A.jpg" />
 				</div>
-				
+				//李靖
 				<div id="B" class = "col-md-2 col-md-offset-1 "  >
 					<img id="B" class="draggable" src = "img/B.jpg"  />
-					<div class = "text-center"><h3>李靖<h3></div>
 				</div>
-				
+				//四氓
 				<div id="C" class = "col-md-2 col-md-offset-1 "  >
 					<img id="C" class="draggable" src = "img/C.jpg"  />
-					<div class = "text-center"><h3>四氓<h3></div>
 				</div>
 					
 				
 					
 			</div>
+            <div id="FireRing" hidden="hidden" onclick="is_success(1);">
+                <img src="./img/風火輪.png" />
+            </div>
+            <div id="again" hidden="hidden" onclick="is_success(2);">
+                <img src="./img/火尖槍.png" />
+            </div>
 		</div>
 		
 		<!--------遊戲提示------------------------------------------------------------->
@@ -232,6 +194,6 @@
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
-		<script src="../2/userTwo.js"></script>
+		<script src="../2/user.js"></script>
 	</body>
 </html>
