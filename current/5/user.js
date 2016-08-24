@@ -78,7 +78,7 @@ function showError() {
 }
 //呼叫過關視窗
 function showDialog() {
-    // $('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
+    // $('#myModal').modal({backdrop: 'static'});//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
     setDialogText();
     $('#dialog-confirm').dialog({
         resizable: true,

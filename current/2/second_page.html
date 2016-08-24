@@ -192,7 +192,7 @@
         else if (success == 2) {
             $(".modal-body").html("<h1><p style = 'color:#FF0000;' class = 'text-center'>挑戰失敗</p></h1><br><h4><p style = 'color:#0066FF;' class = 'text-center'>太可惜了<br>再挑戰一次吧!</p></h4>");
             $(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick="location.reload();">再玩一次</button>');
-            $('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
+            $('#myModal').modal({backdrop: 'static'});  //backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
         }
     }
 </script>
@@ -348,9 +348,9 @@
 </div>
 <div class="container chi">
     <button class="btn btn-primary btn-lg check">
-				<span class="check-text">
-					對答案
-				</span>
+        <span class="check-text">
+            對答案
+        </span>
     </button>
 </div>
 <button class="btn btn-success" onclick="showDialog();">hit me</button>

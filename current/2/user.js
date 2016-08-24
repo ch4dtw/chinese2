@@ -77,21 +77,21 @@ function showDialog() {
     if (stage == 0) {
         stage++;
 
-        $(".modal-body").html("<h1><p style = 'color:#0066FF;' class = 'text-center'>Round 1 -教育態度分分看</p></h1>	<h4><p style = 'color:#FF0000;' class = 'text-center'>課文中對於哪吒而言，太乙就像他第二個父親，兩位父親分別代表不同教育態度，請依照課文內容來分析，這些形容詞分別代表哪位人物的教育態度。</p></h4>");
+        $(".modal-body").html("<h1><p style = 'color:#0066FF;' class = 'text-center'>Round 1 -教育態度分分看</p></h1><h4><p style = 'color:#FF0000;' class = 'text-center'>課文中對於哪吒而言，太乙就像他第二個父親，兩位父親分別代表不同教育態度，請依照課文內容來分析，這些形容詞分別代表哪位人物的教育態度。</p></h4>");
 
         $(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" >開始遊戲</button>');
         $("#start_page").hide();
         $("#first_page").html('<h1 class = "text-center">我是第一關</h1>');
-        $('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
-        //	alert(stage);
+        $('#myModal').modal({backdrop: 'static'});//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
+        //alert(stage);
     }
     else if (stage == 1) {
         stage++;
-        $(".modal-body").html("<h1><p style = 'color:#0066FF;' class = 'text-center'>Round 2 -人物關係對對碰</p></h1>	<h4><p style = 'color:#FF0000;' class = 'text-center'>在《封神榜裡的哪吒》課文中出現四位重要人物，太乙、哪吒、李靖、四氓。以哪吒為主角，放入其他角色關係，即可完成作答。</p></h4>");
-        //	alert(stage);
+        $(".modal-body").html("<h1><p style = 'color:#0066FF;' class = 'text-center'>Round 2 -人物關係對對碰</p></h1><h4><p style = 'color:#FF0000;' class = 'text-center'>在《封神榜裡的哪吒》課文中出現四位重要人物，太乙、哪吒、李靖、四氓。以哪吒為主角，放入其他角色關係，即可完成作答。</p></h4>");
+        //alert(stage);
         //點擊button會執行 show() ，出現第二關畫面
         $(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick = "show();">開始遊戲</button>');
-        $('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
+        $('#myModal').modal({backdrop: 'static'});//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
         $("#first_page").hide();
 
 
@@ -105,13 +105,13 @@ function show() {
 }
 function is_success(success) {
     if (success == 1) {
-        $(".modal-body").html("<h1><p style = 'color:#FF0000;' class = 'text-center'>挑戰成功</p></h1><br>	<h4><p style = 'color:#0066FF;' class = 'text-center'>恭喜你挑戰成功<br>再挑戰一次吧!</p></h4>");
+        $(".modal-body").html("<h1><p style = 'color:#FF0000;' class = 'text-center'>挑戰成功</p></h1><br><h4><p style = 'color:#0066FF;' class = 'text-center'>恭喜你挑戰成功<br>再挑戰一次吧!</p></h4>");
         $(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick="location.reload();">再玩一次</button>');
-        $('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
+        $('#myModal').modal({backdrop: 'static'});//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
     }
     else if (success == 2) {
         $(".modal-body").html("<h1><p style = 'color:#FF0000;' class = 'text-center'>挑戰失敗</p></h1><br><h4><p style = 'color:#0066FF;' class = 'text-center'>太可惜了<br>再挑戰一次吧!</p></h4>");
         $(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick="location.reload();">再玩一次</button>');
-        $('#myModal').modal({backdrop: 'static'});	//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
+        $('#myModal').modal({backdrop: 'static'});//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
     }
 }
