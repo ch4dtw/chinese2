@@ -85,6 +85,8 @@
         -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
         -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
         box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+        display: flex;
+        justify-content: center;
     }
 
     /* Individual cards and slots */
@@ -204,36 +206,37 @@
     var array_2=[];
     var array_3=[];
     var anser = [];
-    
-    
+
+
     $( function() {
         $( "#cardPile, #cardSlots,#test" ).sortable({
             connectWith: "#cardPile, #cardSlots,#test",
             revert:true,
+            tolerance: "pointer",
             receive: function( event, ui ) {
                 array_1=[];
                 array_2=[];
                 array_3=[];
                 score = 0;
-                
-                
-            
+
+
+
                 $( "#cardPile div" ).each(function() {
-                  array_1.push($(this).attr("id")); 
+                  array_1.push($(this).attr("id"));
                 });
                 $( "#cardSlots div" ).each(function() {
-                  array_2.push($(this).attr("id"));       
+                  array_2.push($(this).attr("id"));
                 });
                 $( "#test div" ).each(function() {
                   array_3.push($(this).attr("id"));
                 });
-               
-               
+
+
                 anser = $(array_2).not($(array_2).not(ans)).toArray();
                 anser = anser.concat($(array_3).not($(array_3).not(ans2)).toArray());
-                
+
                 console.log(anser);
-                
+
                 if(array_1.length == 0)
                 {
                     console.log(anser.length);
