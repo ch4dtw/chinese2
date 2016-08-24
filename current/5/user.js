@@ -4,7 +4,7 @@ var check = false;
 var stage = 0;
 var amountList = [4, 4, 5];
 var nowAmount = 0;
-var show=0;
+var show = 0;
 
 $(document).ready(function () {
     showDialog();
@@ -88,7 +88,7 @@ function showDialog() {
         modal: true,
         buttons: getDialogButtons()
     });
-    $(".ui-dialog-titlebar").css('background-color','#00BB00');
+    $(".ui-dialog-titlebar").css('background-color', '#00BB00');
     $(".ui-dialog-titlebar-close").hide();
     $('button.btn-next').focus();
     $('span.ui-dialog-title').css('font-size', '1.6em');
@@ -96,22 +96,22 @@ function showDialog() {
 }
 // 顯示訊息
 function showItems(amount) {
-    var time=0;
+    var time = 0;
     for (var i = 0; i < amount; i++) {
         var msgRow = $('div#chatroom > div.row');
         $(msgRow[nowAmount]).fadeIn(time);
-        $('div.avatar:nth-child(' + (nowAmount+1) + ')').fadeIn();
+        $('div.avatar:nth-child(' + (nowAmount + 1) + ')').fadeIn();
         nowAmount += 1;
-        time+=3000;
+        time += 3000;
     }
     $('div#chatroom').animate({
-        scrollTop:  $(msgRow[nowAmount-1]).offset().top
+        scrollTop: $(msgRow[nowAmount - 1]).offset().top
     }, 1000, 'easeOutBounce');
 }
 // 設定對話視窗按鈕
 function getDialogButtons() {
     var buttonList = [];
-    if (stage==0){
+    if (stage == 0) {
         buttonList.push({
             text: "開始遊戲",
             "class": "btn btn-primary btn-next",
@@ -122,7 +122,7 @@ function getDialogButtons() {
                 $(this).dialog('close');
             }
         });
-    } else if (stage==3) {
+    } else if (stage == 3) {
         buttonList.push({
             text: "再來一局",
             "class": "btn btn-danger btn-next",
@@ -160,7 +160,7 @@ function setDialogText() {
     var dialog = $('div#dialog-confirm');
     var msg = "";
     var title = "";
-    if (stage == 0){
+    if (stage == 0) {
         title = "伯夷列傳聊天室";
         msg = "<p>司馬遷〈伯夷列傳〉圍繞著傳主伯夷和叔齊提到不少人物。<br/><br/></p>" +
             "<p>這些人穿越時空來到現代，共同開了一個Line群組名為<b>伯夷列傳聊天室</b>，聚在一塊聊天，從對話紀錄中，你能否分辨他們誰是誰？<br/><br/></p>" +
@@ -170,7 +170,7 @@ function setDialogText() {
             "<p>（3）答對後，即可拖曳下一個圖片。答錯，則需重新點選圖片。</p>";
     } else if (stage == 3) {
         title = "恭喜完成所有關卡！";
-        msg = "<p><b>恭喜你你得到了"+score+"分！！！</b></p><p>再來一局吧～</p>";
+        msg = "<p><b>恭喜你你得到了" + score + "分！！！</b></p><p>再來一局吧～</p>";
     } else {
         title = "恭喜過關";
         msg = "請繼續挑戰下一關！";
@@ -181,12 +181,12 @@ function setDialogText() {
     dialog.html(msg);
 }
 
-function jump(){
+function jump() {
     var msgRow = $('div#chatroom > div.row');
-    if( show > 1 )show -= 1;
+    if (show > 1)show -= 1;
     else show = stage;
-    scrollList=[0,3,7,12];
+    scrollList = [0, 3, 7, 12];
     $('div#chatroom').animate({
-        scrollTop:  $(msgRow[scrollList[show]]).offset().top
+        scrollTop: $(msgRow[scrollList[show]]).offset().top
     }, 1000, 'easeOutBounce');
 }
