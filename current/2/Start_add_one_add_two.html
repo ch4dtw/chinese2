@@ -52,7 +52,7 @@
 		.droppable {
 			background-color: #FFFFF2;
 			border: 6px solid #FF5959;
-			height: 15vw;
+			height: 13vw;
 			z-index: -1;
 		}
 
@@ -151,7 +151,7 @@
 		.btn{
 			font-size: 30px;
 		}
-		#end2{
+		.end2{
 			margin-top: -25vw;
 			margin-left: 30vw;
 		}
@@ -166,7 +166,7 @@
 		.fail1, .fail2{
 			z-index: 999;
 		}
-		#end1{
+		.end1{
 			margin-top: -50vw;
 			margin-left: 30vw;
 		}
@@ -226,7 +226,7 @@
 	<!--成功出現-->
 	<div id="FireRing" hidden="hidden" >
 		<div>
-			<p id = "end1" class = "bigfont sus">答 對 了</p>
+			<p class = "end1 bigfont sus">答 對 了</p>
 		</div>
 		<div onclick="showDialog();">
 			<img  class="eimg1" src="./img/風火輪.png"/>
@@ -235,7 +235,7 @@
 	<!--失敗出現-->
 	<div id = "fail1" hidden = "hidden">
 		<div>
-			<p id = "end1" class = "bigfont fail">答 錯 了</p>
+			<p class = "end1 bigfont fail">答 錯 了</p>
 		</div>
 		<div id = "fail1_btn"  class = "ebtn1  ">
 			<button type = "button" class = "btn btn-info" onclick = "location.reload();">再 一 次</button>
@@ -310,12 +310,12 @@
             </div>
         </div>
 	</div>
-		<div id="again" class=""  hidden="hidden" >
+		<div id="again" hidden="hidden" >
 			<div onclick="is_success(1);">
 				<img class="eimg2" src="./img/火尖槍.png"/>
 			</div>	
 			<div>
-				<p id = "end2" class = "bigfont sus">答 對 了</p>
+				<p class = "end2 bigfont sus">答 對 了</p>
 			</div>
 		</div>
 		<!--失敗出現-->
@@ -324,7 +324,7 @@
 				<button type = "button" class = "btn btn-info" onclick = "location.reload();">再 一 次</button>
 			</div>
 			<div>
-				<p id = "end2" class = "bigfont fail">答 錯 了</p>
+				<p class = "end2 bigfont fail">答 錯 了</p>
 			</div>
 		</div>
     </div>
@@ -397,15 +397,15 @@
     <div class='row text-center ' style='color:#0066FF;'>
         <p class='bigfont'>挑戰成功</p>
     </div>
-    <div class="row" style="margin: 5% 0 0 0;">
+    <div class="row" style="margin: 5% 0 0 10vw;">
         <div class="sec_pageImg">
-            <img id='get1' hidden="hidden" class="col-md-2 col-md-offset-3" src="img/火尖槍.png"/>
+            <img id='get1' hidden="hidden" class="col-md-3 col-md-offset-1" src="img/火尖槍.png"/>
         </div>
         <div class="sec_pageImg">
-            <img class="col-md-2 col-md-offset-1" src="img/哪吒.jpg"/>
+            <img class="col-md-3 col-md-offset-1" src="img/哪吒.jpg"/>
         </div>
         <div class="sec_pageImg">
-            <img id='get2' hidden="hidden" class="col-md-2 col-md-offset-1" src="img/風火輪.png"/>
+            <img id='get2' hidden="hidden" class="col-md-3 col-md-offset-1" src="img/風火輪.png"/>
         </div>
     </div>
 </div>
@@ -413,7 +413,7 @@
 <button class="btn btn-success" onclick="showDialog();">hit me</button><!--下一關-->
 <button class="btn btn-success" onclick="end1(0);">第一關成功</button><!--第一關成功-->
 <button class="btn btn-success" onclick="end1(1);">第一關失敗</button><!--第一關失敗-->
-
+<button class="btn btn-success" onclick="is_success(1);">挑戰成功</button><!--挑戰成功-->
 </body>
 	
 <script src="../2/user.js"></script>
