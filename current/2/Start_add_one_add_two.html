@@ -91,13 +91,16 @@
 
 		.img_level_one {
 			margin: 10px;
+            height: 5vh;
 		}
 
 		.center {
 			text-align: center;
 
 			/* Firefox, Chrome */
-			line-height: 200px;
+			/*line-height: 200px;*/
+            margin:0px auto;
+
 
 			/* IE */
 			*font-size: 180px; /* 200px * 0.9 = 180px */
@@ -180,6 +183,15 @@
 			margin-top: 15vh;
 			margin-left: 45vw;
 		}
+        
+        .first_RL_UP{
+			height: 50vh;
+        }
+        
+        .first_RL_DOWN{
+			height: 20vh;
+        }
+        
     </style>
 </head>
 
@@ -196,32 +208,31 @@
 </div>
 
 <!------第一關-------------------->
-<div id="first_page" class="container-fluid" hidden="hidden">
+<div id="first_page" class="container-fluid" hidden="hidden" style="margin: 10% 0 0 0;">
     <div class="row">
-        <div class="col-lg-4 center"><img src="img/left.png" height="500"/></div>
-        <div class="col-lg-4 center">
+        <div class="col-md-4 center "><img class="first_RL_UP" src="img/left.png" /></div>
+        <div class="col-md-4 center">
             <div class="col-lg-8 center">
                 <div><img class="img_level_one" src="img/1.png"/></div>
                 <div><img class="img_level_one" src="img/2.png"/></div>
                 <div><img class="img_level_one" src="img/3.png"/></div>
             </div>
 
-            <div class="col-lg-4 center">
-                <div><img class="img_level_one" src="img/4.png"/></div>
+            <div class="col-md-4 center">
+                <div><img class="img_level_one " src="img/4.png"/></div>
                 <div><img class="img_level_one" src="img/5.png"/></div>
                 <div><img class="img_level_one" src="img/6.png"/></div>
             </div>
         </div>
-        <div class="col-lg-4 center"><img src="img/right.png" height="500"/></div>
+        <div class="col-md-4 center "><img class="first_RL_UP" src="img/right.png" /></div>
     </div>
 
     <div class="row">
     </div>
     <div class="row">
-        <div class="col-lg-4 center"><img src="img/李靖.jpg" height="200" style="display:block; margin:auto;"/></div>
-        <div class="col-lg-4 col-lg-offset-4 center">
-            <img src="img/A.jpg" height="200" style="display:block; margin:auto;"/>
-        </div>
+        <div class="col-md-4 center"><img class="first_RL_DOWN" src="img/b.jpg" /></div>
+        <div class="col-md-4 center"></div>
+        <div class="col-md-4 center"><img class="first_RL_DOWN" src="img/A.jpg"/></div>
     </div>
 	<!--成功出現-->
 	<div id="FireRing" hidden="hidden" >
