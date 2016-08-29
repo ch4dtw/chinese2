@@ -5,6 +5,7 @@ body {
     width: 100%;
     height: 100%;
 }
+
 /*封神榜裡的哪吒大考驗*/
 .title {
     font-size: 6em;
@@ -12,19 +13,22 @@ body {
     -webkit-text-stroke-color: #FFFFFF;
     -webkit-text-fill-color: #73008A;
 }
+
 /*挑戰成功*/
-.title2{
+.title2 {
     font-size: 8em;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #FFFFFF;
     -webkit-text-fill-color: #0000CC;
 }
+
 .sec_pageImg {
     width: 80%;
     height: 70%;
     padding: 0;
     margin: 0;
 }
+
 .game2_img {
     width: 125%;
 }
@@ -102,46 +106,68 @@ body {
     display: none;
 }
 
+.img_level_one {
+    margin-left: 10vh;
+    margin-top: 7.5vh;
+    height: 7vh;
+}
+
+#round_left {
+    margin-left: 5vw;
+    margin-right: 10vh;
+    height: 50vh;
+    width: 50vh;
+    background: url('img/left.png') no-repeat;
+    background-size: contain;
+}
+
+#round_right {
+    height: 50vh;
+    width: 50vh;
+    background: url('img/right.png') center center no-repeat;
+    background-size: contain;
+}
+
 /*.bigfont {*/
-    /*font-size: 64px;*/
+/*font-size: 64px;*/
 /*}*/
 /*.eimg2{*/
-    /*width: 20vh;*/
-    /*height: 35vh;*/
-    /*margin-top: -30vh;*/
-    /*margin-left: 3vw;*/
+/*width: 20vh;*/
+/*height: 35vh;*/
+/*margin-top: -30vh;*/
+/*margin-left: 3vw;*/
 /*}*/
 /*.btn{*/
-    /*font-size: 30px;*/
+/*font-size: 30px;*/
 /*}*/
 /*.end2{*/
-    /*margin-top: -25vw;*/
-    /*margin-left: 30vw;*/
+/*margin-top: -25vw;*/
+/*margin-left: 30vw;*/
 /*}*/
 /*.fail{*/
-    /*font-size: 15vw;*/
-    /*color: #FF0000;*/
+/*font-size: 15vw;*/
+/*color: #FF0000;*/
 /*}*/
 /*.sus{*/
-    /*font-size: 15vw;*/
-    /*color: #00BD00;*/
+/*font-size: 15vw;*/
+/*color: #00BD00;*/
 /*}*/
 /*.fail1, .fail2{*/
-    /*z-index: 999;*/
+/*z-index: 999;*/
 /*}*/
 /*.end1{*/
-    /*margin-top: -50vw;*/
-    /*margin-left: 30vw;*/
+/*margin-top: -50vw;*/
+/*margin-left: 30vw;*/
 /*}*/
 /*.eimg1{*/
-    /*width: 30vh;*/
-    /*height: 30vh;*/
-    /*margin-top: -50vh;*/
-    /*margin-left: 40vw;*/
+/*width: 30vh;*/
+/*height: 30vh;*/
+/*margin-top: -50vh;*/
+/*margin-left: 40vw;*/
 /*}*/
 /*.ebtn1{*/
-    /*margin-top: 15vh;*/
-    /*margin-left: 45vw;*/
+/*margin-top: 15vh;*/
+/*margin-left: 45vw;*/
 /*}*/
 
 

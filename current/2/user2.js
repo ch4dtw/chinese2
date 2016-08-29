@@ -2,8 +2,8 @@
 // onclick: 主畫面,解說1,解說2
 var click_status = 0;
 var lock = 0;
-var game2_count=0;
-var game2_correct=0;
+var game2_count = 0;
+var game2_correct = 0;
 var game2_score = 0;
 
 $(document).ready(function () {
@@ -64,14 +64,16 @@ $(function () {
             else {
                 game2_count += 1;
             }
-            if(game2_count == 3){
-                game2_score += game2_correct*10+5;
+            if (game2_count == 3) {
+                game2_score += game2_correct * 10 + 5;
                 $('#score').text(game2_score);
-                if(game2_correct == 3){
-                    $('#game2_page').hide();$('#end_page').show();lock=0;
-                    $('#start2_mid_img').css('visibility','visible').hide().fadeIn(2000);
-                    $('#start2_left_img').css('visibility','visible').hide().fadeIn(6000);
-                    $('#start2_right_img').css('visibility','visible').hide().fadeIn(6000);
+                if (game2_correct == 3) {
+                    $('#game2_page').hide();
+                    $('#end_page').show();
+                    lock = 0;
+                    $('#start2_mid_img').css('visibility', 'visible').hide().fadeIn(2000);
+                    $('#start2_left_img').css('visibility', 'visible').hide().fadeIn(6000);
+                    $('#start2_right_img').css('visibility', 'visible').hide().fadeIn(6000);
                 }
                 else
                     restart_game2();
@@ -84,7 +86,59 @@ function Resume(id) {
     $('div#' + id).html('');
 }
 
-function restart_game2(){
+function restart_game2() {
     // 回到第二關初始狀態
     alert("沒全對");
 }
+
+var ans = ["1", "3", "4"];
+var ans2 = ["2", "5", "6"];
+var score = 0;
+var problem_array_1 = [];
+var problem_array_2 = [];
+var anse_array_1 = [];
+var anse_array_2 = [];
+var final_anser = [];
+
+
+$(function () {
+    $("#problem_array_1,#problem_array_2, #round_left,#round_right").sortable({
+        connectWith: "#problem_array_1,#problem_array_2, #round_left,#round_right",
+        revert: true,
+        tolerance: "pointer",
+        receive: function (event, ui) {
+            problem_array_1 = [];
+            anse_array_1 = [];
+            anse_array_2 = [];
+            score = 0;
+
+            $("#problem_array_1 div").each(function () {
+                problem_array_1.push($(this).attr("id"));
+            });
+            $("#problem_array_2 div").each(function () {
+                problem_array_2.push($(this).attr("id"));
+            });
+
+
+            if ((problem_array_1.length == 0) && (problem_array_2.length == 0)) {
+
+
+                $("#round_left div").each(function () {
+                    anse_array_1.push($(this).attr("id"));
+                });
+                $("#round_right div").each(function () {
+                    anse_array_2.push($(this).attr("id"));
+                });
+
+
+                final_anser = $(anse_array_1).not($(anse_array_1).not(ans)).toArray();
+                final_anser = final_anser.concat($(anse_array_2).not($(anse_array_2).not(ans2)).toArray());
+
+                console.log(final_anser);
+                console.log(final_anser.length);
+
+                //答對多少個
+            }
+        }
+    }).disableSelection();
+});

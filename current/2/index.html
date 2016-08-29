@@ -74,29 +74,30 @@
 <!--第一關-->
 <div id="game1_page" class="container-fluid" hidden="hidden">
     <div class="row">
-        <div class="col-md-4 center " style="margin-left: 2vw"><img src="img/left.png" style="height: 50vh;"/></div>
+        <div id="round_left" class="col-md-4 center " style=""></div>
         <div class="col-md-4 center">
-            <div class="col-md-8 center" style="margin-left: -7vw">
-                <div><img style="margin-top: 5vh;10vh;height: 7vh;" src="img/1.png"/></div>
-                <div><img style="margin-top: 10vh;height: 7vh;" src="img/2.png"/></div>
-                <div><img style="margin-top: 10vh;height: 7vh;" src="img/3.png"/></div>
+            <div id="problem_array_1" class="col-md-8 center" style="margin-left: -7vw">
+                <div id="1"><img class="img_level_one" src="img/1.png"/></div>
+                <div id="2"><img class="img_level_one" src="img/2.png"/></div>
+                <div id="3"><img class="img_level_one" src="img/3.png"/></div>
             </div>
 
-            <div class="col-md-4 center">
-                <div><img style="margin-top: 5vh;height: 7vh;" src="img/4.png"/></div>
-                <div><img style="margin-top: 10vh;height: 7vh;" src="img/5.png"/></div>
-                <div><img style="margin-top: 10vh;height: 7vh;" src="img/6.png"/></div>
+            <div id="problem_array_2" class="col-md-4 center" style="margin-left: -5vh">
+                <div id="4"><img class="img_level_one" src="img/4.png"/></div>
+                <div id="5"><img class="img_level_one" src="img/5.png"/></div>
+                <div id="6"><img class="img_level_one" src="img/6.png"/></div>
             </div>
         </div>
-        <div class="col-md-3 center "><img src="img/right.png" style="height: 50vh;"/></div>
+        <div id="round_right" class="col-md-3 center " style=""></div>
+        >
     </div>
 
     <div class="row">
     </div>
     <div class="row">
-        <div class="col-md-4 center" style="margin-left: 8vw"><img src="img/B.png" style="height: 18vh;"/></div>
+        <div class="col-md-4 center" style="margin-left: 10vw"><img src="img/B.png" style="height: 18vh;"/></div>
         <div class="col-md-4 center"></div>
-        <div class="col-md-3 center"><img src="img/A.png" style="height: 18vh;"/></div>
+        <div class="col-md-3 center" style="margin-left: 30vw"><img src="img/A.png" style="height: 18vh;"/></div>
     </div>
     <!--成功出現-->
     <div id="FireRing" hidden="hidden">
@@ -117,7 +118,7 @@
         </div>
     </div>
     <button type="button" class="btn btn-info"
-    onclick="javascript:$('#game1_page').hide();$('#prompt2_page').show();lock=0;">第二關
+            onclick="javascript:$('#game1_page').hide();$('#prompt2_page').show();lock=0;">第二關
     </button>
 </div>
 
