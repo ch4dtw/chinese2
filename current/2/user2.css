@@ -46,7 +46,7 @@ body {
 }
 
 .line1 {
-    z-index: -1;
+    z-index: -2;
     background-color: #00FFAA;
     height: 10px;
     width: 80%;
@@ -55,7 +55,7 @@ body {
 }
 
 .line2 {
-    z-index: -1;
+    z-index: -2;
     background-color: #FFAAEE;
     height: 150px;
     width: 10px;
@@ -64,7 +64,7 @@ body {
 }
 
 .line3 {
-    z-index: -1;
+    z-index: -2;
     background-color: #FFAAEE;
     height: 150px;
     width: 10px;
@@ -73,7 +73,7 @@ body {
 }
 
 .line4 {
-    z-index: -1;
+    z-index: -2;
     background-color: #FFAAEE;
     height: 150px;
     width: 10px;
