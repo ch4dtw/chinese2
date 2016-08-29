@@ -23,6 +23,9 @@ $(document).on('click', function () {
         click_status += 1;
     }
     else if(click_status == 2 && lock == 0){
+        click_status += 1;
+    }
+    else if(click_status == 3 && lock == 0){
         $("#prompt2_page").hide();
         $("#start2_page").show();
         lock = 1;
