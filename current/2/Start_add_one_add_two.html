@@ -20,9 +20,6 @@
         </div>
     </div>
 </div>
-<div id="start_page">
-    start
-</div>
 
 <!------第一關-------------------->
 <div id="first_page" class="container-fluid" hidden="hidden" style="margin: 10% 0 0 0;">
@@ -72,7 +69,7 @@
 </div>
 
 <!------第二關-------------------->
-<div id="secon_page" class="container-fluid" hidden="hidden"> <!-- 一開始先隱藏 container-fluid是Bootstrap格線系統的 -->
+<div id="second_page" class="container-fluid" hidden="hidden"> <!-- 一開始先隱藏 container-fluid是Bootstrap格線系統的 -->
 
     <div class="row" style="margin: 10% 0 0 0;">
         <div class="col-md-2  ">
@@ -200,7 +197,7 @@
 <!--------遊戲開始2------------------------------------------------------------->
 <div id="GameStart2" hidden="hidden">
     <div class="text-center " style="margin: 10% 0 0 0;">
-        <button type="button" class=" btn btn-link " onclick="$('#GameStart2').hide();$('#secon_page').fadeIn();">
+        <button type="button" class=" btn btn-link " onclick="$('#GameStart2').hide();$('#second_page').fadeIn();">
             <div class="sec_pageImg">
                 <img id="start-btn" class="img-circle" src="img/start.png">
             </div>
@@ -238,11 +235,12 @@
         </div>
     </div>
 </div>
-
-<button class="btn btn-success" onclick="showDialog();">hit me</button><!--下一關-->
-<button class="btn btn-success" onclick="end1(0);">第一關成功</button><!--第一關成功-->
-<button class="btn btn-success" onclick="end1(1);">第一關失敗</button><!--第一關失敗-->
-<button class="btn btn-success" onclick="is_success(1);">挑戰成功</button><!--挑戰成功-->
+<div style="margin-top: 100px">
+    <button class="btn btn-success" onclick="showDialog();">hit me</button><!--下一關-->
+    <button class="btn btn-success" onclick="end1(0);">第一關成功</button><!--第一關成功-->
+    <button class="btn btn-success" onclick="end1(1);">第一關失敗</button><!--第一關失敗-->
+    <button class="btn btn-success" onclick="is_success(1);">挑戰成功</button><!--挑戰成功-->
+</div>
 
 <!--Bootstrap 與 jquery 核心 JS-->
 <!-- 文件讀完才會讀 JS，讀取速度較快  -->

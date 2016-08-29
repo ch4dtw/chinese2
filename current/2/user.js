@@ -177,7 +177,7 @@ function Resume(id) {
 //挑戰成功畫面	
     function is_success(success) {
         if (success == 1) {
-            $("#secon_page").hide();
+            $("#second_page").hide();
             $("#gameSuccess").fadeIn();
             $("#get1").fadeIn(2000);
             $("#get2").fadeIn(2000);
