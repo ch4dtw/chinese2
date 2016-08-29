@@ -5,6 +5,8 @@ var lock = 0;
 var game2_count = 0;
 var game2_correct = 0;
 var game2_score = 0;
+var game1_correct = 0;
+var game1_score = 0;
 
 $(document).ready(function () {
     $('#start1_mid_img').css('visibility', 'visible').hide().fadeIn(2000);
@@ -65,7 +67,7 @@ $(function () {
                 game2_count += 1;
             }
             if (game2_count == 3) {
-                game2_score += game2_correct * 10 + 5;
+                game2_score = game1_score + game2_correct * 10 + 5;
                 $('#score').text(game2_score);
                 if (game2_correct == 3) {
                     $('#game2_page').hide();
@@ -88,16 +90,18 @@ function Resume(id) {
 
 function restart_game2() {
     // 回到第二關初始狀態
-    alert("沒全對");
+    location.reload();
 }
 
-var ans = ["1", "3", "4"];
-var ans2 = ["2", "5", "6"];
+var ans = ["1", "4", "5"];
+var ans2 = ["2", "3", "6"];
 var score = 0;
 var problem_array_1 = [];
 var problem_array_2 = [];
 var anse_array_1 = [];
 var anse_array_2 = [];
+var anse_array_3 = [];
+var anse_array_4 = [];
 var final_anser = [];
 
 
@@ -110,34 +114,37 @@ $(function () {
             problem_array_1 = [];
             anse_array_1 = [];
             anse_array_2 = [];
+            anse_array_3 = [];
+            anse_array_4 = [];
             score = 0;
 
             $("#problem_array_1 div").each(function () {
-                problem_array_1.push($(this).attr("id"));
+                anse_array_1.push($(this).attr("id"));
             });
             $("#problem_array_2 div").each(function () {
-                problem_array_2.push($(this).attr("id"));
+                anse_array_2.push($(this).attr("id"));
             });
 
-
-            if ((problem_array_1.length == 0) && (problem_array_2.length == 0)) {
-
-
+            if ((anse_array_1.length == 0) && (anse_array_2.length == 0)) {
                 $("#round_left div").each(function () {
-                    anse_array_1.push($(this).attr("id"));
+                    anse_array_3.push($(this).attr("id"));
                 });
                 $("#round_right div").each(function () {
-                    anse_array_2.push($(this).attr("id"));
+                    anse_array_4.push($(this).attr("id"));
                 });
+                final_anser = $(anse_array_3).not($(anse_array_3).not(ans)).toArray();
+                final_anser = final_anser.concat($(anse_array_4).not($(anse_array_4).not(ans2)).toArray());
 
-
-                final_anser = $(anse_array_1).not($(anse_array_1).not(ans)).toArray();
-                final_anser = final_anser.concat($(anse_array_2).not($(anse_array_2).not(ans2)).toArray());
-
-                console.log(final_anser);
-                console.log(final_anser.length);
-
-                //答對多少個
+                game1_correct = final_anser.length;
+                game1_score = game1_correct*10+5;
+                $('#score').text(game1_score);
+                if (game1_correct == 6) {
+                    $('#game1_page').hide();
+                    $('#prompt2_page').show();
+                    lock=0;
+                }
+                else
+                    location.reload();
             }
         }
     }).disableSelection();
