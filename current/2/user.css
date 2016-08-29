@@ -1,5 +1,6 @@
 body {
     background: url("img/竹林.png ") no-repeat fixed center;
+    font-family: "Microsoft JhengHei", "標楷體", "新細明體", sans-serif;
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -14,13 +15,11 @@ body {
 
 h2, p {
     font-weight: bolder;
-    font-family: Microsoft JhengHei;
 }
 
 h3 {
     color: #DBDB00;
     font-weight: bolder;
-    font-family: Microsoft JhengHei;
 }
 
 .draggable {
@@ -82,15 +81,7 @@ hr {
 
 .center {
     text-align: center;
-
-    /* Firefox, Chrome */
-    /*line-height: 200px;*/
-    margin:0px auto;
-
-
-    /* IE */
-    *font-size: 180px; /* 200px * 0.9 = 180px */
-    *font-family: Arial;
+    margin:0 auto;
 }
 
 .line1 {
