@@ -41,21 +41,21 @@
 <!------第一關-------------------->
 <div id="first_page" class="container-fluid" hidden="hidden" style="margin: 10% 0 0 0;">
     <div class="row">
-        <div class="col-md-4 center "><img class="first_RL_UP" src="img/left.png"/></div>
+        <div id="round_left" class="col-md-4 center "><img class="first_RL_UP" src="img/left.png"/></div>
         <div class="col-md-4 center">
-            <div class="col-lg-8 center">
-                <div><img class="img_level_one" src="img/1.png"/></div>
-                <div><img class="img_level_one" src="img/2.png"/></div>
-                <div><img class="img_level_one" src="img/3.png"/></div>
+            <div id="problem_array_1" class="col-lg-8 center">
+                <div id="1"><img class="img_level_one" src="img/1.png"/></div>
+                <div id="2"><img class="img_level_one" src="img/2.png"/></div>
+                <div id="3"><img class="img_level_one" src="img/3.png"/></div>
             </div>
 
-            <div class="col-md-4 center">
-                <div><img class="img_level_one " src="img/4.png"/></div>
-                <div><img class="img_level_one" src="img/5.png"/></div>
-                <div><img class="img_level_one" src="img/6.png"/></div>
+            <div id="problem_array_2" class="col-md-4 center">
+                <div id="4"><img class="img_level_one " src="img/4.png"/></div>
+                <div id="5"><img class="img_level_one" src="img/5.png"/></div>
+                <div id="6"><img class="img_level_one" src="img/6.png"/></div>
             </div>
         </div>
-        <div class="col-md-4 center "><img class="first_RL_UP" src="img/right.png"/></div>
+        <div id="round_right" class="col-md-4 center "><img class="first_RL_UP" src="img/right.png"/></div>
     </div>
 
     <div class="row">
@@ -266,4 +266,59 @@
 <script src="../bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 <script src="../2/user.js"></script>
 </body>
+<script>
+
+    var ans = ["1", "3", "4"];
+    var ans2 = ["2", "5", "6"];
+    var score = 0;
+    var problem_array_1 = [];
+    var problem_array_2 = [];
+    var anse_array_1 = [];
+    var anse_array_2 = [];
+    var final_anser = [];
+
+
+    $(function () {
+        $("#problem_array_1,#problem_array_2, #round_left,#round_right").sortable({
+            connectWith: "#problem_array_1,#problem_array_2, #round_left,#round_right",
+            revert: true,
+            tolerance: "pointer",
+            receive: function (event, ui) {
+                problem_array_1 = [];
+                anse_array_1 = [];
+                anse_array_2 = [];
+                score = 0;
+
+                $("#problem_array_1 div").each(function () {
+                    problem_array_1.push($(this).attr("id"));
+                });
+                $("#problem_array_2 div").each(function () {
+                    problem_array_2.push($(this).attr("id"));
+                });
+
+
+                if ( (problem_array_1.length == 0) && (problem_array_2.length == 0)) {
+
+
+                    $("#round_left div").each(function () {
+                        anse_array_1.push($(this).attr("id"));
+                    });
+                    $("#round_right div").each(function () {
+                        anse_array_2.push($(this).attr("id"));
+                    });
+
+
+                    final_anser = $(anse_array_1).not($(anse_array_1).not(ans)).toArray();
+                    final_anser = final_anser.concat($(anse_array_2).not($(anse_array_2).not(ans2)).toArray());
+
+                    console.log(final_anser);
+                    console.log(final_anser.length);
+
+                    //答對多少個
+                }
+            }
+        }).disableSelection();
+    });
+
+</script>
 </html>
