@@ -140,27 +140,7 @@ function Resume(id) {
     $('img#' + id).draggable({revert: "invalid"});
 }
 
-//按左鍵出現Start按鈕的畫面
-$(document).on('click', function () {
-    if (isPrompt == 1) {
-        run++;
-
-        if (stage == 0 && run >= 2) {
-            $("#GamePrompt1").hide();
-            $("#GameStart1").fadeIn();
-            stage++;
-            isPrompt = 0;
-            run = 0;
-        }
-        else if (stage == 1 && run >= 2) {
-            $("#GamePrompt2").hide();
-            $('#GameStart2').fadeIn();
-            stage++;
-            isPrompt = 0;
-            run = 0;
-        }
-    }
-});
+img-circle
 //下一關
 function showDialog() {
     if (stage == 0) {

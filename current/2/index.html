@@ -20,20 +20,234 @@
         </div>
     </div>
 </div>
-<!--------遊戲提示------------------------------------------------------------->
-<div id="start_page" class="container-fluid">
-    <div class='row text-center '>
-        <span class='title'><b>封神榜裡的哪吒大考驗</b></span>
+<div class='text-center' style="margin-top:6%">
+    <span class='title'><b>封神榜裡的哪吒大考驗</b></span>
+</div>
+
+<!--主畫面-->
+<div id="main_page" class="container-fluid">
+    <div class="row" style="margin: 0 0 0 10vw;">
+        <div class="sec_pageImg">
+            <img id="start1_left_img" class="col-md-3 col-md-offset-1" src="img/gun.png" style="visibility: hidden"/>
+        </div>
+        <div class="sec_pageImg">
+            <img id="start1_mid_img" class="col-md-3 col-md-offset-1" src="img/noza.jpg" style="visibility: hidden"/>
+        </div>
+        <div class="sec_pageImg">
+            <img id="start1_right_img" class="col-md-3 col-md-offset-1" src="img/wheel.png" style="visibility: hidden"/>
+        </div>
     </div>
-    <div class="row" style="margin: 5% 0 0 10vw;">
+</div>
+
+<!--遊戲提示1-->
+<div id="prompt1_page" class="text-center container" hidden="hidden">
+    <div style='color:#FFFFFF; font-size: 3em;' class='bigfont'>Round 1 - 教育態度分分看<br></div>
+    <div style='color:#FFFFFF; font-size: 2.5em; text-align: left; padding-left: 6%'>
+        　　在課文裡，李靖是哪吒的父親，不過太乙就像哪吒的第二個父親。兩位父親分別代表兩種不同的教育態度，請依據課文內容作判斷，這些形容詞分別屬於哪位人物的教育態度。<br>
+        　　第一關遊戲方式說明：<br>
+        （1）請判斷何者是正確答案。<br>
+        （2）點選並拖曳答案至空白框格內。<br>
+        （3）對答，可獲得「風火輪」。<br>
+    </div>
+</div>
+
+<!--遊戲開始1-->
+<div id="start1_page" hidden="hidden">
+    <div class="text-center">
+        <a href="javascript:$('#start1_page').hide();$('#game1_page').show();" class="sec_pageImg text-center">
+            <img src="img/start.png" style="width: 10%">
+        </a>
+    </div>
+    <div class="row" style="margin: 4% 0 0 0;">
         <div class="sec_pageImg">
-            <img id="start_left_img" class="col-md-3 col-md-offset-1" src="img/gun.png" style="visibility: hidden"/>
+            <img class="col-md-2 col-md-offset-3" src="img/B.jpg">
         </div>
         <div class="sec_pageImg">
-            <img id="start_mid_img" class="col-md-3 col-md-offset-1" src="img/noza.jpg" style="visibility: hidden"/>
+            <img class="col-md-2 col-md-offset-1" src="img/noza.jpg"/>
         </div>
         <div class="sec_pageImg">
-            <img id="start_right_img" class="col-md-3 col-md-offset-1" src="img/wheel.png" style="visibility: hidden"/>
+            <img class="col-md-2 col-md-offset-1" src="img/A.jpg"/>
+        </div>
+    </div>
+</div>
+
+<!--第一關-->
+<div id="game1_page" class="container-fluid" hidden="hidden">
+    <button type="button" class="btn btn-info" onclick="javascript:$('#game1_page').hide();$('#prompt2_page').show();lock=0;">第二關</button>
+    <!--<div class="row">-->
+        <!--<div class="col-md-4 center "><img class="first_RL_UP" src="img/left.png"/></div>-->
+        <!--<div class="col-md-4 center">-->
+            <!--<div class="col-lg-8 center">-->
+                <!--<div><img class="img_level_one" src="img/1.png"/></div>-->
+                <!--<div><img class="img_level_one" src="img/2.png"/></div>-->
+                <!--<div><img class="img_level_one" src="img/3.png"/></div>-->
+            <!--</div>-->
+
+            <!--<div class="col-md-4 center">-->
+                <!--<div><img class="img_level_one " src="img/4.png"/></div>-->
+                <!--<div><img class="img_level_one" src="img/5.png"/></div>-->
+                <!--<div><img class="img_level_one" src="img/6.png"/></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-4 center "><img class="first_RL_UP" src="img/right.png"/></div>-->
+    <!--</div>-->
+
+    <!--<div class="row">-->
+    <!--</div>-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-4 center"><img class="first_RL_DOWN" src="img/b.jpg"/></div>-->
+        <!--<div class="col-md-4 center"></div>-->
+        <!--<div class="col-md-4 center"><img class="first_RL_DOWN" src="img/A.jpg"/></div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;成功出現&ndash;&gt;-->
+    <!--<div id="FireRing" hidden="hidden">-->
+        <!--<div>-->
+            <!--<p class="end1 bigfont sus">答 對 了</p>-->
+        <!--</div>-->
+        <!--<div onclick="showDialog();">-->
+            <!--<img class="eimg1" src="./img/wheel.png"/>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;失敗出現&ndash;&gt;-->
+    <!--<div id="fail1" hidden="hidden">-->
+        <!--<div>-->
+            <!--<p class="end1 bigfont fail">答 錯 了</p>-->
+        <!--</div>-->
+        <!--<div id="fail1_btn" class="ebtn1  ">-->
+            <!--<button type="button" class="btn btn-info" onclick="location.reload();">再 一 次</button>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+
+<!--遊戲提示2-->
+<div id="prompt2_page" class="text-center container" hidden="hidden">
+    <div style='color:#FFFFFF; font-size: 4em;' class='bigfont'>Round 2 - 人物關係對對碰<br></div>
+    <div style='color:#FFFFFF; font-size: 2.5em; text-align: left; padding-left: 6%'>
+        在《封神榜裡的noza》課文中出現四位重要人物，太乙、noza、李靖、四氓。<br>
+        以noza為主角，放入其他角色關係，<br>
+        即可完成作答。
+    </div>
+</div>
+
+<!--遊戲開始2-->
+<div id="start2_page" hidden="hidden">
+    <div class="text-center">
+        <a href="javascript:$('#start2_page').hide();$('#game2_page').show();" class="sec_pageImg text-center">
+            <img src="img/start.png" style="width: 10%">
+        </a>
+    </div>
+    <div class="row" style="margin: 4% 0 0 0;">
+        <div class="sec_pageImg">
+            <img class="col-md-2 col-md-offset-1" src="img/noza.jpg"/>
+        </div>
+        <div class="sec_pageImg">
+            <img class="col-md-2 col-md-offset-1" src="img/A.jpg">
+        </div>
+        <div class="sec_pageImg">
+            <img class="col-md-2 col-md-offset-1" src="img/B.jpg"/>
+        </div>
+        <div class="sec_pageImg">
+            <img class="col-md-2 col-md-offset-1" src="img/C.jpg"/>
+        </div>
+    </div>
+</div>
+
+<!--第二關-->
+<div id="game2_page" class="container-fluid" hidden="hidden"> <!-- 一開始先隱藏 container-fluid是Bootstrap格線系統的 -->
+    <button type="button" class="btn btn-info" onclick="javascript:$('#game2_page').hide();$('#end_page').show();lock=0;
+    $('#start2_mid_img').css('visibility','visible').hide().fadeIn(2000);
+    $('#start2_left_img').css('visibility','visible').hide().fadeIn(6000);
+    $('#start2_right_img').css('visibility','visible').hide().fadeIn(6000);">第二關</button>
+    <!--<div class="row" style="margin: 10% 0 0 0;">-->
+        <!--<div class="col-md-2  ">-->
+            <!--<div>-->
+                <!--<img class="sec_pageImg" src="img/noza.jpg"/>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div style="margin: 5% 0 0 0;">-->
+
+            <!--<div class="col-md-2 col-md-offset-1">-->
+                <!--<div class="div-txt">-->
+                    <!--<div class="text-center"><h3>書僮</h3></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-2 col-md-offset-1">-->
+                <!--<div class="div-txt">-->
+                    <!--<div class="text-center"><h3>師父</h3></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-2 col-md-offset-1">-->
+                <!--<div class="div-txt">-->
+                    <!--<div class="text-center"><h3>父親</h3></div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="line1"></div>-->
+        <!--<div class="line2 "></div>-->
+        <!--<div class="line3 "></div>-->
+        <!--<div class="line4 "></div>-->
+    <!--</div>-->
+    <!--<div class="row" style="margin-top : -15px;">-->
+        <!--<div class="col-md-2 col-md-offset-3">-->
+            <!--<div class="droppable ui-widget-header" id="A_droppable" style="border-color : #FFABAB; ">-->
+                <!--&lt;!&ndash; border-color 設定邊框的顏色 &ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-2 col-md-offset-1">-->
+            <!--<div class="droppable ui-widget-header" id="B_droppable" style="border-color : #45FF45; ">-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-md-2 col-md-offset-1">-->
+            <!--<div class="droppable ui-widget-header" id="C_droppable" style="border-color : #B200B2; ">-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="row" style="margin: 10px 0 0 0 ; ">-->
+        <!--<div id="DIV_A" class="col-md-2 col-md-offset-3 ">-->
+            <!--<div class="sec_pageImg">-->
+                <!--<img id="A" class="draggable" src="img/A.jpg"/>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div id="DIV_B" class="col-md-2 col-md-offset-1 ">-->
+            <!--<div class="sec_pageImg">-->
+                <!--<img id="B" class="draggable" src="img/B.jpg"/>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div id="DIV_C" class="col-md-2 col-md-offset-1 ">-->
+            <!--<div class="sec_pageImg">-->
+                <!--<img id="C" class="draggable" src="img/C.jpg"/>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div id="again" hidden="hidden">-->
+        <!--<div onclick="is_success(1);">-->
+            <!--<img class="eimg2" src="./img/gun.png"/>-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<p class="end2 bigfont sus">答 對 了</p>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+
+
+<!--挑戰成功-->
+<div id="end_page" class="container-fluid" hidden="hidden">
+    <div class='text-center'>
+        <span class='title2'><b>挑戰成功</b></span>
+    </div>
+    <div class="row" style="margin: 0 0 0 10vw;">
+        <div class="sec_pageImg">
+            <img id="start2_left_img" class="col-md-3 col-md-offset-1" src="img/gun.png" style="visibility: hidden"/>
+        </div>
+        <div class="sec_pageImg">
+            <img id="start2_mid_img" class="col-md-3 col-md-offset-1" src="img/noza.jpg" style="visibility: hidden"/>
+        </div>
+        <div class="sec_pageImg">
+            <img id="start2_right_img" class="col-md-3 col-md-offset-1" src="img/wheel.png" style="visibility: hidden"/>
         </div>
     </div>
 </div>
