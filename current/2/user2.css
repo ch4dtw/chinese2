@@ -85,6 +85,12 @@ body {
     margin-left: 24%;
 }
 
+.img_size {
+    z-index: 10;
+    height: 7.4vw;
+    width: 7.4vw;
+}
+
 #success {
     top: 35%;
     left: 40%;

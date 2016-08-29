@@ -2,6 +2,9 @@
 // onclick: 主畫面,解說1,解說2
 var click_status = 0;
 var lock = 0;
+var game2_count=0;
+var game2_correct=0;
+var game2_score = 0;
 
 $(document).ready(function () {
     $('#start1_mid_img').css('visibility', 'visible').hide().fadeIn(2000);
@@ -33,32 +36,55 @@ $(document).on('click', function () {
     }
 });
 
+//拖拉圖片初始化
 $(function () {
     $(".draggable").draggable({
         revert: "invalid"
     });
 });
+
 //拖拉目標設定與互動
 $(function () {
     $(".droppable").droppable({
         activeClass: "ui-state-default",
         hoverClass: "ui-state-hover",
         drop: function (event, ui) {
-//             // 正確
-//             if (droppableId == (draggableId + '_droppable')) {
-                Resume('DIV_' + draggableId);
-                $('div#' + droppableId).html('<img class="imag_size"  src="img/' + draggableId + '.jpg">');
-//             }
-//             // 錯誤
-//             else {
-//                 $('div#' + 'DIV_' + draggableId).html('<img class="draggable" id="' + draggableId + '" src="img/' + draggableId + '.jpg">');
-//                 $('img#' + draggableId).draggable({revert: "invalid"});
-//             }
+            // 拿droppable id
+            var droppableId = event.target.id;
+            // 拿draggable id
+            var draggableId = ui.draggable.attr('id');
+            Resume('DIV_' + draggableId);
+            $('div#' + droppableId).html('<img class="img_size"  src="img/' + draggableId + '.jpg">');
+            // 正確
+            if (droppableId == (draggableId + '_droppable')) {
+                game2_correct += 1;
+                game2_count += 1;
+            }
+            // 錯誤
+            else {
+                game2_count += 1;
+            }
+            if(game2_count == 3){
+                game2_score += game2_correct*10+5;
+                $('#score').text(game2_score);
+                if(game2_correct == 3){
+                    $('#game2_page').hide();$('#end_page').show();lock=0;
+                    $('#start2_mid_img').css('visibility','visible').hide().fadeIn(2000);
+                    $('#start2_left_img').css('visibility','visible').hide().fadeIn(6000);
+                    $('#start2_right_img').css('visibility','visible').hide().fadeIn(6000);
+                }
+                else
+                    restart_game2();
+            }
         }
     });
 });
 //移除物件
 function Resume(id) {
-    $('div#' + id).html('<img class="draggable" id="' + id + '" src="img/' + id + '.jpg">');
-    $('img#' + id).draggable({revert: "invalid"});
+    $('div#' + id).html('');
+}
+
+function restart_game2(){
+    // 回到第二關初始狀態
+    alert("沒全對");
 }
