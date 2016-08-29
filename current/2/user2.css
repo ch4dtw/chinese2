@@ -1,0 +1,24 @@
+body {
+    background: url("img/bamboo.png ") no-repeat fixed center;
+    font-family: "Microsoft JhengHei", "標楷體", "新細明體", sans-serif;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+.title {
+    font-size: 7em;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: #FFFFFF;
+    -webkit-text-fill-color: #73008A;
+}
+
+.sec_pageImg {
+    width: 80%;
+    height: 70%;
+    padding: 0;
+    margin: 0;
+}
+
+#start_page{
+    margin:6% 0 0 0;
+}
