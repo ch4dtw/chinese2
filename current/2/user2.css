@@ -25,6 +25,9 @@ body {
     padding: 0;
     margin: 0;
 }
+.game2_img {
+    width: 125%;
+}
 
 .draggable {
     background-color: #FFFFF2;
@@ -58,7 +61,7 @@ body {
 .line2 {
     z-index: -2;
     background-color: #FFAAEE;
-    height: 10vh;
+    height: 15vh;
     width: 10px;
     display: inline-block;
     margin-left: 16%;
@@ -67,7 +70,7 @@ body {
 .line3 {
     z-index: -2;
     background-color: #FFAAEE;
-    height: 10vh;
+    height: 15vh;
     width: 10px;
     display: inline-block;
     margin-left: 24%;
@@ -76,7 +79,7 @@ body {
 .line4 {
     z-index: -2;
     background-color: #FFAAEE;
-    height: 10vh;
+    height: 15vh;
     width: 10px;
     display: inline-block;
     margin-left: 24%;
