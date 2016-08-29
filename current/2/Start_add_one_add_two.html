@@ -20,6 +20,23 @@
         </div>
     </div>
 </div>
+<!--------遊戲提示------------------------------------------------------------->
+<div id="start_page" class="container-fluid">
+    <div class='row text-center '>
+        <span class='title'><b>封神榜裡的哪吒大考驗</b></span>
+    </div>
+    <div class="row" style="margin: 5% 0 0 10vw;">
+        <div class="sec_pageImg">
+            <img class="col-md-3 col-md-offset-1 left_img" src="img/gun.png"/>
+        </div>
+        <div class="sec_pageImg">
+            <img class="col-md-3 col-md-offset-1" src="img/noza.jpg"/>
+        </div>
+        <div class="sec_pageImg">
+            <img class="col-md-3 col-md-offset-1 right_img" src="img/wheel.png"/>
+        </div>
+    </div>
+</div>
 
 <!------第一關-------------------->
 <div id="first_page" class="container-fluid" hidden="hidden" style="margin: 10% 0 0 0;">
@@ -54,7 +71,7 @@
             <p class="end1 bigfont sus">答 對 了</p>
         </div>
         <div onclick="showDialog();">
-            <img class="eimg1" src="./img/風火輪.png"/>
+            <img class="eimg1" src="./img/wheel.png"/>
         </div>
     </div>
     <!--失敗出現-->
@@ -69,12 +86,12 @@
 </div>
 
 <!------第二關-------------------->
-<div id="second_page" class="container-fluid" hidden="hidden"> <!-- 一開始先隱藏 container-fluid是Bootstrap格線系統的 -->
+<div id="secon_page" class="container-fluid" hidden="hidden"> <!-- 一開始先隱藏 container-fluid是Bootstrap格線系統的 -->
 
     <div class="row" style="margin: 10% 0 0 0;">
         <div class="col-md-2  ">
             <div>
-                <img class="sec_pageImg" src="img/哪吒.jpg"/>
+                <img class="sec_pageImg" src="img/noza.jpg"/>
             </div>
         </div>
 
@@ -138,7 +155,7 @@
     </div>
     <div id="again" hidden="hidden">
         <div onclick="is_success(1);">
-            <img class="eimg2" src="./img/火尖槍.png"/>
+            <img class="eimg2" src="./img/gun.png"/>
         </div>
         <div>
             <p class="end2 bigfont sus">答 對 了</p>
@@ -160,7 +177,7 @@
 <div id="GamePrompt1" class="" hidden="hidden">
     <h1 style='color:#0066FF;' class='text-center bigfont'>Round 1 -教育態度分分看</h1>
     <h2 style='color:#FFFFFF;' class='text-center'>
-        課文中對於哪吒而言，太乙就像他第二個父親，<br>
+        課文中對於noza而言，太乙就像他第二個父親，<br>
         兩位父親分別代表不同教育態度，請依照課文內容來分析，<br>
         這些形容詞分別代表哪位人物的教育態度。
     </h2>
@@ -168,8 +185,8 @@
 <div id="GamePrompt2" class="" hidden="hidden">
     <h1 style='color:#0066FF;' class='text-center bigfont'>Round 2 -人物關係對對碰</h1>
     <h2 style='color:#FFFFFF;' class='text-center'>
-        在《封神榜裡的哪吒》課文中出現四位重要人物，太乙、哪吒、李靖、四氓。<br>
-        以哪吒為主角，放入其他角色關係，<br>
+        在《封神榜裡的noza》課文中出現四位重要人物，太乙、noza、李靖、四氓。<br>
+        以noza為主角，放入其他角色關係，<br>
         即可完成作答。
     </h2>
 </div>
@@ -187,7 +204,7 @@
             <img class="col-md-2 col-md-offset-3" src="img/B.jpg">
         </div>
         <div class="sec_pageImg">
-            <img class="col-md-2 col-md-offset-1" src="img/哪吒.jpg"/>
+            <img class="col-md-2 col-md-offset-1" src="img/noza.jpg"/>
         </div>
         <div class="sec_pageImg">
             <img class="col-md-2 col-md-offset-1" src="img/A.jpg"/>
@@ -197,7 +214,7 @@
 <!--------遊戲開始2------------------------------------------------------------->
 <div id="GameStart2" hidden="hidden">
     <div class="text-center " style="margin: 10% 0 0 0;">
-        <button type="button" class=" btn btn-link " onclick="$('#GameStart2').hide();$('#second_page').fadeIn();">
+        <button type="button" class=" btn btn-link " onclick="$('#GameStart2').hide();$('#secon_page').fadeIn();">
             <div class="sec_pageImg">
                 <img id="start-btn" class="img-circle" src="img/start.png">
             </div>
@@ -205,7 +222,7 @@
     </div>
     <div class="row" style="margin: 4% 0 0 0;">
         <div class="sec_pageImg">
-            <img class="col-md-2 col-md-offset-1" src="img/哪吒.jpg"/>
+            <img class="col-md-2 col-md-offset-1" src="img/noza.jpg"/>
         </div>
         <div class="sec_pageImg">
             <img class="col-md-2 col-md-offset-1" src="img/A.jpg">
@@ -225,22 +242,21 @@
     </div>
     <div class="row" style="margin: 5% 0 0 10vw;">
         <div class="sec_pageImg">
-            <img id='get1' hidden="hidden" class="col-md-3 col-md-offset-1" src="img/火尖槍.png"/>
+            <img id='get1' hidden="hidden" class="col-md-3 col-md-offset-1" src="img/gun.png"/>
         </div>
         <div class="sec_pageImg">
-            <img class="col-md-3 col-md-offset-1" src="img/哪吒.jpg"/>
+            <img class="col-md-3 col-md-offset-1" src="img/noza.jpg"/>
         </div>
         <div class="sec_pageImg">
-            <img id='get2' hidden="hidden" class="col-md-3 col-md-offset-1" src="img/風火輪.png"/>
+            <img id='get2' hidden="hidden" class="col-md-3 col-md-offset-1" src="img/wheel.png"/>
         </div>
     </div>
 </div>
-<div style="margin-top: 100px">
-    <button class="btn btn-success" onclick="showDialog();">hit me</button><!--下一關-->
-    <button class="btn btn-success" onclick="end1(0);">第一關成功</button><!--第一關成功-->
-    <button class="btn btn-success" onclick="end1(1);">第一關失敗</button><!--第一關失敗-->
-    <button class="btn btn-success" onclick="is_success(1);">挑戰成功</button><!--挑戰成功-->
-</div>
+
+<button class="btn btn-success" onclick="showDialog();">hit me</button><!--下一關-->
+<button class="btn btn-success" onclick="end1(0);">第一關成功</button><!--第一關成功-->
+<button class="btn btn-success" onclick="end1(1);">第一關失敗</button><!--第一關失敗-->
+<button class="btn btn-success" onclick="is_success(1);">挑戰成功</button><!--挑戰成功-->
 
 <!--Bootstrap 與 jquery 核心 JS-->
 <!-- 文件讀完才會讀 JS，讀取速度較快  -->

@@ -1,5 +1,5 @@
 body {
-    background: url("img/竹林.png ") no-repeat fixed center;
+    background: url("img/bamboo.png ") no-repeat fixed center;
     font-family: "Microsoft JhengHei", "標楷體", "新細明體", sans-serif;
     background-size: cover;
     width: 100%;
@@ -64,8 +64,8 @@ hr {
     display: block;
 }
 
-#GamePrompt1, #GamePrompt2 {
-    margin: 15% 0 0 0;
+#start_page, #GamePrompt1, #GamePrompt2 {
+    margin:6% 0 0 0;
 }
 
 #start-btn {
@@ -167,4 +167,10 @@ hr {
 
 .first_RL_DOWN{
     height: 20vh;
+}
+.title {
+    font-size: 7em;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: #FFFFFF;
+    -webkit-text-fill-color: #73008A;
 }
