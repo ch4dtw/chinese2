@@ -58,7 +58,7 @@ body {
 .line2 {
     z-index: -2;
     background-color: #FFAAEE;
-    height: 150px;
+    height: 20vh;
     width: 10px;
     display: inline-block;
     margin-left: 16%;
@@ -67,7 +67,7 @@ body {
 .line3 {
     z-index: -2;
     background-color: #FFAAEE;
-    height: 150px;
+    height: 20vh;
     width: 10px;
     display: inline-block;
     margin-left: 24%;
@@ -76,7 +76,7 @@ body {
 .line4 {
     z-index: -2;
     background-color: #FFAAEE;
-    height: 150px;
+    height: 20vh;
     width: 10px;
     display: inline-block;
     margin-left: 24%;
