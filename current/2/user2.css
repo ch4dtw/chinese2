@@ -96,11 +96,6 @@ body {
     display: none;
 }
 
-/*.font-sty {*/
-/*!*top: 45 %;*!*/
-/*position: absolute;*/
-/*}*/
-
 /*.bigfont {*/
     /*font-size: 64px;*/
 /*}*/
@@ -143,34 +138,4 @@ body {
     /*margin-left: 45vw;*/
 /*}*/
 
-/*.name-box {*/
-/*background-color: white;*/
-/*border: 2px solid #DBDB00;*/
-/*position: relative;*/
-/*width: 154px;*/
-/*padding: 0;*/
-/*margin: 0;*/
-/*}*/
 
-/*hr {*/
-/*top: 20%;*/
-/*height: 20px;*/
-/*width: 70%;*/
-/*color: #0000AA;*/
-/*display: block;*/
-/*}*/
-
-/*#start_page, #GamePrompt1, #GamePrompt2 {*/
-/*margin:6% 0 0 0;*/
-/*}*/
-
-/*#start-btn {*/
-/*background-size: cover;*/
-/*background-position: center;*/
-/*width: 30%;*/
-/*}*/
-
-.img_level_one {
-margin-top: 10vh;
-height: 10vh;
-}
