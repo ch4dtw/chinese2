@@ -73,50 +73,52 @@
 
 <!--第一關-->
 <div id="game1_page" class="container-fluid" hidden="hidden">
-    <button type="button" class="btn btn-info" onclick="javascript:$('#game1_page').hide();$('#prompt2_page').show();lock=0;">第二關</button>
-    <!--<div class="row">-->
-    <!--<div class="col-md-4 center "><img class="first_RL_UP" src="img/left.png"/></div>-->
-    <!--<div class="col-md-4 center">-->
-    <!--<div class="col-lg-8 center">-->
-    <!--<div><img class="img_level_one" src="img/1.png"/></div>-->
-    <!--<div><img class="img_level_one" src="img/2.png"/></div>-->
-    <!--<div><img class="img_level_one" src="img/3.png"/></div>-->
-    <!--</div>-->
+    <div class="row">
+        <div class="col-md-4 center " style="margin-left: 2vw"><img src="img/left.png" style="height: 50vh;"/></div>
+        <div class="col-md-4 center">
+            <div class="col-md-8 center" style="margin-left: -7vw">
+                <div><img style="margin-top: 5vh;10vh;height: 7vh;" src="img/1.png"/></div>
+                <div><img style="margin-top: 10vh;height: 7vh;" src="img/2.png"/></div>
+                <div><img style="margin-top: 10vh;height: 7vh;" src="img/3.png"/></div>
+            </div>
 
-    <!--<div class="col-md-4 center">-->
-    <!--<div><img class="img_level_one " src="img/4.png"/></div>-->
-    <!--<div><img class="img_level_one" src="img/5.png"/></div>-->
-    <!--<div><img class="img_level_one" src="img/6.png"/></div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--<div class="col-md-4 center "><img class="first_RL_UP" src="img/right.png"/></div>-->
-    <!--</div>-->
+            <div class="col-md-4 center">
+                <div><img style="margin-top: 5vh;height: 7vh;" src="img/4.png"/></div>
+                <div><img style="margin-top: 10vh;height: 7vh;" src="img/5.png"/></div>
+                <div><img style="margin-top: 10vh;height: 7vh;" src="img/6.png"/></div>
+            </div>
+        </div>
+        <div class="col-md-3 center "><img src="img/right.png" style="height: 50vh;"/></div>
+    </div>
 
-    <!--<div class="row">-->
-    <!--</div>-->
-    <!--<div class="row">-->
-    <!--<div class="col-md-4 center"><img class="first_RL_DOWN" src="img/b.jpg"/></div>-->
-    <!--<div class="col-md-4 center"></div>-->
-    <!--<div class="col-md-4 center"><img class="first_RL_DOWN" src="img/A.jpg"/></div>-->
-    <!--</div>-->
-    <!--&lt;!&ndash;成功出現&ndash;&gt;-->
-    <!--<div id="FireRing" hidden="hidden">-->
-    <!--<div>-->
-    <!--<p class="end1 bigfont sus">答 對 了</p>-->
-    <!--</div>-->
-    <!--<div onclick="showDialog();">-->
-    <!--<img class="eimg1" src="./img/wheel.png"/>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--&lt;!&ndash;失敗出現&ndash;&gt;-->
-    <!--<div id="fail1" hidden="hidden">-->
-    <!--<div>-->
-    <!--<p class="end1 bigfont fail">答 錯 了</p>-->
-    <!--</div>-->
-    <!--<div id="fail1_btn" class="ebtn1  ">-->
-    <!--<button type="button" class="btn btn-info" onclick="location.reload();">再 一 次</button>-->
-    <!--</div>-->
-    <!--</div>-->
+    <div class="row">
+    </div>
+    <div class="row">
+        <div class="col-md-4 center" style="margin-left: 8vw"><img src="img/B.png" style="height: 18vh;"/></div>
+        <div class="col-md-4 center"></div>
+        <div class="col-md-3 center"><img src="img/A.png" style="height: 18vh;"/></div>
+    </div>
+    <!--成功出現-->
+    <div id="FireRing" hidden="hidden">
+        <div>
+            <p class="end1 bigfont sus">答 對 了</p>
+        </div>
+        <div onclick="showDialog();">
+            <img class="eimg1" src="./img/wheel.png"/>
+        </div>
+    </div>
+    <!--失敗出現-->
+    <div id="fail1" hidden="hidden">
+        <div>
+            <p class="end1 bigfont fail">答 錯 了</p>
+        </div>
+        <div id="fail1_btn" class="ebtn1  ">
+            <button type="button" class="btn btn-info" onclick="location.reload();">再 一 次</button>
+        </div>
+    </div>
+    <button type="button" class="btn btn-info"
+    onclick="javascript:$('#game1_page').hide();$('#prompt2_page').show();lock=0;">第二關
+    </button>
 </div>
 
 <!--遊戲提示2-->
@@ -231,10 +233,20 @@
             <p class="end2 bigfont sus">答 對 了</p>
         </div>
     </div>
+    <!--失敗出現-->
+    <div id="fail2" hidden="hidden">
+        <div class="eimg2">
+            <button type="button" class="btn btn-info" onclick="location.reload();">再 一 次</button>
+        </div>
+        <div>
+            <p class="end2 bigfont fail">答 錯 了</p>
+        </div>
+    </div>
     <button type="button" class="btn btn-info" onclick="javascript:$('#game2_page').hide();$('#end_page').show();lock=0;
     $('#start2_mid_img').css('visibility','visible').hide().fadeIn(2000);
     $('#start2_left_img').css('visibility','visible').hide().fadeIn(6000);
-    $('#start2_right_img').css('visibility','visible').hide().fadeIn(6000);">第二關</button>
+    $('#start2_right_img').css('visibility','visible').hide().fadeIn(6000);">第二關
+    </button>
 </div>
 
 
