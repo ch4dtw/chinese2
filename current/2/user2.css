@@ -35,7 +35,8 @@ body {
 .droppable {
     background-color: #FFFFF2;
     border: 6px solid #FF5959;
-    height: 13vw;
+    height: 8vw;
+    width: 8vw;
     z-index: -1;
 }
 
