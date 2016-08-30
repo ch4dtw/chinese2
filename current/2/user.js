@@ -53,8 +53,9 @@ $(function () {
             // 拿draggable id
             var draggableId = ui.draggable.attr('id');
             Resume('DIV_' + draggableId);
-            $('div#' + droppableId).html('<img class="img_size"  src="img/' + draggableId + '.jpg">');
-            $('div#' + droppableId).droppable( "option", "disabled", true );
+            var $droppableDiv = $('div#' + droppableId);
+            $droppableDiv.html('<img class="img_size"  src="img/' + draggableId + '.jpg">');
+            $droppableDiv.droppable( "option", "disabled", true );
             // 正確
             if (droppableId == (draggableId + '_droppable')) {
                 game2_correct += 1;
@@ -122,18 +123,18 @@ $(function () {
             anse_array_4 = [];
             score = 0;
 
-            $("#problem_array_1 div").each(function () {
+            $("#problem_array_1").find("div").each(function () {
                 anse_array_1.push($(this).attr("id"));
             });
-            $("#problem_array_2 div").each(function () {
+            $("#problem_array_2").find("div").each(function () {
                 anse_array_2.push($(this).attr("id"));
             });
 
             if ((anse_array_1.length == 0) && (anse_array_2.length == 0)) {
-                $("#round_left div").each(function () {
+                $("#round_left").find("div").each(function () {
                     anse_array_3.push($(this).attr("id"));
                 });
-                $("#round_right div").each(function () {
+                $("#round_right").find("div").each(function () {
                     anse_array_4.push($(this).attr("id"));
                 });
                 final_anser = $(anse_array_3).not($(anse_array_3).not(ans)).toArray();
