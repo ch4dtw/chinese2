@@ -1,18 +1,77 @@
-var audio, right, wrong;
+	var audio, right, wrong;
+	var stage = 0;
+    var isPrompt = 0;
+    var run = 0;
 $(document).ready(function () {
     audio = document.createElement('audio');
     right = document.createElement('audio');
     wrong = document.createElement('audio');
     right.setAttribute('src', 'audio/pass.mp3');
     wrong.setAttribute('src', 'audio/error.mp3');
+	$.get();
 });
 
-//拖拉功能
-$('.draggable').draggable({revert: 'invalid'});
+$(function () {
+    $(".draggable").draggable({
+        revert: "invalid"
+    });
+});
+
+$(function () {
+    $(".droppable ui-widget-header").droppable({
+        activeClass: "ui-state-default",
+        hoverClass: "ui-state-hover",
+        drop: function (event, ui) {
+            // 拿droppable id
+            var droppableId = event.target.id;
+            // 拿draggable id
+            var draggableId = ui.draggable.attr('id');
+            // 正確
+            if (droppableId == (draggableId + '_droppable')) {
+                Resume('DIV_' + draggableId);
+                $('div#' + droppableId).html('<img class="imag_size"  src="img/' + draggableId + '.jpg">');
+            }
+            // 錯誤
+            else {
+                $('div#' + 'DIV_' + draggableId).html('<img class="draggable" id="' + draggableId + '" src="img/' + draggableId + '.jpg">');
+                $('img#' + draggableId).draggable({revert: "invalid"});
+            }
+        }
+    });
+});
+
+//這是我對draggable & droppable match時，全對才顯示的想法，不過是syntax有錯，還是連邏輯都錯。第54行開始
+/*$(function () {
+    $(".droppable ui-widget-header").droppable({
+        activeClass: "ui-state-default",
+        hoverClass: "ui-state-hover",
+        drop: function (event, ui) {
+            // 拿droppable id
+            var droppableId = event.target.id;
+            // 拿draggable id
+            var draggableId = ui.draggable.attr('id');
+            // 正確
+            if ($(this).each(function(){if (droppableId == (draggableId + '_droppable')) {
+                Resume('DIV_' + draggableId);
+                $('div#' + droppableId).html('<img class="imag_size"  src="img/' + draggableId + '.jpg">');
+            }})) {
+			showCorrect();
+			}
+            // 錯誤
+            else {
+                $('div#' + 'DIV_' + draggableId).html('<img class="draggable" id="' + draggableId + '" src="img/' + draggableId + '.jpg">');
+                $('img#' + draggableId).draggable({revert: "invalid"});
+			showError();
+            }
+        }
+    });
+});*/
+/*$('.draggable').draggable({revert: 'invalid'});
 $('.droppable').droppable({
     activeClass: 'ui-state-default',
     hoverClass: 'ui-state-hover',
     drop: function (event, ui) {
+        $(this).addClass('ui-state-highlight');
         ui.draggable.css('position', 'static');
         var id = $(this).children('div.holder').children('.draggable');
         if (id) {
@@ -22,10 +81,10 @@ $('.droppable').droppable({
         $(this).children('div.holder').html(ui.draggable).append($('<button class="btn remove"></button>'));
         ToggleRemove();
     }
-});
+});*/
 
 //對答案按鈕功能
-var score = 0;
+/*var score = 0;
 $('.check').click(function () {
     score = 0;
     $('.droppable').each(function () {
@@ -43,75 +102,93 @@ $('.check').click(function () {
         $('span#score').text(score);
         showError();
     }
-});
+});*/
 
-//圖片旁邊小小的按鈕
-function ToggleRemove() {
+/*function ToggleRemove() {
     $('.remove').click(function () {
         var id = $(this).prev('.draggable').attr('id');
         Resume(id);
-        $(this).parent('div.holder').empty();
+        $(this).parent().empty();
         $(this).parent('div.holder').parent('btn.droppable').removeClass('btn-danger btn-success');
     });
-}
-
-//
-function Resume(id) {
-    $('div#' + id).html('<img class="draggable" id="' + id + '" src="img/' + id + '.jpg">');
-    $('img#' + id).draggable({revert: "invalid"});
-}
+}*/
 
 //答對時顯示圖片
 function showCorrect() {
-    $('#FireRing').css('display', 'block');
+	if(stage == 1){
+		$('#FireRing').css('display', 'block');
+	}	
+	else if(stage == 2){
+		$('#again').css('display', 'block');
+	}	
 }
 
 //錯誤時顯示按鈕
 function showError() {
-    $('#again').css('display', 'block');
+	if(stage == 1){
+		$('#fail1').css('display', 'block');
+	}
+	else if(stage == 2){
+		$('#fail2').css('display', 'block');
+	}
 }
 
-var stage = 0;
 
-function showDialog() {
-    if (stage == 0) {
-        stage++;
-
-        $(".modal-body").html("<h1><p style = 'color:#0066FF;' class = 'text-center'>Round 1 -教育態度分分看</p></h1><h4><p style = 'color:#FF0000;' class = 'text-center'>課文中對於哪吒而言，太乙就像他第二個父親，兩位父親分別代表不同教育態度，請依照課文內容來分析，這些形容詞分別代表哪位人物的教育態度。</p></h4>");
-
-        $(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" >開始遊戲</button>');
-        $("#start_page").hide();
-        $("#first_page").html('<h1 class = "text-center">我是第一關</h1>');
-        $('#myModal').modal({backdrop: 'static'});//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
-        //alert(stage);
-    }
-    else if (stage == 1) {
-        stage++;
-        $(".modal-body").html("<h1><p style = 'color:#0066FF;' class = 'text-center'>Round 2 -人物關係對對碰</p></h1><h4><p style = 'color:#FF0000;' class = 'text-center'>在《封神榜裡的哪吒》課文中出現四位重要人物，太乙、哪吒、李靖、四氓。以哪吒為主角，放入其他角色關係，即可完成作答。</p></h4>");
-        //alert(stage);
-        //點擊button會執行 show() ，出現第二關畫面
-        $(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick = "show();">開始遊戲</button>');
-        $('#myModal').modal({backdrop: 'static'});//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
-        $("#first_page").hide();
-
-
-    }
-
+//移除物件
+function Resume(id) {
+    $('div#' + id).html('<img class="draggable" id="' + id + '" src="img/' + id + '.jpg">');
+    $('img#' + id).draggable({revert: "invalid"});
 }
-function show() {
-    if (stage == 2) {
-        $('#secon_page').fadeIn();
+	
+//按左鍵出現Start按鈕的畫面
+    $(document).on('click', function () {
+        if (isPrompt == 1) {
+            run++;
+			
+            if (stage == 0 && run >= 2) {
+                $("#GamePrompt1").hide();
+                $("#GameStart1").fadeIn();
+                stage++;
+                isPrompt = 0;
+                run = 0;
+            }
+            else if (stage == 1 && run >= 2) {
+                $("#GamePrompt2").hide();
+                $('#GameStart2').fadeIn();
+                stage++;
+                isPrompt = 0;
+                run = 0;
+            }
+        }
+    });
+//下一關
+    function showDialog() {
+        if (stage == 0) {
+            $("#start_page").hide();
+            $("#GamePrompt1").fadeIn(2000);
+            isPrompt = 1;
+        }
+        else if (stage == 1) {
+            $("#first_page").hide();
+            $("#GamePrompt2").fadeIn(2000);
+            isPrompt = 1;
+        }
     }
-}
-function is_success(success) {
-    if (success == 1) {
-        $(".modal-body").html("<h1><p style = 'color:#FF0000;' class = 'text-center'>挑戰成功</p></h1><br><h4><p style = 'color:#0066FF;' class = 'text-center'>恭喜你挑戰成功<br>再挑戰一次吧!</p></h4>");
-        $(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick="location.reload();">再玩一次</button>');
-        $('#myModal').modal({backdrop: 'static'});//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
+//挑戰成功畫面	
+    function is_success(success) {
+        if (success == 1) {
+            $("#secon_page").hide();
+            $("#gameSuccess").fadeIn();
+            $("#get1").fadeIn(2000);
+            $("#get2").fadeIn(2000);
+        }
     }
-    else if (success == 2) {
-        $(".modal-body").html("<h1><p style = 'color:#FF0000;' class = 'text-center'>挑戰失敗</p></h1><br><h4><p style = 'color:#0066FF;' class = 'text-center'>太可惜了<br>再挑戰一次吧!</p></h4>");
-        $(".modal-footer").html('<button type="button" class="btn btn-success" data-dismiss="modal" onclick="location.reload();">再玩一次</button>');
-        $('#myModal').modal({backdrop: 'static'});//backdrop: 'static' : 設定讓彈出視窗點擊灰色背景不會關
-    }
-}
+//第一關 成功或失敗 畫面	
+	function end1(num){
+		if(num == 0){
+			$("#FireRing").fadeIn();
+		}
+		else if(num == 1){
+			$("#fail1").fadeIn();
+		}
+	}
