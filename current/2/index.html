@@ -116,9 +116,6 @@
             <button type="button" class="btn btn-info btn-lg" onclick="game1_fail()">再一次</button>
         </div>
     </div>
-    <button type="button" class="btn btn-info"
-            onclick="$('#done1').show();this.hide()">第二關
-    </button>
 </div>
 
 <!--遊戲提示2-->
@@ -225,12 +222,12 @@
             </div>
         </div>
     </div>
-    <div id="done2" class="text-center" hidden="hidden" style="z-index: 99; position: fixed; margin-top: -1vh;">
+    <div id="done2" class="text-center" hidden="hidden" style="z-index: 99; position: fixed; margin-top: -28vh;">
         <a href="javascript:game2_success();">
-            <img class="eimg2" src="./img/gun.png" style="margin-top: -27vh; margin-left: -80vh"/>
+            <img class="eimg2" src="./img/gun.png" style="margin-left: -30vw;"/>
         </a>
-        <div>
-            <span class="words_blue end2 "><strong>答對了</strong></span>
+        <div style="margin-top: -35vh"
+        <span class="words_blue end2"><strong>答對了</strong></span>
         </div>
     </div>
     <!--失敗出現-->
@@ -242,8 +239,6 @@
             <p class="words_red end2 "><strong>答錯了</strong></p>
         </div>
     </div>
-    <button type="button" class="btn btn-info" onclick="$('#done2').show();">第二關
-    </button>
 </div>
 
 
