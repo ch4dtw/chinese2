@@ -18,18 +18,18 @@ $(document).ready(function () {
 $(document).on('click', function () {
     if (click_status == 0 && lock == 0) {
         $("#main_page").hide();
-        $("#prompt1_page").show();
+        $("#prompt1_page").fadeIn();
         click_status += 1;
     }
     else if (click_status == 1 && lock == 0) {
         $("#prompt1_page").hide();
-        $("#start1_page").show();
+        $("#start1_page").fadeIn();
         lock = 1;
         click_status += 1;
     }
     else if (click_status == 2 && lock == 0) {
         $("#prompt2_page").hide();
-        $("#start2_page").show();
+        $("#start2_page").fadeIn();
         lock = 1;
         click_status += 1;
     }
@@ -54,6 +54,7 @@ $(function () {
             var draggableId = ui.draggable.attr('id');
             Resume('DIV_' + draggableId);
             $('div#' + droppableId).html('<img class="img_size"  src="img/' + draggableId + '.jpg">');
+            $('div#' + droppableId).droppable( "option", "disabled", true );
             // 正確
             if (droppableId == (draggableId + '_droppable')) {
                 game2_correct += 1;
@@ -67,17 +68,17 @@ $(function () {
                 game2_score = game1_score + game2_correct * 10 + 5;
                 $('#score').text(game2_score);
                 if (game2_correct == 3) {
-                    $('#done2').show();
+                    $('#done2').fadeIn();
                 }
                 else
-                    $('#fail2').show();
+                    $('#fail2').fadeIn();
             }
         }
     });
 });
 function game2_success() {
     $('#game2_page').hide();
-    $('#end_page').show();
+    $('#end_page').fadeIn();
     lock = 0;
     $('#start2_mid_img').css('visibility', 'visible').hide().fadeIn(2000);
     $('#start2_left_img').css('visibility', 'visible').hide().fadeIn(6000);
@@ -142,10 +143,10 @@ $(function () {
                 game1_score = game1_correct*10+5;
                 $('#score').text(game1_score);
                 if (game1_correct == 6) {
-                    $('#done1').show();
+                    $('#done1').fadeIn();
                 }
                 else
-                    $('#fail1').show();
+                    $('#fail1').fadeIn();
             }
         }
     }).disableSelection();
@@ -153,7 +154,7 @@ $(function () {
 
 function game1_success() {
     $('#game1_page').hide();
-    $('#prompt2_page').show();
+    $('#prompt2_page').fadeIn();
     lock=0;
 }
 function game1_fail() {
