@@ -6,6 +6,22 @@ body {
     height: 100%;
 }
 
+/*封神榜裡的哪吒大考驗*/
+.title {
+    font-size: 6em;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #FFFFFF;
+    -webkit-text-fill-color: #73008A;
+}
+
+/*挑戰成功*/
+.title2 {
+    font-size: 8em;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #FFFFFF;
+    -webkit-text-fill-color: #0000CC;
+}
+
 .sec_pageImg {
     width: 80%;
     height: 70%;
@@ -13,31 +29,21 @@ body {
     margin: 0;
 }
 
-h2, p {
-    font-weight: bolder;
-}
-
-h3 {
-    color: #DBDB00;
-    font-weight: bolder;
+.game2_img {
+    width: 125%;
 }
 
 .draggable {
     background-color: #FFFFF2;
     border-width: 6px;
     width: 70%;
-
-}
-
-.font-sty {
-    /*top: 45 %;*/
-    position: absolute;
 }
 
 .droppable {
     background-color: #FFFFF2;
     border: 6px solid #FF5959;
-    height: 13vw;
+    height: 8vw;
+    width: 8vw;
     z-index: -1;
 }
 
@@ -47,130 +53,121 @@ h3 {
     background-color: #fff;
 }
 
-.name-box {
-    background-color: white;
-    border: 2px solid #DBDB00;
-    position: relative;
-    width: 154px;
-    padding: 0;
-    margin: 0;
-}
-
-hr {
-    top: 20%;
-    height: 20px;
-    width: 70%;
-    color: #0000AA;
-    display: block;
-}
-
-#start_page, #GamePrompt1, #GamePrompt2 {
-    margin:6% 0 0 0;
-}
-
-#start-btn {
-    background-size: cover;
-    background-position: center;
-    width: 30%;
-}
-
-.img_level_one {
-    margin: 10px;
-    height: 5vh;
-}
-
-.center {
-    text-align: center;
-    margin:0 auto;
-}
-
 .line1 {
-    z-index: -1;
+    z-index: 1;
     background-color: #00FFAA;
     height: 10px;
     width: 80%;
-    margin-top: 7%;
+    margin-top: 3%;
     margin-left: 2%;
 }
 
 .line2 {
-    z-index: -1;
+    z-index: 1;
     background-color: #FFAAEE;
-    height: 150px;
+    height: 15vh;
     width: 10px;
     display: inline-block;
     margin-left: 16%;
 }
 
 .line3 {
-    z-index: -1;
+    z-index: 1;
     background-color: #FFAAEE;
-    height: 150px;
+    height: 15vh;
     width: 10px;
     display: inline-block;
     margin-left: 24%;
 }
 
 .line4 {
-    z-index: -1;
+    z-index: 1;
     background-color: #FFAAEE;
-    height: 150px;
+    height: 15vh;
     width: 10px;
     display: inline-block;
     margin-left: 24%;
 }
-.bigfont {
-    font-size: 64px;
-}
-.eimg2{
-    width: 20vh;
-    height: 35vh;
-    margin-top: -30vh;
-    margin-left: 3vw;
-}
-.btn{
-    font-size: 30px;
-}
-.end2{
-    margin-top: -25vw;
-    margin-left: 30vw;
-}
-.fail{
-    font-size: 15vw;
-    color: #FF0000;
-}
-.sus{
-    font-size: 15vw;
-    color: #00BD00;
-}
-.fail1, .fail2{
-    z-index: 999;
-}
-.end1{
-    margin-top: -50vw;
-    margin-left: 30vw;
-}
-.eimg1{
-    width: 30vh;
-    height: 30vh;
-    margin-top: -50vh;
-    margin-left: 40vw;
-}
-.ebtn1{
-    margin-top: 15vh;
-    margin-left: 45vw;
+
+.img_size {
+    z-index: 10;
+    height: 7.4vw;
+    width: 7.4vw;
 }
 
-.first_RL_UP{
+#success {
+    top: 35%;
+    left: 40%;
+    width: 25%;
+    height: 25%;
+    position: fixed;
+    margin-left: -12.5%;
+    margin-top: -12.5%;
+    display: none;
+}
+
+.img_level_one {
+    margin-left: 10vh;
+    margin-top: 7.5vh;
+    height: 7vh;
+}
+
+#round_left {
+    margin-left: 5vw;
+    margin-right: 10vh;
     height: 50vh;
+    width: 50vh;
+    background: url('img/left.png') no-repeat;
+    background-size: contain;
 }
 
-.first_RL_DOWN{
-    height: 20vh;
+#round_right {
+    height: 50vh;
+    width: 50vh;
+    background: url('img/right.png') center center no-repeat;
+    background-size: contain;
 }
-.title {
-    font-size: 7em;
-    -webkit-text-stroke-width: 1.5px;
-    -webkit-text-stroke-color: #FFFFFF;
-    -webkit-text-fill-color: #73008A;
-}
+
+/*.bigfont {*/
+/*font-size: 64px;*/
+/*}*/
+/*.eimg2{*/
+/*width: 20vh;*/
+/*height: 35vh;*/
+/*margin-top: -30vh;*/
+/*margin-left: 3vw;*/
+/*}*/
+/*.btn{*/
+/*font-size: 30px;*/
+/*}*/
+/*.end2{*/
+/*margin-top: -25vw;*/
+/*margin-left: 30vw;*/
+/*}*/
+/*.fail{*/
+/*font-size: 15vw;*/
+/*color: #FF0000;*/
+/*}*/
+/*.sus{*/
+/*font-size: 15vw;*/
+/*color: #00BD00;*/
+/*}*/
+/*.fail1, .fail2{*/
+/*z-index: 999;*/
+/*}*/
+/*.end1{*/
+/*margin-top: -50vw;*/
+/*margin-left: 30vw;*/
+/*}*/
+/*.eimg1{*/
+/*width: 30vh;*/
+/*height: 30vh;*/
+/*margin-top: -50vh;*/
+/*margin-left: 40vw;*/
+/*}*/
+/*.ebtn1{*/
+/*margin-top: 15vh;*/
+/*margin-left: 45vw;*/
+/*}*/
+
+

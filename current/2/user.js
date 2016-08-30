@@ -1,24 +1,53 @@
-var audio, right, wrong;
-var stage = 0;
-var isPrompt = 0;
-var run = 0;
+// stage: 主畫面,解說1,開始1,遊戲1,結束1,解說2,開始2,開始3,結束2,挑戰成功
+// onclick: 主畫面,解說1,解說2
+var click_status = 0;
+var lock = 0;
+var game2_count = 0;
+var game2_correct = 0;
+var game2_score = 0;
+var game1_correct = 0;
+var game1_score = 0;
+
 $(document).ready(function () {
-    audio = document.createElement('audio');
-    right = document.createElement('audio');
-    wrong = document.createElement('audio');
-    right.setAttribute('src', 'audio/pass.mp3');
-    wrong.setAttribute('src', 'audio/error.mp3');
-    $.get();
+    $('#start1_mid_img').css('visibility', 'visible').hide().fadeIn(2000);
+    $('#start1_left_img').css('visibility', 'visible').hide().fadeIn(6000);
+    $('#start1_right_img').css('visibility', 'visible').hide().fadeIn(6000);
 });
 
+//按左鍵出現Start按鈕的畫面
+$(document).on('click', function () {
+    if (click_status == 0 && lock == 0) {
+        $("#main_page").hide();
+        $("#prompt1_page").show();
+        click_status += 1;
+    }
+    else if (click_status == 1 && lock == 0) {
+        $("#prompt1_page").hide();
+        $("#start1_page").show();
+        lock = 1;
+        click_status += 1;
+    }
+    else if (click_status == 2 && lock == 0) {
+        click_status += 1;
+    }
+    else if (click_status == 3 && lock == 0) {
+        $("#prompt2_page").hide();
+        $("#start2_page").show();
+        lock = 1;
+        click_status += 1;
+    }
+});
+
+//拖拉圖片初始化
 $(function () {
     $(".draggable").draggable({
         revert: "invalid"
     });
 });
 
+//拖拉目標設定與互動
 $(function () {
-    $(".droppable .ui-widget-header").droppable({
+    $(".droppable").droppable({
         activeClass: "ui-state-default",
         hoverClass: "ui-state-hover",
         drop: function (event, ui) {
@@ -26,169 +55,97 @@ $(function () {
             var droppableId = event.target.id;
             // 拿draggable id
             var draggableId = ui.draggable.attr('id');
+            Resume('DIV_' + draggableId);
+            $('div#' + droppableId).html('<img class="img_size"  src="img/' + draggableId + '.jpg">');
             // 正確
             if (droppableId == (draggableId + '_droppable')) {
-                Resume('DIV_' + draggableId);
-                $('div#' + droppableId).html('<img class="imag_size"  src="img/' + draggableId + '.jpg">');
+                game2_correct += 1;
+                game2_count += 1;
             }
             // 錯誤
             else {
-                $('div#' + 'DIV_' + draggableId).html('<img class="draggable" id="' + draggableId + '" src="img/' + draggableId + '.jpg">');
-                $('img#' + draggableId).draggable({revert: "invalid"});
+                game2_count += 1;
+            }
+            if (game2_count == 3) {
+                game2_score = game1_score + game2_correct * 10 + 5;
+                $('#score').text(game2_score);
+                if (game2_correct == 3) {
+                    $('#game2_page').hide();
+                    $('#end_page').show();
+                    lock = 0;
+                    $('#start2_mid_img').css('visibility', 'visible').hide().fadeIn(2000);
+                    $('#start2_left_img').css('visibility', 'visible').hide().fadeIn(6000);
+                    $('#start2_right_img').css('visibility', 'visible').hide().fadeIn(6000);
+                }
+                else
+                    restart_game2();
             }
         }
     });
 });
-
-//這是我對draggable & droppable match時，全對才顯示的想法，不過是syntax有錯，還是連邏輯都錯。第54行開始
-/*$(function () {
- $(".droppable ui-widget-header").droppable({
- activeClass: "ui-state-default",
- hoverClass: "ui-state-hover",
- drop: function (event, ui) {
- // 拿droppable id
- var droppableId = event.target.id;
- // 拿draggable id
- var draggableId = ui.draggable.attr('id');
- // 正確
- if ($(this).each(function(){if (droppableId == (draggableId + '_droppable')) {
- Resume('DIV_' + draggableId);
- $('div#' + droppableId).html('<img class="imag_size"  src="img/' + draggableId + '.jpg">');
- }})) {
- showCorrect();
- }
- // 錯誤
- else {
- $('div#' + 'DIV_' + draggableId).html('<img class="draggable" id="' + draggableId + '" src="img/' + draggableId + '.jpg">');
- $('img#' + draggableId).draggable({revert: "invalid"});
- showError();
- }
- }
- });
- });*/
-/*$('.draggable').draggable({revert: 'invalid'});
- $('.droppable').droppable({
- activeClass: 'ui-state-default',
- hoverClass: 'ui-state-hover',
- drop: function (event, ui) {
- $(this).addClass('ui-state-highlight');
- ui.draggable.css('position', 'static');
- var id = $(this).children('div.holder').children('.draggable');
- if (id) {
- id = id.attr('id');
- Resume(id);
- }
- $(this).children('div.holder').html(ui.draggable).append($('<button class="btn remove"></button>'));
- ToggleRemove();
- }
- });*/
-
-//對答案按鈕功能
-/*var score = 0;
- $('.check').click(function () {
- score = 0;
- $('.droppable').each(function () {
- var tmp = $(this).children('div.holder');
- if (tmp.attr('id') === '_' + tmp.children('.draggable').attr('id')) {
- score += 5;
- }
- });
- if (score == 15) {
- right.play();
- showCorrect()
- }
- else {
- wrong.play();
- $('span#score').text(score);
- showError();
- }
- });*/
-
-/*function ToggleRemove() {
- $('.remove').click(function () {
- var id = $(this).prev('.draggable').attr('id');
- Resume(id);
- $(this).parent().empty();
- $(this).parent('div.holder').parent('btn.droppable').removeClass('btn-danger btn-success');
- });
- }*/
-
-//答對時顯示圖片
-function showCorrect() {
-    if (stage == 1) {
-        $('#FireRing').css('display', 'block');
-    }
-    else if (stage == 2) {
-        $('#again').css('display', 'block');
-    }
-}
-
-//錯誤時顯示按鈕
-function showError() {
-    if (stage == 1) {
-        $('#fail1').css('display', 'block');
-    }
-    else if (stage == 2) {
-        $('#fail2').css('display', 'block');
-    }
-}
-
-
 //移除物件
 function Resume(id) {
-    $('div#' + id).html('<img class="draggable" id="' + id + '" src="img/' + id + '.jpg">');
-    $('img#' + id).draggable({revert: "invalid"});
+    $('div#' + id).html('');
 }
 
-//按左鍵出現Start按鈕的畫面
-$(document).on('click', function () {
-    if (isPrompt == 1) {
-        run++;
+function restart_game2() {
+    // 回到第二關初始狀態
+    location.reload();
+}
 
-        if (stage == 0 && run >= 2) {
-            $("#GamePrompt1").hide();
-            $("#GameStart1").fadeIn();
-            stage++;
-            isPrompt = 0;
-            run = 0;
+var ans = ["1", "4", "5"];
+var ans2 = ["2", "3", "6"];
+var score = 0;
+var problem_array_1 = [];
+var problem_array_2 = [];
+var anse_array_1 = [];
+var anse_array_2 = [];
+var anse_array_3 = [];
+var anse_array_4 = [];
+var final_anser = [];
+
+
+$(function () {
+    $("#problem_array_1,#problem_array_2, #round_left,#round_right").sortable({
+        connectWith: "#problem_array_1,#problem_array_2, #round_left,#round_right",
+        revert: true,
+        tolerance: "pointer",
+        receive: function (event, ui) {
+            problem_array_1 = [];
+            anse_array_1 = [];
+            anse_array_2 = [];
+            anse_array_3 = [];
+            anse_array_4 = [];
+            score = 0;
+
+            $("#problem_array_1 div").each(function () {
+                anse_array_1.push($(this).attr("id"));
+            });
+            $("#problem_array_2 div").each(function () {
+                anse_array_2.push($(this).attr("id"));
+            });
+
+            if ((anse_array_1.length == 0) && (anse_array_2.length == 0)) {
+                $("#round_left div").each(function () {
+                    anse_array_3.push($(this).attr("id"));
+                });
+                $("#round_right div").each(function () {
+                    anse_array_4.push($(this).attr("id"));
+                });
+                final_anser = $(anse_array_3).not($(anse_array_3).not(ans)).toArray();
+                final_anser = final_anser.concat($(anse_array_4).not($(anse_array_4).not(ans2)).toArray());
+
+                game1_correct = final_anser.length;
+                game1_score = game1_correct*10+5;
+                $('#score').text(game1_score);
+                if (game1_correct == 6) {
+                    $('#game1_page').hide();
+                    $('#prompt2_page').show();
+                    lock=0;
+                }
+                else
+                    location.reload();
+            }
         }
-        else if (stage == 1 && run >= 2) {
-            $("#GamePrompt2").hide();
-            $('#GameStart2').fadeIn();
-            stage++;
-            isPrompt = 0;
-            run = 0;
-        }
-    }
+    }).disableSelection();
 });
-//下一關
-function showDialog() {
-    if (stage == 0) {
-        $("#start_page").hide();
-        $("#GamePrompt1").fadeIn(2000);
-        isPrompt = 1;
-    }
-    else if (stage == 1) {
-        $("#first_page").hide();
-        $("#GamePrompt2").fadeIn(2000);
-        isPrompt = 1;
-    }
-}
-//挑戰成功畫面	
-function is_success(success) {
-    if (success == 1) {
-        $("#second_page").hide();
-        $("#gameSuccess").fadeIn();
-        $("#get1").fadeIn(2000);
-        $("#get2").fadeIn(2000);
-    }
-}
-//第一關 成功或失敗 畫面	
-function end1(num) {
-    if (num == 0) {
-        $("#FireRing").fadeIn();
-    }
-    else if (num == 1) {
-        $("#fail1").fadeIn();
-    }
-}
