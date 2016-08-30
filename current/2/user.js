@@ -139,8 +139,10 @@ $(function () {
                 game1_score = game1_correct*10+5;
                 $('#score').text(game1_score);
                 if (game1_correct == 6) {
-                    $('#game1_page').hide();
-                    $('#prompt2_page').show();
+                    console.log('Game finish!');
+                    $('#FireRing').show();
+                    // $('#game1_page').hide();
+                    // $('#prompt2_page').show();
                     lock=0;
                 }
                 else
