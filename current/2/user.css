@@ -95,17 +95,6 @@ body {
     width: 7.4vw;
 }
 
-#success {
-    top: 35%;
-    left: 40%;
-    width: 25%;
-    height: 25%;
-    position: fixed;
-    margin-left: -12.5%;
-    margin-top: -12.5%;
-    display: none;
-}
-
 .img_level_one {
     margin-left: 10vh;
     margin-top: 7.5vh;
@@ -128,10 +117,6 @@ body {
     background-size: contain;
 }
 
-/*.bigfont {*/
-    /*font-size: 64px;*/
-/*}*/
-
 .eimg2 {
     width: 20vh;
     height: 35vh;
@@ -148,36 +133,10 @@ body {
     margin-left: 30vw;
 }
 
-.fail {
-    font-size: 15vw;
-    color: #FF0000;
-}
-
-/*.sus {*/
-    /*font-size: 15vw;*/
-    /*color: #00BD00;*/
-/*}*/
-
-/*.fail1, .fail2 {*/
-    /*z-index: 999;*/
-/*}*/
-
-/*.end1 {*/
-    /*margin-top: -50vw;*/
-    /*margin-left: 30vw;*/
-/*}*/
-
 .eimg1 {
     width: 30vh;
     height: 30vh;
-    /*margin-top: -50vh;*/
-    /*margin-left: 40vw;*/
 }
-
-/*.ebtn1 {*/
-    /*margin-top: 15vh;*/
-    /*margin-left: 45vw;*/
-/*}*/
 
 .words_blue {
     font-size: 12em;

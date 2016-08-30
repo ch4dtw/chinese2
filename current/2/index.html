@@ -99,25 +99,25 @@
         <div class="col-md-3 center" style="margin-left: 30vw"><img src="img/A.png" style="height: 18vh;"/></div>
     </div>
     <!--成功出現-->
-    <div id="FireRing" class="text-center" hidden="hidden" style="z-index: 99; position: fixed; margin-top: -70vh; margin-left: 35vw">
+    <div id="done1" class="text-center" hidden="hidden" style="z-index: 99; position: fixed; margin-top: -70vh; margin-left: 27vw">
         <div>
-            <p class="words_blue"><strong>答 對 了</strong><br></p>
+            <span class="words_blue"><strong>答對了</strong></span>
         </div>
-        <div onclick="showDialog();">
+        <a href="javascript:game1_success();">
             <img class="eimg1" src="./img/wheel.png"/>
-        </div>
+        </a>
     </div>
     <!--失敗出現-->
-    <div id="fail1" class="text-center" hidden="hidden" style="z-index: 99; position: fixed; margin-top: -70vh; margin-left: 35vw">
+    <div id="fail1" class="text-center" hidden="hidden" style="z-index: 99; position: fixed; margin-top: -70vh; margin-left: 27vw">
         <div>
-            <p class="words_red"><strong>答 錯 了</strong><br></p>
+            <p class="words_red"><strong>答錯了</strong><br></p>
         </div>
-        <div id="fail1_btn">
-            <button type="button" class="btn btn-info" onclick="location.reload();">再 一 次</button>
+        <div style="margin-top: 5vh">
+            <button type="button" class="btn btn-info btn-lg" onclick="game1_fail()">再一次</button>
         </div>
     </div>
     <button type="button" class="btn btn-info"
-            onclick="javascript:$('#fail1').show()">第二關
+            onclick="$('#done1').show();this.hide()">第二關
     </button>
 </div>
 
@@ -225,27 +225,25 @@
             </div>
         </div>
     </div>
-    <div id="again" hidden="hidden">
-        <div onclick="is_success(1);">
+    <div id="done2" class="text-center" hidden="hidden" style="z-index: 99; position: fixed; margin-top: -40vh;">
+        <a href="javascript:game2_success();">
             <img class="eimg2" src="./img/gun.png"/>
-        </div>
+        </a>
         <div>
-            <p class="end2 bigfont sus">答 對 了</p>
+            <span class="words_blue end2 "><strong>答對了</strong></span>
         </div>
     </div>
     <!--失敗出現-->
-    <div id="fail2" hidden="hidden">
-        <div class="eimg2">
-            <button type="button" class="btn btn-info" onclick="location.reload();">再 一 次</button>
+    <div id="fail2" class="text-center" hidden="hidden" style="z-index: 99; position: fixed; margin-top: -1vh;">
+        <div class="eimg2" style="margin-top: 5vh">
+            <button type="button" class="btn btn-info btn-lg" onclick="game2_fail();">再一次</button>
         </div>
         <div>
-            <p class="end2 bigfont fail">答 錯 了</p>
+            <p class="words_red end2 ">答錯了</p>
+            <!--<span class="words_red"><strong>答錯了</strong></span>-->
         </div>
     </div>
-    <button type="button" class="btn btn-info" onclick="javascript:$('#game2_page').hide();$('#end_page').show();lock=0;
-    $('#start2_mid_img').css('visibility','visible').hide().fadeIn(2000);
-    $('#start2_left_img').css('visibility','visible').hide().fadeIn(6000);
-    $('#start2_right_img').css('visibility','visible').hide().fadeIn(6000);">第二關
+    <button type="button" class="btn btn-info" onclick="$('#done2').show();">第二關
     </button>
 </div>
 

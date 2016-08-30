@@ -28,9 +28,6 @@ $(document).on('click', function () {
         click_status += 1;
     }
     else if (click_status == 2 && lock == 0) {
-        click_status += 1;
-    }
-    else if (click_status == 3 && lock == 0) {
         $("#prompt2_page").hide();
         $("#start2_page").show();
         lock = 1;
@@ -70,19 +67,25 @@ $(function () {
                 game2_score = game1_score + game2_correct * 10 + 5;
                 $('#score').text(game2_score);
                 if (game2_correct == 3) {
-                    $('#game2_page').hide();
-                    $('#end_page').show();
-                    lock = 0;
-                    $('#start2_mid_img').css('visibility', 'visible').hide().fadeIn(2000);
-                    $('#start2_left_img').css('visibility', 'visible').hide().fadeIn(6000);
-                    $('#start2_right_img').css('visibility', 'visible').hide().fadeIn(6000);
+                    $('#done2').show();
                 }
                 else
-                    restart_game2();
+                    $('#fail2').show();
             }
         }
     });
 });
+function game2_success() {
+    $('#game2_page').hide();
+    $('#end_page').show();
+    lock = 0;
+    $('#start2_mid_img').css('visibility', 'visible').hide().fadeIn(2000);
+    $('#start2_left_img').css('visibility', 'visible').hide().fadeIn(6000);
+    $('#start2_right_img').css('visibility', 'visible').hide().fadeIn(6000);
+}
+function game2_fail(){
+    restart_game2();
+}
 //移除物件
 function Resume(id) {
     $('div#' + id).html('');
@@ -139,15 +142,20 @@ $(function () {
                 game1_score = game1_correct*10+5;
                 $('#score').text(game1_score);
                 if (game1_correct == 6) {
-                    console.log('Game finish!');
-                    $('#FireRing').show();
-                    // $('#game1_page').hide();
-                    // $('#prompt2_page').show();
-                    lock=0;
+                    $('#done1').show();
                 }
                 else
-                    location.reload();
+                    $('#fail1').show();
             }
         }
     }).disableSelection();
 });
+
+function game1_success() {
+    $('#game1_page').hide();
+    $('#prompt2_page').show();
+    lock=0;
+}
+function game1_fail() {
+    location.reload();
+}
