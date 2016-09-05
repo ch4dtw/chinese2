@@ -37,18 +37,20 @@
             <img id="start1_right_img" class="col-md-3 col-md-offset-1" src="img/wheel.png" style="visibility: hidden"/>
         </div>
     </div>
+    <div style='color:#00FFFF; font-size: 3em;' class='bigfont text-center'><b><br>點擊進入遊戲<br></b></div>
 </div>
 
 <!--遊戲提示1-->
 <div id="prompt1_page" class="text-center container" hidden="hidden">
-    <div style='color:#FFFFFF; font-size: 3em;' class='bigfont'>Round 1 - 教育態度分分看<br></div>
-    <div style='color:#FFFFFF; font-size: 2.5em; text-align: left; padding-left: 6%'>
+    <div style='color:#00FFFF; font-size: 3em;' class='bigfont'>Round 1 - 教育態度分分看<br></div>
+    <div style='color:#00FFFF; font-size: 2em; text-align: left; padding-left: 6%'>
         　　在課文裡，李靖是哪吒的父親，不過太乙就像哪吒的第二個父親。兩位父親分別代表兩種不同的教育態度，請依據課文內容作判斷，這些形容詞分別屬於哪位人物的教育態度。<br>
         　　第一關遊戲方式說明：<br>
         （1）請判斷何者是正確答案。<br>
         （2）點選並拖曳答案至空白框格內。<br>
         （3）對答，可獲得「風火輪」。<br>
     </div>
+    <div style='color:#00FFFF; font-size: 3em;' class='bigfont'><b>點擊進入遊戲</b><br></div>
 </div>
 
 <!--遊戲開始1-->
@@ -99,20 +101,20 @@
         <div class="col-md-3 center" style="margin-left: 30vw"><img src="img/A.png" style="height: 18vh;"/></div>
     </div>
     <!--成功出現-->
-    <div id="done1" class="text-center" hidden="hidden" style="z-index: 99; position: fixed; margin-top: -70vh; margin-left: 28vw">
+    <div id="done1" class="text-center  container" hidden="hidden" style="line-height:1vh;z-index: 99; position: static; margin-top: -60vh;">
         <div>
             <span class="words_blue"><strong>答對了</strong></span>
         </div>
         <a href="javascript:game1_success();">
-            <img class="eimg1" src="./img/wheel.png"/>
+            <img class="eimg1" src="./img/wheel.png" style="margin-top: 10vh"/>
         </a>
     </div>
     <!--失敗出現-->
-    <div id="fail1" class="text-center" hidden="hidden" style="z-index: 99; position: fixed; margin-top: -70vh; margin-left: 28vw">
+    <div id="fail1" class="text-center container" hidden="hidden" style="line-height:20vh; z-index: 99; position: static; margin-top: -60vh;">
         <div>
             <p class="words_red"><strong>答錯了</strong><br></p>
         </div>
-        <div style="margin-top: 5vh">
+        <div>
             <button type="button" class="btn btn-info btn-lg" onclick="game1_fail()">再一次</button>
         </div>
     </div>
@@ -120,14 +122,15 @@
 
 <!--遊戲提示2-->
 <div id="prompt2_page" class="text-center container" hidden="hidden">
-    <div style='color:#FFFFFF; font-size: 4em;' class='bigfont'>Round 2 - 人物關係對對碰<br></div>
-    <div style='color:#FFFFFF; font-size: 2.5em; text-align: left; padding-left: 6%'>
+    <div style='color:#00FFFF; font-size: 3em;' class='bigfont'>Round 2 - 人物關係對對碰<br></div>
+    <div style='color:#00FFFF; font-size: 2em; text-align: left; padding-left: 6%'>
         　　在《封神榜裡的哪吒》課文中出現四位重要人物，太乙、哪吒、李靖、四氓。以哪吒為主角，放入與其他角色的關係，即可完成。<br>
         　　第二關遊戲方式說明：<br>
         （1）請判斷何者是正確答案。<br>
         （2）點選並拖曳答案至空白框格內。<br>
         （3）對答，可獲得「火尖槍」。<br>
     </div>
+    <div style='color:#00FFFF; font-size: 3em;' class='bigfont'><b>點擊進入遊戲<br></b></div>
 </div>
 
 <!--遊戲開始2-->
@@ -222,21 +225,27 @@
             </div>
         </div>
     </div>
-    <div id="done2" class="text-center" hidden="hidden" style="z-index: 99; position: fixed; margin-top: -1vh;">
-        <a href="javascript:game2_success();">
-            <img class="eimg2" src="./img/gun.png" style="margin-left: -30vw;"/>
-        </a>
-        <div style="margin-top: -30vh">
-            <span class="words_blue end2"><strong>答對了</strong></span>
+    <div id="done2" class="text-center container" hidden="hidden" style="line-height:20vh;z-index: 99; position: static; margin-top: -50vh;">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-4">
+                <a href="javascript:game2_success();">
+                    <img class="eimg2" src="./img/gun.png"/>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <span class="words_blue"><strong>答對了</strong></span>
+            </div>
         </div>
     </div>
     <!--失敗出現-->
-    <div id="fail2" class="text-center" hidden="hidden" style="z-index: 99; position: fixed; margin-top: -1vh;">
-        <div class="eimg2" style="margin-top: 5vh">
-            <button type="button" class="btn btn-info btn-lg" onclick="game2_fail();">再一次</button>
-        </div>
-        <div>
-            <p class="words_red end2 " style="margin-top: -20vw"><strong>答錯了</strong></p>
+    <div id="fail2" class="text-center container" hidden="hidden" style="line-height:20vh;z-index: 99; position: static; margin-top: -50vh;">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-4">
+                <button type="button" class="btn btn-info btn-lg" onclick="game2_fail();">再一次</button>
+            </div>
+            <div class="col-md-6">
+                <p class="words_red"><strong>答錯了</strong></p>
+            </div>
         </div>
     </div>
 </div>
