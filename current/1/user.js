@@ -93,9 +93,22 @@ function Resume(id) {
     $('div#' + id).html('');
 }
 
+function Reset(id){
+    $('div#' + id).html('');
+    $('div#' + id).droppable( "option", "disabled", false );
+}
 function restart_game2() {
     // 回到第二關初始狀態
-    location.reload();
+    $('#fail2').hide();
+    Reset('A_droppable');
+    Reset('B_droppable');
+    Reset('C_droppable');
+    $('#DIV_A').html(' <div class="game2_img" style="margin-left: 1vw"><img id="A" class="draggable" src="img/A.png"/></div>');
+    $('#DIV_B').html(' <div class="game2_img" style="margin-left: 1vw"><img id="B" class="draggable" src="img/B.png"/></div>');
+    $('#DIV_C').html(' <div class="game2_img" style="margin-left: 1vw"><img id="C" class="draggable" src="img/C.png"/></div>');
+    $('#DIV_A').draggable({ revert: "invalid" });
+    $('#DIV_B').draggable({ revert: "invalid" });
+    $('#DIV_C').draggable({ revert: "invalid" });
 }
 
 var ans = ["1", "4", "5"];
