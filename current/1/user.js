@@ -95,9 +95,45 @@ function Resume(id) {
 
 function reset(id){
     $('div#' + id).html('');
-    $('div#' + id).droppable("option", "disabled", false);
+    $('div#' + id).droppable( "option", "disabled", false);
+    $('div#' + id).droppable({
+        activeClass: "ui-state-default",
+        hoverClass: "ui-state-hover",
+        drop: function (event, ui) {
+            // 拿droppable id
+            var droppableId = event.target.id;
+            // 拿draggable id
+            var draggableId = ui.draggable.attr('id');
+            Resume('DIV_' + draggableId);
+            var $droppableDiv = $('div#' + droppableId);
+            console.log(draggableId);
+            $droppableDiv.html('<img class="img_size"  src="img/' + draggableId + '.jpg">');
+            $droppableDiv.droppable( "option", "disabled", true );
+            // 正確
+            if (droppableId == (draggableId + '_droppable')) {
+                game2_correct += 1;
+                game2_count += 1;
+            }
+            // 錯誤
+            else {
+                game2_count += 1;
+            }
+            if (game2_count == 3) {
+                game2_score = game1_score + game2_correct * 10 + 5;
+                $('#score').text(game2_score);
+                if (game2_correct == 3) {
+                    $('#done2').fadeIn();
+                }
+                else
+                    $('#fail2').fadeIn();
+            }
+        }
+    });
 }
 function restart_game2() {
+    game2_count = 0;
+    game2_correct = 0;
+    game2_score = 0;
     // 回到第二關初始狀態
     $('#fail2').hide();
     reset('A_droppable');
@@ -106,9 +142,9 @@ function restart_game2() {
     $('#DIV_A').html(' <div class="game2_img" style="margin-left: 1vw"><img id="A" class="draggable" src="img/A.png"/></div>');
     $('#DIV_B').html(' <div class="game2_img" style="margin-left: 1vw"><img id="B" class="draggable" src="img/B.png"/></div>');
     $('#DIV_C').html(' <div class="game2_img" style="margin-left: 1vw"><img id="C" class="draggable" src="img/C.png"/></div>');
-    $('#DIV_A').draggable({revert: "invalid"});
-    $('#DIV_B').draggable({revert: "invalid"});
-    $('#DIV_C').draggable({revert: "invalid"});
+    $('#A').draggable({revert: "invalid"});
+    $('#B').draggable({revert: "invalid"});
+    $('#C').draggable({revert: "invalid"});
 }
 
 var ans = ["1", "4", "5"];
