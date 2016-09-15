@@ -1,0 +1,95 @@
+.draggable {
+    z-index: 1;
+}
+
+.drag_img {
+    max-width: 100%;
+    cursor: pointer;
+    height: auto;
+}
+
+.droppable {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+div.fight {
+    position: relative;
+}
+
+div.fight img {
+    position: absolute;
+}
+body {
+	font-family: "Microsoft JhengHei", "標楷體", "新細明體", sans-serif;
+	width: 100%;
+	height: 100%;
+}
+
+#startimg{
+	background: url("img/house.png") no-repeat ;
+	background-size: 85vw 90vh;
+}	
+.sta_img{
+	width: 15vw;
+	height: 35vh;
+	margin-top: 15%;
+	margin-left: 10vw;
+}
+#sta_btn_img{
+	width: 20vw;
+	height: 20vw;
+//	margin-top: 30vh;
+//	margin-left: 15%;
+}
+#sta_btn{
+	width: 20vw;
+	height: 20vw;
+	margin-top: 30vh;
+	margin-left: 4%;
+}
+.bubble 
+{
+	position: relative;
+	width: 30vw;
+	height: 120px;
+	padding: 0px;
+	background: #9B00AA;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border: #FFFFFF solid 3px;
+	top: 20vh;
+	left: 30vw;
+	font-size: -webkit-xxx-large;
+	color: #FFFFFF;
+}
+
+.bubble:after 
+{
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 15px 15px 0;
+	border-color: #9B00AA transparent;
+	display: block;
+	width: 0;
+	z-index: 1;
+	bottom: -15px;
+	left: 25vw;
+}
+
+.bubble:before 
+{
+	content: '';
+	position: absolute;
+	border-style: solid;
+	border-width: 17px 17px 0;
+	border-color: #FFFFFF transparent;
+	display: block;
+	width: 0;
+	z-index: 0;
+	bottom: -20px;
+	left: 25vw;
+}
