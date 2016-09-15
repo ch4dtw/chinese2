@@ -24,16 +24,18 @@ $('.droppable').droppable({
         ui.draggable.remove();
         if (Ans.indexOf(ui.draggable.attr('id')) != -1) {
             applause.play();
-            score += 5;
+            score += 25;
             cnt++;
             $('#Liao').attr('src', 'img/Liao-1.png');
         }
         else {
             boo.play();
+            cnt++;
             score -= 5;
         }
         if (cnt == 4) {
             $(this).droppable('disable');
+            end();
         }
         $('#score').html(score);
     }
@@ -43,3 +45,15 @@ $('#sta_btn').on('click', function (){
 	$("#startimg").hide();
 	$("#game").fadeIn();
 });
+
+function end() {
+    if(score == 100)gameDone();
+    else gameFailed();
+}
+function gameDone() {
+    $('#success').show();
+}
+function gameFailed() {
+    $('#Liao').hide();
+    $('#fail').show();
+}
