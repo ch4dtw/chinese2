@@ -13,7 +13,7 @@
     height: auto;
     display: inline-block;
 }
-
+  
 div.fight {
     position: relative;
 }
@@ -23,19 +23,20 @@ div.fight img {
 }
 body {
 	font-family: "Microsoft JhengHei", "標楷體", "新細明體", sans-serif;
-	width: 100%;
-	height: 100%;
+//	width: 100%;
+//	height: 100%;
 }
 
 #startimg{
 	background: url("img/house.png") no-repeat ;
-	background-size: 85vw 90vh;
+//	background-size: 85vw 90vh;
+	background-size:  contain;
 }	
 .sta_img{
 	width: 15vw;
 	height: 35vh;
-	margin-top: 15%;
-	margin-left: 10vw;
+	margin-top: 18%;
+//	margin-left: 10vw;
 }
 #sta_btn_img{
 	width: 20vw;
@@ -47,21 +48,21 @@ body {
 	width: 20vw;
 	height: 20vw;
 	margin-top: 30vh;
-	margin-left: 4%;
+	margin-left: -3vw;
 }
 .bubble 
 {
 	position: relative;
 	width: 30vw;
-	height: 120px;
+	height: 15vh;
 	padding: 0px;
-	background: #9B00AA;
+	background: #8064A2;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	border: #FFFFFF solid 3px;
 	top: 20vh;
-	left: 30vw;
+	left: 20vw;
 	font-size: -webkit-xxx-large;
 	color: #FFFFFF;
 }
@@ -72,7 +73,7 @@ body {
 	position: absolute;
 	border-style: solid;
 	border-width: 15px 15px 0;
-	border-color: #9B00AA transparent;
+	border-color: #8064A2 transparent;
 	display: block;
 	width: 0;
 	z-index: 1;
