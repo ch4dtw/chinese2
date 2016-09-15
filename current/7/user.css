@@ -1,21 +1,26 @@
-body{
+body {
 }
-.draggable{
+
+.draggable {
     z-index: 1;
 }
-.drag_img{
-    max-width:100%;
+
+.drag_img {
+    max-width: 100%;
     cursor: pointer;
     height: auto;
 }
-.droppable{
-    max-width:100%;
+
+.droppable {
+    max-width: 100%;
     height: auto;
-    display:	inline-block;
+    display: inline-block;
 }
-div.fight{
+
+div.fight {
     position: relative;
 }
-div.fight img{
+
+div.fight img {
     position: absolute;
 }
