@@ -5,6 +5,9 @@
 .drag_img {
     cursor: pointer;
     height: auto;
+    width: 11vw;
+    height: 11vw;
+    margin-bottom:1.5vh;
 }
 
 .droppable {
