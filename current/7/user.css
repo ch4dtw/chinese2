@@ -3,13 +3,11 @@
 }
 
 .drag_img {
-    max-width: 100%;
     cursor: pointer;
     height: auto;
 }
 
 .droppable {
-    max-width: 100%;
     height: auto;
     display: inline-block;
 }
@@ -93,4 +91,7 @@ body {
 	z-index: 0;
 	bottom: -20px;
 	left: 25vw;
+}
+.back{
+	width:45vw;
 }
