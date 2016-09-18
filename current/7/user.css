@@ -31,9 +31,9 @@ body {
 }
 
 #startimg{
-	background: url("img/house.png") no-repeat ;
-//	background-size: 85vw 90vh;
-	background-size:  contain;
+	background: url("img/startpage.png") no-repeat ;
+	background-size: 75vw 85vh;
+//	background-size:  contain;
 }	
 .sta_img{
 	width: 15vw;
@@ -42,16 +42,16 @@ body {
 //	margin-left: 10vw;
 }
 #sta_btn_img{
-	width: 20vw;
-	height: 20vw;
+	width: 15vw;
+	height: 15vw;
 //	margin-top: 30vh;
 //	margin-left: 15%;
 }
 #sta_btn{
 	width: 20vw;
 	height: 20vw;
-	margin-top: 30vh;
-	margin-left: -3vw;
+	margin-top: 55vh;
+	margin-left: 26vw;
 }
 .bubble 
 {
