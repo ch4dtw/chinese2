@@ -5,8 +5,8 @@
 .drag_img {
     cursor: pointer;
     height: auto;
-    width: 11vw;
-    height: 11vw;
+    width: 10vw;
+    height: 10vw;
     margin-bottom:1.5vh;
 }
 
@@ -21,6 +21,8 @@ div.fight {
 
 div.fight img {
     position: absolute;
+    width: 43vw;
+    height: auto;
 }
 body {
 	font-family: "Microsoft JhengHei", "標楷體", "新細明體", sans-serif;
