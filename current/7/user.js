@@ -7,8 +7,7 @@ $(document).ready(function () {
     //audioElement.load()
     $.get();
     $(applause).bind('ended', function () {
-
-        $('#Liao').attr('src', 'img/Liao.png');
+        $('.Liao').attr('src', 'img/Liao.png');
     })
 });
 
@@ -26,7 +25,7 @@ $('.droppable').droppable({
             applause.play();
             score += 25;
             cnt++;
-            $('#Liao').attr('src', 'img/Liao-1.png');
+            $('.Liao').attr('src', 'img/Liao-1.png');
         }
         else {
             boo.play();
@@ -35,6 +34,7 @@ $('.droppable').droppable({
         }
         if (cnt == 4) {
             $(this).droppable('disable');
+            $('.draggable').draggable('disable');
             end();
         }
         $('#score').html(score);
@@ -54,6 +54,10 @@ function gameDone() {
     $('#success').show();
 }
 function gameFailed() {
-    $('#Liao').hide();
-    $('#fail').show();
+    $('.Liao').hide();
+    $('.fail').show();
+}
+
+function restart(){
+    location.reload();
 }
