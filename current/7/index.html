@@ -31,7 +31,7 @@
 <!--遊戲畫面-->
 <div id="game" hidden="hidden" class="container chi" style="width: 100vw;">
     
-    <div class="row starter-template " style="margin-top:6%">
+    <div id="description" class="row starter-template " style="margin-top:6%">
         <p class="lead col-md-offset-2 col-md-8" style="font-size: 1.4em;">　廖玉蕙〈我的華麗的夢〉一文說女人的衣櫃是一頁血淚斑斑的征戰史，將女性與衣櫃的戰鬥，作了微妙的闡釋為了作者的衣櫃，她必須戰鬥的對象有哪些?請從下列圖片中試著找出來?(拖曳四個正確答案擂擡中央)。</p>
     </div>
     
@@ -49,6 +49,7 @@
                     <img src="img/fight-1.png" class="back">
                     <img src="img/fail2.png" class="back fail" hidden="hidden">
                     <a href="javascript:restart()" class="again fail" hidden="hidden" style="text-decoration:none;">再玩一次</a>
+                    <a class="again success" hidden="hidden" style="text-decoration:none;">恭喜過關</a>
                     <img id="success" src="img/success2.png" class="back" hidden="hidden">
                 </div>
             </div>
@@ -59,7 +60,6 @@
             </div>
     </div>
 </div><!-- /.container -->
-
 
 <!--Bootstrap 與 jquery 核心 JS-->
 <!-- 文件讀完才會讀 JS，讀取速度較快  -->

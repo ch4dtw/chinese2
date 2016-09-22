@@ -52,6 +52,10 @@ function end() {
 }
 function gameDone() {
     $('#success').show();
+    $('.draggable').remove();
+    $('#description').css('visibility', 'hidden');
+    $('.Liao').attr('src', 'img/Liao-1.png');
+    $('.success').show();
 }
 function gameFailed() {
     $('.Liao').hide();
