@@ -192,13 +192,7 @@ $(function () {
                 game1_score = game1_correct*10+5;
                 $('#score').text(game1_score);
                 if (game1_correct == 6) {
-<<<<<<< HEAD:current/2/user2.js
-                    $('#game1_page').hide();
-                    $('#prompt2_page').show();	
-                    lock=0;
-=======
                     $('#done1').fadeIn();
->>>>>>> ed8c28a511b70aa6a74b391fbd8c28579bc701ae:current/1/user.js
                 }
                 else
                     $('#fail1').fadeIn();
