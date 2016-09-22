@@ -36,7 +36,7 @@
     </div>
     
     <div class="row animation">
-            <div class="col-md-3 text-center">
+            <div id="left" class="col-md-3 text-center">
                 <div class="draggable" id="fat"><img class="drag_img" src="img/fat.jpg" ></div>
                 <div class="draggable" id="work"><img class="drag_img" src="img/work.jpg" ></div>
                 <div class="draggable" id="money"><img class="drag_img" src="img/money.jpg" ></div>
@@ -48,11 +48,11 @@
                     <img src="img/衣櫃.png" class="back">
                     <img src="img/fight-1.png" class="back">
                     <img src="img/fail2.png" class="back fail" hidden="hidden">
-                    <div class="again fail" onclick="restart()" hidden="hidden">再玩一次</div>
+                    <a href="javascript:restart()" class="again fail" hidden="hidden" style="text-decoration:none;">再玩一次</a>
                     <img id="success" src="img/success2.png" class="back" hidden="hidden">
                 </div>
             </div>
-            <div class="col-md-3 text-center">
+            <div id="right" class="col-md-3 text-center">
                 <div class="draggable" id="child"><img class="drag_img" src="img/child.jpg" ></div>
                 <div class="draggable" id="family"><img class="drag_img" src="img/family.jpg" ></div>
                 <div class="draggable" id="price"><img class="drag_img" src="img/price.jpg" ></div>
